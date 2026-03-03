@@ -1,0 +1,739 @@
+<!-- ============== SECTION CONTENT  ============== -->
+<section class="py-10">
+    <div class="container">
+
+
+        <div class="row">
+            <aside class="md:col-3 mb-8">
+
+                <button class="btn btn-default mb-3 w-100% md:hidden" onclick="showHide('aside_filter')">
+                    Show/Hide filters
+                </button>
+
+                <!-- ===== wrap filter ===== -->
+                <div id="aside_filter" class="hidden md:d-block pr-4">
+
+                    <details open class="mb-6">
+                        <summary class="font-semibold text-lg"> Categories</summary>
+                        <div class="pt-3">
+                            <!-- content -->
+                            <nav class="nav nav-compact nav-col">
+                                <a class="nav-link bg-neutral-100" href="#">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 5C12.5 5 7.50001 8.68244 7.5 10C7.49999 11.3176 12.5 15 12.5 15"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </svg>
+                                    All electronics</a>
+                                <a class="nav-link bg-neutral-100" href="#">Computers </a>
+                                <a class="nav-link bg-neutral-100" href="#">Smart watches </a>
+                                <a class="nav-link bg-neutral-100" href="#">Mini Cameras </a>
+                                <a class="nav-link bg-neutral-100" href="#">Accessories </a>
+                                <a class="nav-link bg-neutral-100" href="#">Headphones </a>
+                                <a class="nav-link bg-neutral-100" href="#">Printers </a>
+                                <a class="nav-link bg-neutral-100" href="#">Multimedia </a>
+                                <a class="nav-link bg-neutral-100" href="#">Accessories </a>
+                            </nav>
+                            <!-- content .// -->
+                        </div>
+                    </details> <!-- filter-group // -->
+
+                    <details open class="mb-6">
+                        <summary class="font-semibold text-lg"> Brands</summary>
+                        <div class="pt-3">
+                            <!-- content -->
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="" checked>
+                                <span class="form-check-label"> Apple </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="" checked>
+                                <span class="form-check-label"> Asus </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-label"> DELL </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-label"> Lenovo </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-label"> Panasonic </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-label"> Samsung </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-label"> Xiaomi </span>
+                            </label>
+                            <!-- content .// -->
+                        </div>
+                    </details> <!-- filter-group // -->
+
+                    <details open class="mb-6">
+                        <summary class="font-semibold text-lg"> Condition</summary>
+                        <div class="pt-3">
+                            <!-- content -->
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="condition" value="" checked>
+                                <span class="form-check-label"> Any condition </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="condition" value="">
+                                <span class="form-check-label"> Brand new </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="condition" value="">
+                                <span class="form-check-label"> Used item </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="condition" value="">
+                                <span class="form-check-label"> Well used </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="condition" value="">
+                                <span class="form-check-label"> Old item </span>
+                            </label>
+                            <!-- content .// -->
+                        </div>
+                    </details> <!-- filter-group // -->
+
+                    <details open class="mb-6">
+                        <summary class="font-semibold text-lg"> Price range</summary>
+                        <div class="pt-3">
+                            <!-- content -->
+                            <input type="range" class="w-100%" min="0" max="100">
+                            <div class="d-flex gap-4 justify-content-between my-3">
+                                <div>
+                                    <label class="text-secondary">Min</label>
+                                    <input class="form-control" id="min" placeholder="$0" type="number">
+                                </div>
+                                <div>
+                                    <label class="text-secondary">Max</label>
+                                    <input class="form-control" id="max" placeholder="$1,0000" type="number">
+                                </div>
+                            </div> <!-- row end.// -->
+                            <button class="btn btn-primary-subtle w-100%" type="button">Apply</button>
+                            <!-- content .// -->
+                        </div>
+                    </details> <!-- filter-group // -->
+
+                    <details open class="mb-6">
+                        <summary class="font-semibold text-lg"> Condition</summary>
+                        <div class="pt-3">
+                            <!-- content -->
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="rating" value="">
+                                <span class="form-check-label"> 5 star - ⭐⭐⭐⭐⭐ </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="rating" value="">
+                                <span class="form-check-label"> 4 star - ⭐⭐⭐⭐ </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="rating" value="">
+                                <span class="form-check-label"> 3 star - ⭐⭐⭐ </span>
+                            </label>
+                            <label class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="rating" value="">
+                                <span class="form-check-label"> 2 star - ⭐⭐ </span>
+                            </label>
+                            <!-- content .// -->
+                        </div>
+                    </details> <!-- filter-group // -->
+                </div> <!-- wrap filter.//end -->
+                <!-- ===== Card for sidebar filter .// ===== -->
+
+            </aside> <!-- col .// -->
+            <main class="md:col-9">
+
+                <header class="d-flex align-items-center border-bottom mb-4 pb-4">
+                    <div>
+                        <select class="form-select w-auto">
+                            <option value="0">Best match</option>
+                            <option value="1">Recommended</option>
+                            <option value="2">High rated</option>
+                            <option value="3">Randomly</option>
+                        </select>
+                    </div>
+                    <div class="ml-auto">
+                        <nav class="tabs-boxed">
+                            <label title="Grid" tabindex="0" class="tab-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124Z"
+                                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                    <path d="M21.5 12L2.5 12" stroke="currentColor" stroke-width="1.5"
+                                          stroke-linecap="round"/>
+                                    <path d="M12 2.5L12 21.5" stroke="currentColor" stroke-width="1.5"
+                                          stroke-linecap="round"/>
+                                </svg>
+                            </label>
+                            <label title="List" tabindex="0" class="tab-link active">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28248 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12C2.5 7.52166 2.5 5.28248 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088Z"
+                                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                    <path d="M21.5 8.5L2.5 8.5" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M21.5 15.5L2.5 15.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </label>
+                        </nav>
+
+                    </div>
+                </header>
+
+                <!-- ========= content items ========= -->
+
+                <div class="row row-cols-2  lg:row-cols-3 gap-rows-8 max-sm:gap-1">
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/1.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Smart watch with the sleek and stylish your perfect assistant.
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/2.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Xiaomi Smartphone Pro Max 256GB memory and Ultra display
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.0  </span>
+                                    <span class="text-secondary">(5 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $99.50 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/3.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Smart watch with the sleek and stylish your perfect assistant.
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/3.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Galaxy Tab, designed for both work and play with its stunning display
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $56.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/4.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Wacom Intuos Pro tablet, perfect for artists and designers alike.
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $12.99 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/5.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Smart watch with the sleek and stylish your perfect assistant.
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/6.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Smart watch with the sleek and stylish your perfect assistant.
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/7.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        The roduct name goes here
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/8.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Great product name can is here
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/1.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Smart watch with the sleek and stylish your perfect assistant.
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/8.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Smart watch with the sleek and stylish your perfect assistant.
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+
+                    <div>
+                        <figure class="relative">
+                            <button class="absolute top-2 right-2 btn btn-icon btn-default">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                            </button>
+                            <a href="#" class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
+                                <img src="images/product-tech/9.png" height="320" class="w-full h-full">
+                            </a>
+                            <figcaption class="py-3 d-grid gap-1">
+                                <p class="mb-1 h-10 overflow-hidden">
+                                    <a href="#" class="text-initial hover:text-primary text-decoration-none">
+                                        Smart watch with the sleek and stylish your perfect assistant.
+                                    </a>
+                                </p>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="text-orange"> ⭐⭐⭐⭐⭐  4.5  </span>
+                                    <span class="text-secondary">(12 orders)</span>
+                                </div> <!-- rating .// -->
+                                <p class="mb-2">
+                                    <strong class="text-lg text-primary"> $376.00 </strong>
+                                </p>
+                                <button class="btn btn-neutral lg:w-full">
+                                    <svg width="22" height="22" viewBox="0 0 21 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3769 9.58333L18.6089 8.19985C18.7605 7.29524 18.8363 6.84293 18.5935 6.54647C18.3507 6.25 17.9044 6.25 17.0119 6.25L4.65466 6.25C3.76214 6.25 3.31588 6.25 3.07307 6.54647C2.83026 6.84293 2.90609 7.29524 3.05773 8.19985L4.0607 14.1829C4.39314 16.1659 4.55935 17.1574 5.238 17.7454C5.91665 18.3333 6.89492 18.3333 8.85147 18.3333H10.8333"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.4999 14.9998L19.1666 14.9998M15.8333 18.3332L15.8333 11.6665"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M15.4166 6.24984C15.4166 3.71853 13.3646 1.6665 10.8333 1.6665C8.30197 1.6665 6.24994 3.71853 6.24994 6.24984"
+                                              stroke="#14181F" stroke-width="1.5"/>
+                                    </svg>
+                                    Add to cart
+                                </button>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- col // -->
+                </div> <!-- row // -->
+
+
+                <hr>
+
+                <!-- pagination -->
+                <div class="d-flex my-4">
+                    <div>
+                        <a href="javascript: history.back()" class="btn btn-default"> &laquo; Go back</a>
+                    </div>
+
+                    <nav class="ml-auto">
+                        <a class="btn min-w-10 btn-default" disabled href="#">Prev</a>
+                        <a class="btn min-w-10 btn-default bg-neutral-300" href="#">1</a>
+                        <a class="btn min-w-10 btn-default" href="#">2</a>
+                        <a class="btn min-w-10 btn-default" href="#">3</a>
+                        <a class="btn min-w-10 btn-default" href="#">Next</a>
+                    </nav>
+                </div>
+                <!-- pagination .//end -->
+
+                <!-- ========= content items .//end ========= -->
+
+            </main> <!-- col .// -->
+        </div> <!-- row .// -->
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ============== SECTION CONTENT END// ============== -->
