@@ -3,10 +3,10 @@
     <section class="bg-neutral-100 py-2">
         <div class="container">
             <div class="d-flex justify-content-between max-sm:text-sm">
-                <p class="text-secondary">Manhattan, New York, USA</p>
+                <p class="text-secondary">вул. Неважлива, Одеса, Україна</p>
                 <div class="gap-4 d-flex">
-                    <a href="#" class="text-secondary">Support</a>
-                    <a href="#" class="text-secondary">English | USD </a>
+                    <a href="#" class="text-secondary">Звʼязатися з нами</a>
+                    <a href="#" class="text-secondary">Українська | HRN </a>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                         </svg>
                     </button>
                     <!-- brand-logo -->
-                    <a href="https://ecommerce-ui.com"
+                    <a href="{% url 'home' %}"
                        class="d-block flex-shrink-0 hover:opacity-80 d-flex text-decoration-none align-items-center m-0">
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_i_6094_3195)">
@@ -60,7 +60,7 @@
                             </defs>
                         </svg>
                         <div style="font-size:24px;" class="max-sm:hidden text-neutral-1000 text-xl font-semibold ml-1">
-                            Brand<span class="text-red">name</span></div>
+                            Maximajin<span class="text-red">Store</span></div>
                     </a>
                     <!-- brand-logo end.//-->
                 </div>
@@ -74,7 +74,7 @@
                             <line x1="4" x2="20" y1="6" y2="6"></line>
                             <line x1="4" x2="20" y1="18" y2="18"></line>
                         </svg>
-                        All categories
+                        Всі категорії
                     </button>
                     <menu id="mymenu_1" hidden="" class="dropdown w-100 p-4">
                         <h6 class="mb-2">This is example large menu</h6>
@@ -88,8 +88,8 @@
                 <div class="lg:flex-grow max-sm:order-2 max-sm:w-full lg:mr-5">
                     <form class="d-flex w-full mr-5">
                         <div class="relative w-full">
-                            <input type="search" class="form-control  rounded-right-0" list="search_suggest"
-                                   placeholder="Search country">
+                            <input disabled type="search" class="form-control  rounded-right-0" list="search_suggest"
+                                   placeholder="Я хочу знайти...(але поки не можу)...">
                         </div>
                         <button class="rounded-left-0 btn btn-default btn-icon" style="margin-left:-1px">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -106,28 +106,28 @@
                 <!-- header buttons -->
                 <div class="d-flex gap-1 lg:justify-content-end">
 
-                    <button class="btn btn-neutral">
+                    <button disabled class="btn btn-neutral">
                         <span class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round"
                                                  class="lucide lucide-user"><path
                                 d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7"
                                                                                              r="4"></circle></svg></span>
-                        <span class="max-lg:d-none">Sign in </span>
+                        <span class="max-lg:d-none">Увійти </span>
                     </button>
 
-                    <button class="btn btn-neutral">
+                    <button disabled class="btn btn-neutral">
                         <span class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round"
                                                  class="lucide lucide-heart"><path
                                 d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg> </span>
-                        <span class="max-lg:d-none">Wishlist (0) 	</span>
+                        <span class="max-lg:d-none">Список бажань (0) 	</span>
                     </button>
 
                     <!-- button with dropdown  -->
                     <div class="relative">
-                        <button data-toggle="mycart_1" class="btn btn-neutral has-icon-dropdown">
+                        <button disabled data-toggle="mycart_1" class="btn btn-neutral has-icon-dropdown">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -138,11 +138,11 @@
                                             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
                                     </svg>
                                 </span>
-                            <span>Cart (2) </span>
+                            <span>Кошик (0) </span>
                         </button>
                         <menu id="mycart_1" class="dropdown right-0 d-none">
                             <p class="text-secondary p-3 text-center min-w-60">
-                                Your cart is empty
+                                Ваш кошик пустий
                             </p>
                         </menu>
                     </div>
