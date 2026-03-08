@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import DetailView, TemplateView
+
 from .models import BookModel, CategoryModel, AuthorModel
 
 
@@ -38,12 +40,11 @@ def home(request):
     return render(request, 'books/index.html', context=context)
 
 
-def detail(request, slug):
-    book = get_object_or_404(BookModel, slug=slug)
-    context = {
-        'book': book
-    }
-    return render(request, 'books/detail.html', context=context)
+class BookDetailView(DetailView):
+    model = BookModel
+    context_object_name = "book"
+    template_name = "books/page-detail.html"
+
 
 def about(request):
     return render(request, 'books/about.html')

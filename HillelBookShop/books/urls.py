@@ -1,11 +1,10 @@
 # store/urls.py
 from django.urls import path
-from . import views
+from .views import home, about, BookDetailView
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('product/<slug:slug>/', views.detail, name='detail'),
-    path('about/', views.about, name='about'),
-    # path('cart/', views.cart_view, name='cart_view'),
+    path('', home, name='home'),
+    path('product/<slug:slug>/', BookDetailView.as_view(), name='detail'),
+    path('about/', about, name='about'),
 
 ]
