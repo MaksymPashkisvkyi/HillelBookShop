@@ -46,5 +46,5 @@ class BookDetailView(DetailView):
     template_name = "books/page-detail.html"
 
 
-def about(request):
-    return render(request, 'books/about.html')
+class AboutView(TemplateView):
+    template_name = "about.html"
