@@ -62,15 +62,16 @@
                         <div>
                             <label class="text-secondary">{{ form.price_min.label_tag }}</label>
                             {{ form.price_min|add_class:"form-control" }}
+
                         </div>
                         <div>
                             <label class="text-secondary">{{ form.price_max.label_tag }}</label>
                             {{ form.price_max|add_class:"form-control" }}
                         </div>
                     </div>
-                    <div class="d-inline-flex gap-2">
-                        <a href="{% url 'home' %}" class="btn btn-default">Скинути</a>
-                    </div>
+                    <a href="{% url 'home' %}">
+                        <button class="btn btn-primary-subtle w-100%" type="button">Скинути</button>
+                    </a>
                 </div>
             </details>
         </form>
