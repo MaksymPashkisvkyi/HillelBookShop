@@ -1,0 +1,63 @@
+<!-- SECTION: Content -->
+<section class="py-10">
+    <div class="container">
+        <div class="row">
+            {% include './section-filter.html' %}
+
+            <div class="md:col-9">
+                <header class="d-flex align-items-center border-bottom mb-4 pb-4">
+                    <div>
+                        {% include './section-sort.html' %}
+                    </div>
+
+                    <div class="ml-auto">
+                        <nav class="tabs-boxed">
+                            <label title="Grid" tabindex="0" class="tab-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124Z"
+                                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                    <path d="M21.5 12L2.5 12" stroke="currentColor" stroke-width="1.5"
+                                          stroke-linecap="round"/>
+                                    <path d="M12 2.5L12 21.5" stroke="currentColor" stroke-width="1.5"
+                                          stroke-linecap="round"/>
+                                </svg>
+                            </label>
+                            <label title="List" tabindex="0" class="tab-link active">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28248 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12C2.5 7.52166 2.5 5.28248 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088Z"
+                                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                    <path d="M21.5 8.5L2.5 8.5" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M21.5 15.5L2.5 15.5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </label>
+                        </nav>
+
+                    </div>
+                </header>
+
+                {% include '../partials/product-list.html' %}
+
+                <hr>
+
+                <!-- Pagination -->
+                <div class="d-flex my-4">
+                    <div>
+                        <a href="javascript: history.back()" class="btn btn-default"> &laquo; Назад</a>
+                    </div>
+
+                    <nav class="ml-auto">
+                        <a class="btn min-w-10 btn-default" disabled href="#">Попередня</a>
+                        <a class="btn min-w-10 btn-default bg-neutral-300" href="#">1</a>
+                        <a class="btn min-w-10 btn-default" href="#">2</a>
+                        <a class="btn min-w-10 btn-default" href="#">3</a>
+                        <a class="btn min-w-10 btn-default" href="#">Наступна</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

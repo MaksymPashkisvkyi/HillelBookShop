@@ -1,0 +1,7 @@
+<div class="mb-5">
+    <small>Ціна</small> <br>
+    <strong class="text-xl"> {{ book.price }} грн. </strong>
+    {% if book.old_price %}
+    <strong class="text-xl text-line-through"> {{ book.old_price }} грн. </strong>
+    {% endif %}
+</div>

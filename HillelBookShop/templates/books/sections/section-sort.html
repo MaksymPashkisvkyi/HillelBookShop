@@ -1,0 +1,20 @@
+<form
+        id="sort-form"
+        method="get"
+        hx-get="{% url 'home' %}"
+        hx-target="#product-list"
+        hx-swap="outerHTML"
+        hx-trigger="change"
+        hx-include="#filter-form"
+        hx-push-url="true">
+    <label for="id_sort">Сортувати:</label>
+    <select
+            name="sort"
+            id="id_sort">
+        {% for value, text in form.sort.field.choices %}
+        <option value="{{ value }}" {% if form.sort.value == value %}selected{% endif %}>
+            {{ text }}
+        </option>
+        {% endfor %}
+    </select>
+</form>

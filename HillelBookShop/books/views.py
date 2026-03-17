@@ -1,49 +1,35 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import DetailView, TemplateView
+from django.views.generic import DetailView, TemplateView, ListView
+from .filters import BookFilter
 
-from .models import BookModel, CategoryModel, AuthorModel
+from .models import Book, Genre
 
 
-# Create your views here.
-def home(request):
-    selected_categories = [v.strip() for v in request.GET.getlist('category') if v.strip()]
-    selected_authors = [v.strip() for v in request.GET.getlist('author') if v.strip()]
-    selected_sort = request.GET.get("sort", "").strip()
+class BookListView(ListView):
+    queryset = Book.objects.all()
+    template_name = 'books/pages/page-home.html'
+    context_object_name = 'books'
 
-    books_qs = (
-        BookModel.objects
-        .select_related("category")
-        .prefetch_related("authors")
-    )
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = BookFilter(self.request.GET, queryset=queryset)
+        return self.filterset.qs
 
-    if selected_categories:
-        books_qs = books_qs.filter(category__slug__in=selected_categories)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.filterset.form
+        return context
 
-    if selected_authors:
-        books_qs = books_qs.filter(authors__slug__in=selected_authors)
-
-    sort_map = {
-        "price_asc": "price",
-        "price_desc": "-price",
-    }
-
-    books_qs = books_qs.order_by(sort_map.get(selected_sort, "title")).distinct()
-
-    context = {
-        "books": books_qs,
-        "categories": CategoryModel.objects.all().order_by("name"),
-        "authors": AuthorModel.objects.all().order_by("first_name", "last_name"),
-        "selected_categories": selected_categories,
-        "selected_authors": selected_authors,
-        "selected_sort": selected_sort,
-    }
-    return render(request, 'books/index.html', context=context)
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.headers.get('HX-Request') == 'true':
+            return render(self.request, 'books/partials/product-list.html', context)
+        return super().render_to_response(context, **response_kwargs)
 
 
 class BookDetailView(DetailView):
-    model = BookModel
+    model = Book
     context_object_name = "book"
-    template_name = "books/page-detail.html"
+    template_name = "books/pages/page-detail.html"
 
 
 class AboutView(TemplateView):
