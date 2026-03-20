@@ -1,0 +1,79 @@
+{% load widget_tweaks %}
+
+<!-- SECTION: Filters -->
+<aside class="md:col-3 mb-8">
+    <button
+            class="btn btn-default mb-3 w-100% md:hidden"
+            onclick="showHide('aside_filter')">
+        Show/Hide filters
+    </button>
+
+    <div id="aside_filter" class="hidden md:d-block pr-4">
+        <form
+                id="filter-form"
+                hx-get="{% url 'catalog' %}"
+                hx-target="#product-list"
+                hx-swap="outerHTML"
+                hx-trigger="change, keyup delay:500ms"
+                hx-include="#sort-form"
+                hx-push-url="true"
+                class="d-grid gap-3">
+            <hr class="m-1">
+
+            <!-- Filter: Genre -->
+            <details open class="mb-6">
+                <summary class="font-semibold text-lg">Жарни</summary>
+                <div class="pt-3">
+                    {% for checkbox in form.genre %}
+                    <label class="form-check mb-2">
+                        {{ checkbox|add_class:"form-check-input" }}
+                        <span class="form-check-label">
+                            {{ checkbox.choice_label }}
+                        </span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </details>
+
+            <hr class="m-1">
+
+            <!-- Filter: Author -->
+            <details open class="mb-6">
+                <summary class="font-semibold text-lg">Автори</summary>
+                <div class="pt-3">
+                    {% for checkbox in form.author %}
+                    <label class="form-check mb-2">
+                        {{ checkbox|add_class:"form-check-input" }}
+                        <span class="form-check-label">
+                            {{ checkbox.choice_label }}
+                        </span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </details>
+
+            <hr class="m-1">
+
+            <!-- Filter: Price -->
+            <details open class="mb-6">
+                <summary class="font-semibold text-lg">Ціна</summary>
+                <div class="pt-3">
+                    <div class="d-flex gap-4 justify-content-between my-3">
+                        <div>
+                            <label class="text-secondary">{{ form.price_min.label_tag }}</label>
+                            {{ form.price_min|add_class:"form-control" }}
+
+                        </div>
+                        <div>
+                            <label class="text-secondary">{{ form.price_max.label_tag }}</label>
+                            {{ form.price_max|add_class:"form-control" }}
+                        </div>
+                    </div>
+                    <a href="{% url 'catalog' %}">
+                        <button class="btn btn-primary-subtle w-100%" type="button">Скинути</button>
+                    </a>
+                </div>
+            </details>
+        </form>
+    </div>
+</aside>

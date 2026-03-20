@@ -1,0 +1,452 @@
+{% extends '../../base.html' %}
+{% block content %}
+<!-- Header-->
+{% include '../../partials/header.html' %}
+<!-- Navigation-->
+{% include '../../partials/nav.html' %}
+
+<section class="py-10">
+    <div class="container">
+        <h2 class="text-3xl mb-1">Your Account</h2>
+        <p class="text-secondary">Alex John, Email: alexjohn@gmail.com</p>
+    </div>
+</section>
+
+<section class="pb-10">
+    <div class="container">
+
+
+        <div class="row">
+            <aside class="md:col-3 mb-8">
+                <nav class="nav nav-col lg:mr-4">
+                    <a class="nav-link p-1 active" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10.0499 2.70826L4.24889 2.70826C3.71618 2.7082 3.23755 2.70816 2.85014 2.75998C2.42718 2.81655 1.99326 2.94791 1.63783 3.3015C1.2824 3.6551 1.15036 4.08678 1.0935 4.50755C1.04141 4.89296 1.04146 5.36912 1.04151 5.89908L1.04151 12.4631C1.04149 12.8137 1.04147 13.1292 1.06529 13.3907C1.09087 13.6715 1.14896 13.9685 1.31428 14.2534C1.49297 14.5613 1.74999 14.817 2.0595 14.9948C2.34584 15.1592 2.91109 15.2332 3.19329 15.2586C3.54129 16.4338 4.63387 17.2916 5.92783 17.2916C7.21905 17.2916 8.30974 16.4374 8.66015 15.2661H11.3394C11.6898 16.4374 12.7805 17.2916 14.0717 17.2916C15.3657 17.2916 16.4583 16.4338 16.8062 15.2586C17.0885 15.2332 17.6537 15.1592 17.94 14.9948C18.2496 14.817 18.5066 14.5613 18.6853 14.2534C18.8506 13.9685 18.9087 13.6715 18.9342 13.3907C18.9581 13.1292 18.9581 12.8137 18.958 12.4631V12.4631V12.463L18.9581 10.2051C18.9586 9.934 18.959 9.65964 18.8842 9.39078C18.8093 9.12192 18.667 8.88689 18.5264 8.65463L17.0938 6.2794C16.9344 6.01506 16.7864 5.76959 16.6406 5.57372C16.4793 5.35692 16.2856 5.15077 16.012 4.99663C15.7383 4.84248 15.461 4.78333 15.1911 4.75724C14.9473 4.73366 14.6596 4.73369 14.3497 4.73372L13.2295 4.73372C13.1726 4.31294 13.0164 3.6551 12.661 3.3015C12.3056 2.94791 11.8717 2.81655 11.4487 2.75998C11.0613 2.70816 10.5827 2.7082 10.0499 2.70826ZM13.2579 11.7377C13.516 11.6613 13.7893 11.6203 14.0723 11.6203C15.3604 11.6203 16.4489 12.4702 16.802 13.6371C17.1779 13.6371 17.3299 13.3907 17.3299 13.2407L17.3299 9.8233L15.2106 6.35409H13.2579V11.7377ZM5.92845 13.2407C5.25379 13.2407 4.70687 13.7848 4.70687 14.4559C4.70687 15.1271 5.25379 15.6712 5.92845 15.6712C6.60311 15.6712 7.15003 15.1271 7.15003 14.4559C7.15003 13.7848 6.60311 13.2407 5.92845 13.2407ZM12.8507 14.4559C12.8507 13.7848 13.3977 13.2407 14.0723 13.2407C14.747 13.2407 15.2939 13.7848 15.2939 14.4559C15.2939 15.1271 14.747 15.6712 14.0723 15.6712C13.3977 15.6712 12.8507 15.1271 12.8507 14.4559Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>My orders</span>
+                    </a>
+                    <a class="nav-link p-1" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10.0013 1.04175C6.81281 1.04175 3.77087 2.92761 2.49761 5.90398C1.31265 8.67395 1.95414 11.0312 3.28976 13.0497C4.38481 14.7046 5.98196 16.1816 7.42285 17.5141L7.4229 17.5141L7.42311 17.5143C7.69779 17.7683 7.96679 18.0171 8.22555 18.2608L8.22693 18.2621C8.70612 18.7108 9.34263 18.9584 10.0013 18.9584C10.6599 18.9584 11.2965 18.7107 11.7757 18.2621C12.0202 18.0331 12.2736 17.7996 12.5322 17.5614L12.5325 17.5611C13.9891 16.219 15.6087 14.7268 16.7152 13.0508C18.0492 11.0302 18.6884 8.67052 17.505 5.90398C16.2317 2.92761 13.1897 1.04175 10.0013 1.04175ZM10 5.83341C8.15905 5.83341 6.66667 7.3258 6.66667 9.16675C6.66667 11.0077 8.15905 12.5001 10 12.5001C11.8409 12.5001 13.3333 11.0077 13.3333 9.16675C13.3333 7.3258 11.8409 5.83341 10 5.83341Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>Your addresses</span>
+                    </a>
+                    <a class="nav-link p-1" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10.0002 2.70841C8.38933 2.70841 7.0835 4.01425 7.0835 5.62508V6.92521C8.01494 6.89215 8.97131 6.87508 10.0002 6.87508C11.029 6.87508 11.9854 6.89215 12.9168 6.92521V5.62508C12.9168 4.01425 11.611 2.70841 10.0002 2.70841ZM5.41683 5.62508V7.10601C4.11043 7.5058 3.12453 8.65514 2.93726 10.0461C2.8138 10.963 2.7085 11.9266 2.7085 12.9167C2.7085 13.9069 2.8138 14.8704 2.93726 15.7874C3.16357 17.4683 4.55613 18.7963 6.27118 18.8752C7.46153 18.9299 8.6703 18.9584 10.0002 18.9584C11.33 18.9584 12.5388 18.9299 13.7292 18.8752C15.4442 18.7963 16.8368 17.4683 17.0631 15.7874C17.1865 14.8704 17.2918 13.9069 17.2918 12.9167C17.2918 11.9266 17.1865 10.9631 17.0631 10.0461C16.8758 8.65514 15.8899 7.5058 14.5835 7.10601V5.62508C14.5835 3.09378 12.5315 1.04175 10.0002 1.04175C7.46886 1.04175 5.41683 3.09378 5.41683 5.62508ZM10.8335 12.0834C10.8335 11.6232 10.4604 11.2501 10.0002 11.2501C9.53993 11.2501 9.16683 11.6232 9.16683 12.0834V13.7501C9.16683 14.2103 9.53993 14.5834 10.0002 14.5834C10.4604 14.5834 10.8335 14.2103 10.8335 13.7501V12.0834Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>Login & security</span>
+                    </a>
+                    <a class="nav-link p-1" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M11.2895 2.70825C12.822 2.70824 14.0255 2.70824 14.9744 2.81542C15.9428 2.92482 16.7282 3.15294 17.381 3.66849C17.5764 3.82283 17.7576 3.99329 17.9224 4.17808C18.4775 4.80076 18.7254 5.5555 18.8435 6.48146V6.48148C18.8571 6.58801 18.8639 6.64128 18.8517 6.68807C18.8321 6.76286 18.7747 6.82805 18.703 6.85688C18.6581 6.87492 18.602 6.87492 18.4897 6.87492H1.51003H1.51003C1.39772 6.87492 1.34156 6.87492 1.29669 6.85688C1.22497 6.82805 1.16757 6.76287 1.14804 6.68807C1.13582 6.64127 1.14261 6.588 1.1562 6.48146C1.27428 5.5555 1.52219 4.80076 2.07733 4.17808C2.24208 3.99329 2.42327 3.82283 2.6187 3.66849C3.27152 3.15294 4.05686 2.92482 5.02533 2.81542C5.97416 2.70824 7.17773 2.70824 8.71024 2.70825H11.2895ZM18.9582 10.0439V10.0439V10.0439V10.0439V10.0439C18.9582 11.4806 18.9582 12.6189 18.8435 13.5184C18.7254 14.4443 18.4775 15.1991 17.9224 15.8218C17.7576 16.0065 17.5764 16.177 17.381 16.3313C16.7282 16.8469 15.9428 17.075 14.9744 17.1844C14.0255 17.2916 12.822 17.2916 11.2895 17.2916H11.2895H8.71022H8.71019C7.1777 17.2916 5.97414 17.2916 5.02532 17.1844C4.05685 17.075 3.27151 16.8469 2.61869 16.3313C2.42326 16.177 2.24207 16.0065 2.07732 15.8218C1.52218 15.1991 1.27427 14.4443 1.15619 13.5184C1.04148 12.6189 1.04149 11.4805 1.0415 10.0439V9.95597V9.95596C1.0415 9.47617 1.0415 9.02963 1.04577 8.61416C1.04813 8.38442 1.04931 8.26955 1.12237 8.19724C1.19544 8.12492 1.31118 8.12492 1.54266 8.12492H18.457C18.6885 8.12492 18.8042 8.12492 18.8773 8.19724C18.9504 8.26955 18.9515 8.38442 18.9539 8.61416C18.9582 9.02952 18.9582 9.47593 18.9582 9.95561V9.95569V9.95578V9.95587V9.95596V10.0439ZM8.5415 13.3333C8.5415 12.9881 8.82132 12.7083 9.1665 12.7083H10.4165C10.7617 12.7083 11.0415 12.9881 11.0415 13.3333C11.0415 13.6784 10.7617 13.9583 10.4165 13.9583H9.1665C8.82132 13.9583 8.5415 13.6784 8.5415 13.3333ZM12.9165 12.7083C12.5713 12.7083 12.2915 12.9881 12.2915 13.3333C12.2915 13.6784 12.5713 13.9583 12.9165 13.9583H15.8332C16.1783 13.9583 16.4582 13.6784 16.4582 13.3333C16.4582 12.9881 16.1783 12.7083 15.8332 12.7083H12.9165Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>Payments</span>
+                    </a>
+                    <a class="nav-link p-1" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M11.7129 1.04175H8.28742H8.2874C7.14806 1.04173 6.22913 1.04172 5.5063 1.13978C4.75518 1.24168 4.12317 1.45976 3.6218 1.96566C3.12121 2.47078 2.90613 3.10621 2.8055 3.86143C2.70847 4.58969 2.70848 5.51595 2.7085 6.66652V6.66653L2.7085 15.5841C2.70846 16.1747 2.70843 16.6833 2.76258 17.0725C2.8181 17.4716 2.95222 17.9257 3.38003 18.2012C4.01212 18.6083 4.71267 18.3265 5.10607 18.1207C5.33136 18.0028 5.96699 17.5722 6.14263 17.4515C6.36997 17.3081 6.49583 17.2317 6.59008 17.1875C6.60816 17.1681 6.66783 17.1422 6.76187 17.194C6.85704 17.2417 6.97863 17.3175 7.19104 17.4515L8.80571 18.4698L8.80575 18.4698L8.80587 18.4699L8.80591 18.4699C9.00138 18.5932 9.18646 18.7099 9.35342 18.7923C9.53985 18.8843 9.75075 18.9584 10.0002 18.9584C10.2496 18.9584 10.4605 18.8843 10.6469 18.7923C10.8139 18.7099 10.999 18.5932 11.1944 18.4699L11.1946 18.4698L12.8093 17.4515C13.0366 17.3081 13.1625 17.2317 13.2568 17.1875C13.2777 17.1697 13.3413 17.1462 13.4285 17.194C13.4878 17.2236 13.7213 17.3769 13.9405 17.5208L13.9406 17.5208L13.9409 17.5211C14.0738 17.6083 14.2015 17.6921 14.2816 17.7426C14.4573 17.8634 14.669 18.0028 14.8943 18.1207C15.2877 18.3265 15.9882 18.6083 16.6203 18.2012C17.0481 17.9257 17.1822 17.4716 17.2378 17.0725C17.2919 16.6833 17.2919 16.1747 17.2918 15.5841V15.5841L17.2918 6.66657C17.2918 5.51598 17.2919 4.5897 17.1948 3.86143C17.0942 3.10621 16.8791 2.47078 16.3785 1.96566C15.8772 1.45976 15.2452 1.24168 14.494 1.13978C13.7712 1.04172 12.8523 1.04173 11.7129 1.04175H11.7129ZM10.0002 9.16675C10.0002 9.62699 9.62707 10.0001 9.16683 10.0001H6.66683C6.20659 10.0001 5.8335 9.62699 5.8335 9.16675C5.8335 8.70651 6.20659 8.33341 6.66683 8.33341H9.16683C9.62707 8.33341 10.0002 8.70651 10.0002 9.16675ZM11.6668 6.66675C12.1271 6.66675 12.5002 6.29365 12.5002 5.83341C12.5002 5.37318 12.1271 5.00008 11.6668 5.00008H6.66683C6.20659 5.00008 5.8335 5.37318 5.8335 5.83342C5.8335 6.29365 6.20659 6.66675 6.66683 6.66675H11.6668Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>Archived orders</span>
+                    </a>
+                    <a class="nav-link p-1" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.45392 2.79596C5.93806 1.27219 8.16659 1.87948 9.51287 2.89051C9.73435 3.05683 9.88635 3.17067 9.99951 3.24754C10.1127 3.17067 10.2647 3.05683 10.4862 2.89051C11.8324 1.87948 14.061 1.27219 16.5451 2.79596C18.2628 3.8496 19.2293 6.0505 18.8902 8.57926C18.5494 11.1202 16.9047 13.9941 13.4217 16.5721C12.2122 17.4678 11.3246 18.1253 9.99951 18.1253C8.67446 18.1253 7.78678 17.4678 6.57729 16.5721C3.09429 13.9941 1.44963 11.1202 1.10884 8.57926C0.76969 6.0505 1.73622 3.8496 3.45392 2.79596Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>Saved items</span>
+                    </a>
+                    <hr>
+                    <a class="nav-link p-1" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M1.0415 9.63877C1.0415 4.86516 5.0792 1.0415 9.99984 1.0415C14.9205 1.0415 18.9582 4.86516 18.9582 9.63877C18.9582 14.4124 14.9205 18.236 9.99984 18.236C9.41995 18.2367 8.84179 18.1831 8.27232 18.0761C8.07466 18.039 7.94908 18.0156 7.85564 18.0028C7.78595 17.9921 7.71593 18.0181 7.68963 18.0324C7.59419 18.0777 7.46707 18.1451 7.27245 18.2486C6.07935 18.8831 4.68737 19.1082 3.34481 18.8584C3.12801 18.8181 2.9485 18.6665 2.87245 18.4595C2.79639 18.2526 2.83504 18.0208 2.97415 17.8497C3.36398 17.3702 3.63203 16.7926 3.75057 16.1708C3.78264 15.9998 3.71006 15.7676 3.48693 15.541C1.9746 14.0053 1.0415 11.9285 1.0415 9.63877ZM6.6665 9.1665C6.20627 9.1665 5.83317 9.5396 5.83317 9.99984C5.83317 10.4601 6.20627 10.8332 6.6665 10.8332H6.67398C7.13422 10.8332 7.50731 10.4601 7.50731 9.99984C7.50731 9.5396 7.13422 9.1665 6.67398 9.1665H6.6665ZM9.9961 9.1665C9.53586 9.1665 9.16277 9.5396 9.16277 9.99984C9.16277 10.4601 9.53586 10.8332 9.9961 10.8332H10.0036C10.4638 10.8332 10.8369 10.4601 10.8369 9.99984C10.8369 9.5396 10.4638 9.1665 10.0036 9.1665H9.9961ZM12.4924 9.99984C12.4924 9.5396 12.8655 9.1665 13.3257 9.1665H13.3332C13.7934 9.1665 14.1665 9.5396 14.1665 9.99984C14.1665 10.4601 13.7934 10.8332 13.3332 10.8332H13.3257C12.8655 10.8332 12.4924 10.4601 12.4924 9.99984Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>Customer support</span>
+                    </a>
+                    <a class="nav-link p-1" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M9.61767 1.66775C11.8026 1.6143 13.4619 3.28799 13.541 5.27926C13.5593 5.73913 13.2013 6.12675 12.7414 6.14503C12.2816 6.1633 11.894 5.80532 11.8757 5.34544C11.8321 4.25015 10.9193 3.30307 9.65843 3.33392C9.39006 3.34048 9.02276 3.43698 7.97718 3.7319C5.66173 4.38502 4.018 5.38309 3.6174 7.42561C3.54546 7.79238 3.54168 8.21857 3.54168 9.30213V10.6976C3.54168 11.7811 3.54546 12.2073 3.6174 12.5741C4.01799 14.6166 5.66173 15.6147 7.97718 16.2678C9.02275 16.5627 9.39006 16.6592 9.65843 16.6658C10.9193 16.6966 11.8321 15.7495 11.8757 14.6542C11.8939 14.1944 12.2816 13.8364 12.7414 13.8547C13.2013 13.8729 13.5593 14.2605 13.541 14.7204C13.4619 16.7117 11.8026 18.3854 9.61767 18.3319C9.10977 18.3195 8.51998 18.1529 7.65629 17.909C7.61313 17.8968 7.56928 17.8844 7.52472 17.8719C5.071 17.1797 2.57462 15.917 1.98189 12.8948C1.87482 12.3489 1.87489 11.7494 1.87501 10.7946C1.87501 10.7627 1.87502 10.7303 1.87502 10.6976L1.87502 9.30213C1.87502 9.26937 1.87501 9.23701 1.87501 9.20506C1.87489 8.25028 1.87482 7.65078 1.98189 7.10484C2.57462 4.08269 5.071 2.81994 7.52472 2.12783C7.56928 2.11526 7.61313 2.10288 7.6563 2.09068C8.51999 1.84675 9.10977 1.68018 9.61767 1.66775Z"
+                                      fill="#3348FF"/>
+                                <path d="M8.12484 10.8381C7.6646 10.8381 7.2915 10.465 7.2915 10.0047C7.2915 9.54448 7.6646 9.17139 8.12484 9.17139L14.3749 9.17139L14.3749 8.67617L14.3749 8.67616C14.3747 8.5298 14.3746 8.35009 14.393 8.20306L14.3934 8.20028C14.4065 8.0949 14.4664 7.61487 14.9377 7.38623C15.41 7.1571 15.8268 7.40871 15.917 7.46315L16.3074 7.74577C16.6206 7.99129 17.0493 8.32938 17.3752 8.6464C17.5377 8.80459 17.7054 8.98565 17.8378 9.17807C17.9555 9.34912 18.1249 9.64095 18.1249 9.99984C18.1249 10.3587 17.9555 10.6506 17.8378 10.8216C17.7054 11.014 17.5377 11.1951 17.3752 11.3533C17.0493 11.6703 16.6206 12.0084 16.3074 12.2539L15.917 12.5365C15.8268 12.591 15.41 12.8426 14.9377 12.6134C14.4664 12.3848 14.4065 11.9048 14.3934 11.7994L14.393 11.7966C14.3746 11.6496 14.3747 11.4699 14.3749 11.3235L14.3749 10.8381L8.12484 10.8381Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>Log out</span>
+                    </a>
+                </nav>
+            </aside> <!-- col .// -->
+            <main class="md:col-9">
+
+                <nav class="tabs tabs-boxed mb-5">
+                    <button class="tab-link active"> Current</button>
+                    <button class="tab-link"> Unpaid</button>
+                    <button class="tab-link"> Completed</button>
+                    <button class="tab-link"> All orders</button>
+                </nav>
+
+                <!-- ========= content items ========= -->
+
+                <!-- item-order -->
+                <div class="card shadow-sm card-body mb-5">
+                    <header class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="text-xl mb-1">Order #: 73262</h6>
+                            <p class="text-secondary">4 Products | By Alex John | 13:45, Nov 10, 2025</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-default">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 11.6667L2.69487 12.2189C3.45333 14.3679 3.83256 15.4423 4.69785 16.0545C5.56313 16.6667 6.70258 16.6667 8.98147 16.6667H11.0185C13.2974 16.6667 14.4369 16.6667 15.3022 16.0545C16.1674 15.4423 16.5467 14.3679 17.3051 12.2189L17.5 11.6667"
+                                          stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M9.99984 11.6666V3.33325M9.99984 11.6666C9.41631 11.6666 8.32611 10.0047 7.9165 9.58325M9.99984 11.6666C10.5834 11.6666 11.6736 10.0047 12.0832 9.58325"
+                                          stroke="#14181F" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                                Download invoice
+                            </button>
+                            <button class="btn btn-default btn-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.375 4.125C12.375 3.36561 11.7594 2.75 11 2.75C10.2406 2.75 9.625 3.36561 9.625 4.125C9.625 4.88439 10.2406 5.5 11 5.5C11.7594 5.5 12.375 4.88439 12.375 4.125Z"
+                                          stroke="#14181F" stroke-width="1.5"/>
+                                    <path d="M12.375 11C12.375 10.2406 11.7594 9.625 11 9.625C10.2406 9.625 9.625 10.2406 9.625 11C9.625 11.7594 10.2406 12.375 11 12.375C11.7594 12.375 12.375 11.7594 12.375 11Z"
+                                          stroke="#14181F" stroke-width="1.5"/>
+                                    <path d="M12.375 17.875C12.375 17.1156 11.7594 16.5 11 16.5C10.2406 16.5 9.625 17.1156 9.625 17.875C9.625 18.6344 10.2406 19.25 11 19.25C11.7594 19.25 12.375 18.6344 12.375 17.875Z"
+                                          stroke="#14181F" stroke-width="1.5"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </header>
+                    <hr>
+
+                    <div class="lg:max-w-80%">
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Status:</dt>
+                            <dl class="text-orange"> On the way</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Date of delivery:</dt>
+                            <dl> Fri, 13 Nov, 2025</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Delivered to:</dt>
+                            <dl> Great street, New York Brooklyn 5A, PO: 212891</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary"> Total:</dt>
+                            <dl><strong>USD 340.00</strong></dl>
+                        </dl>
+                    </div>
+
+                    <hr>
+                    <article class="row row-cols-2">
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-basic/1.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Great product name goes here</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Color: Silver <br>
+                                    Size: Large
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-basic/2.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Table lamp for office or bedroom</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Color: Silver <br>
+                                    Size: Large
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-basic/3.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Great product name goes here</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Color: Silver <br>
+                                    Size: Large
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-basic/4.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Great cup white minimalist style</h6>
+                                <p class="text-secondary">
+                                    Quantity: 2x = USD 90 <br>
+                                    Color: White
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                    </article>
+                </div>
+                <!-- item-order end.// -->
+
+                <!-- item-order -->
+                <div class="card shadow-sm card-body  mb-5">
+                    <header class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="text-xl mb-1">Order #: 09112</h6>
+                            <p class="text-secondary">3 Products | By Alex John | 13:45, Nov 10, 2025</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-default">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 11.6667L2.69487 12.2189C3.45333 14.3679 3.83256 15.4423 4.69785 16.0545C5.56313 16.6667 6.70258 16.6667 8.98147 16.6667H11.0185C13.2974 16.6667 14.4369 16.6667 15.3022 16.0545C16.1674 15.4423 16.5467 14.3679 17.3051 12.2189L17.5 11.6667"
+                                          stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M9.99984 11.6666V3.33325M9.99984 11.6666C9.41631 11.6666 8.32611 10.0047 7.9165 9.58325M9.99984 11.6666C10.5834 11.6666 11.6736 10.0047 12.0832 9.58325"
+                                          stroke="#14181F" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                                Download invoice
+                            </button>
+                        </div>
+                    </header>
+                    <hr>
+
+                    <div class="lg:max-w-80%">
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Status:</dt>
+                            <dl class="text-green"> Shipped to customer</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Date of delivery:</dt>
+                            <dl> Sat, 17 Nov, 2025</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Delivered to:</dt>
+                            <dl> Great street, New York Brooklyn 5A, PO: 212891</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary"> Total:</dt>
+                            <dl><strong>USD 461.990</strong></dl>
+                        </dl>
+                    </div>
+
+                    <hr>
+                    <article class="row row-cols-2">
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-basic/5.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Great product name goes here</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Size: Large <br>
+                                    Style: Modern
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-basic/6.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Geometric shapes for kids wooden style</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Color: Silver <br>
+                                    Size: Large
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-basic/7.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Great product name goes here</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Size: Large
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                    </article>
+                </div>
+                <!-- item-order end.// -->
+
+
+                <!-- item-order -->
+                <div class="card shadow-sm card-body  mb-5">
+                    <header class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="text-xl mb-1">Order #: 09112</h6>
+                            <p class="text-secondary">3 Products | By Alex John | 13:45, Nov 10, 2025</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-default">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 11.6667L2.69487 12.2189C3.45333 14.3679 3.83256 15.4423 4.69785 16.0545C5.56313 16.6667 6.70258 16.6667 8.98147 16.6667H11.0185C13.2974 16.6667 14.4369 16.6667 15.3022 16.0545C16.1674 15.4423 16.5467 14.3679 17.3051 12.2189L17.5 11.6667"
+                                          stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M9.99984 11.6666V3.33325M9.99984 11.6666C9.41631 11.6666 8.32611 10.0047 7.9165 9.58325M9.99984 11.6666C10.5834 11.6666 11.6736 10.0047 12.0832 9.58325"
+                                          stroke="#14181F" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                                Download invoice
+                            </button>
+                        </div>
+                    </header>
+                    <hr>
+
+                    <div class="lg:max-w-80%">
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Status:</dt>
+                            <dl class="text-green"> Shipped to customer</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Date of delivery:</dt>
+                            <dl> Sat, 17 Nov, 2025</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary font-normal"> Delivered to:</dt>
+                            <dl> Great street, New York Brooklyn 5A, PO: 212891</dl>
+                        </dl>
+                        <dl class="d-flex mb-2">
+                            <dt class="w-30% text-secondary"> Total:</dt>
+                            <dl><strong>USD 461.990</strong></dl>
+                        </dl>
+                    </div>
+
+                    <hr>
+                    <article class="row row-cols-2">
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-tech/1.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Great product name goes here</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Size: Large <br>
+                                    Style: Modern
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-tech/2.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">G Amazing product name goes here </h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Color: Silver <br>
+                                    Size: Large
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-tech/3.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Great product name goes here</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Size: Large <br>
+                                    Color: Dark grey
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="d-flex my-2">
+                            <div class="flex-shrink-0 mr-4">
+                                <img src="images/product-tech/4.png" class="w-25 h-25 rounded border" width="100"
+                                     height="100" alt="">
+                            </div>
+                            <figcaption class="py-1">
+                                <h6 class="mb-1 font-medium">Great product name goes here</h6>
+                                <p class="text-secondary">
+                                    Quantity: 1x = USD 340 <br>
+                                    Size: Large <br>
+                                    Color: Dark grey
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                    </article>
+                </div>
+                <!-- item-order end.// -->
+
+
+                <!-- ========= content items .//end ========= -->
+
+            </main> <!-- col .// -->
+        </div> <!-- row .// -->
+
+    </div> <!-- container .//  -->
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends '../../base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- Header-->
+{% include '../../partials/header.html' %}
+<!-- Navigation-->
+{% include '../../partials/nav.html' %}
+
+<section class="py-10">
+    <div class="container">
+        <div class="row mb-10">
+            <h1 class="mb-5">Створення книги</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-primary">Підтвердити</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

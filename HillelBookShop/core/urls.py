@@ -20,7 +20,10 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = ([
+    path('', include('catalog.urls'), name='catalog'),
+    path('pages', include('pages.urls'), name='pages'),
     path('admin/', admin.site.urls, name='admin'),
-    path('', include('books.urls')),
+    path('account/', include('accounts.urls'), name='account'),
+    path('dashboard/', include('dashboard.urls'), name='dashboard'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

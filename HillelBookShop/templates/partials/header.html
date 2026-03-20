@@ -26,7 +26,7 @@
                         </svg>
                     </button>
                     <!-- brand-logo -->
-                    <a href="{% url 'home' %}"
+                    <a href="{% url 'catalog' %}"
                        class="d-block flex-shrink-0 hover:opacity-80 d-flex text-decoration-none align-items-center m-0">
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_i_6094_3195)">
@@ -104,22 +104,20 @@
                         </button>
                     </form>
                 </div>
-                <!-- header search end.// -->
 
-                <!-- header buttons -->
                 <div class="d-flex gap-1 lg:justify-content-end">
 
-                    <button disabled class="btn btn-neutral">
+                    <button class="btn btn-neutral">
                         <span class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round"
                                                  class="lucide lucide-user"><path
                                 d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7"
                                                                                              r="4"></circle></svg></span>
-                        <span class="max-lg:d-none">Увійти </span>
+                        <span class="max-lg:d-none">Увійти</span>
                     </button>
 
-                    <button disabled class="btn btn-neutral">
+                    <button class="btn btn-neutral">
                         <span class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round"
@@ -130,7 +128,7 @@
 
                     <!-- button with dropdown  -->
                     <div class="relative">
-                        <button disabled data-toggle="mycart_1" class="btn btn-neutral has-icon-dropdown">
+                        <button data-toggle="mycart_1" class="btn btn-neutral has-icon-dropdown">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -149,14 +147,14 @@
                             </p>
                         </menu>
                     </div>
-                    <!-- button with dropdown .//end  -->
-                    <a href="{% url 'admin:index' %}">
-                        <button class="btn btn-neutral">
-                            <span class="max-lg:d-none">Адмін </span>
-                        </button>
+                    <a href="{% url 'account' %}" class="btn btn-neutral">
+                        <span class="max-lg:d-none">Кабінет</span>
+                    </a>
+                    <a href="{% url 'dashboard' %}" class="btn btn-neutral">
+                        <span class="max-lg:d-none">Dashboard</span>
                     </a>
                 </div>
-                <!-- header buttons end.//-->
+
             </div>
         </div>
     </section>

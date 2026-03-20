@@ -1,0 +1,21 @@
+{% extends '../../base.html' %}
+{% block content %}
+<!-- Header-->
+{% include '../../partials/header.html' %}
+<!-- Navigation-->
+{% include '../../partials/nav.html' %}
+
+<section class="py-10">
+    <div class="container">
+        <div class="row mb-10">
+            <form method="post">
+                {% csrf_token %}
+                <p class="p-5">Ви впевнені, що хочете видалити: "{{ object }}"?</p>
+                <button type="submit" class="btn btn-red">Підтвердити</button>
+                <a href="{% url 'dashboard' %}" class="btn btn-primary">Назад</a>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
