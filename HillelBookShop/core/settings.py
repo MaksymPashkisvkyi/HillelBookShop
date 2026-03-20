@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'accounts.apps.UserAccountConfig',
     'dashboard.apps.DashboardConfig',
     'pages.apps.PagesConfig',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -160,3 +162,8 @@ if not DEBUG:
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     X_FRAME_OPTIONS = "DENY"
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "localhost",
+]

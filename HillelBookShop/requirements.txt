@@ -3,6 +3,7 @@ crispy-bootstrap5==2026.3
 dj-database-url==3.0.1
 Django==4.2.28
 django-crispy-forms==2.5
+django-debug-toolbar==6.1.0
 django-filter==25.1
 django-jazzmin==3.0.1
 django-widget-tweaks==1.5.1
