@@ -5,8 +5,8 @@ from .models import UserProfile
 
 
 class RegistrationForm(forms.ModelForm):
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput())
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput())
 
     class Meta:
         model = UserProfile
@@ -29,7 +29,6 @@ class RegistrationForm(forms.ModelForm):
             user.save()
         return user
 
-class UserLoginForm(AuthenticationForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['username'].label = 'Email'
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label='Email', widget=forms.EmailInput())
+    password = forms.CharField(label='Password', widget=forms.PasswordInput())

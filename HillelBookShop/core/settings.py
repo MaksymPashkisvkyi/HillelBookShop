@@ -110,6 +110,18 @@ DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get("DATABASE_URL")
     )
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": 'books_db',
+    #     "USER": 'maksym',
+    #     "PASSWORD": '',
+    #     "HOST": 'book_db',
+    #     "PORT": '5432',
+    # }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 # Password validation
@@ -169,5 +181,5 @@ INTERNAL_IPS = [
 ]
 
 LOGIN_REDIRECT_URL = "profile"
-LOGOUT_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "catalog"
 LOGIN_URL = "login"

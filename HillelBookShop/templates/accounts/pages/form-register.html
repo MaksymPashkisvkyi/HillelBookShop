@@ -1,9 +1,7 @@
 {% extends '../../base.html' %}
+{% load widget_tweaks %}
 {% block content %}
 
-<body>
-
-<!-- ============== SECTION CONTENT  ============== -->
 <section class="py-10">
     <div class="container">
 
@@ -15,29 +13,40 @@
 
             <hr>
 
-            <form class="mb-4">
+            <form method="post" class="mb-4">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="mb-4 text-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
 
                 <div class="row gap-2">
                     <div class="col-6 mb-4">
-                        <label class="form-label">First name</label>
-                        <input type="text" class="form-control" placeholder="Type here">
+                        <label class="form-label" for="{{ form.first_name.id_for_label }}">First name</label>
+                        {{ form.first_name|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Type here"|attr:"autocomplete:given-name"  }}
+                        {{ form.first_name.errors }}
                     </div>
                     <div class="col-6 mb-4">
-                        <label class="form-label">Last name</label>
-                        <input type="text" class="form-control" placeholder="Type here">
+                        <label class="form-label" for="{{ form.last_name.id_for_label }}">Last name</label>
+                        {{ form.last_name|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Type here"|attr:"autocomplete:family-name" }}
+                        {{ form.last_name.errors }}
                     </div>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">Email</label>
-                    <input type="text" class="form-control" placeholder="Enter email address">
+                    <label class="form-label" for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Enter email address"|attr:"autocomplete:email" }}
+                    {{ form.email.errors }}
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">Phone</label>
+                    <label class="form-label" for="{{ form.phone_number.id_for_label }}">Phone number</label>
                     <div class="d-flex gap-2">
 
-                        <select class="form-select w-10" name="">
+                        <select disabled class="form-select w-10" name="">
+                            <option value="">XX +X</option>
                             <option value="">US +1</option>
                             <option value="">UA +380</option>
                             <option value="">JP +81</option>
@@ -45,23 +54,26 @@
                             <option value="">UZ +998</option>
                         </select>
 
-                        <input type="text" class="form-control" placeholder="Phone number">
-
+                        {{ form.phone_number|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Phone number"|attr:"autocomplete:tel" }}
                     </div>
+                    {{ form.phone_number.errors }}
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">
+
+                    <label class="form-label" for="{{ form.password1.id_for_label }}">
                         <span class="fw-medium">Password</span> <br>
                         <p class="text-sm text-secondary">Passwords must be at least 6 characters.</p>
                     </label>
 
-                    <input type="text" class="form-control" placeholder="Enter password">
+                    {{ form.password1|add_class:"form-control"|attr:"type:password"|attr:"placeholder:Enter password"|attr:"autocomplete:new-password" }}
+                    {{ form.password1.errors }}
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label fw-medium">Re-enter password </label>
-                    <input type="text" class="form-control" placeholder="Repeat password">
+                    <label class="form-label fw-medium" for="{{ form.password1.id_for_label }}">Re-enter password</label>
+                    {{ form.password2|add_class:"form-control"|attr:"type:password"|attr:"placeholder:Repeat password"|attr:"autocomplete:new-password" }}
+                    {{ form.password2.errors }}
                 </div>
 
 
@@ -70,7 +82,7 @@
                     User Privacy Notice.
                 </p>
 
-                <button class="btn btn-lg rounded-full fw-semibold btn-primary w-full">Create my account</button>
+                <button type="submit" class="btn btn-lg rounded-full fw-semibold btn-primary w-full">Create my account</button>
 
             </form>
 
@@ -100,7 +112,6 @@
 </section>
 
 
-
 <!-- Icons for Login with Social account - not visible inside the HTML file -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
     <symbol id="icon-google">
@@ -120,6 +131,5 @@
     </symbol>
 </svg>
 
-</body>
 {% endblock %}
 	
