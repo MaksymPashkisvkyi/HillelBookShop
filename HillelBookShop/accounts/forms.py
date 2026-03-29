@@ -29,6 +29,20 @@ class RegistrationForm(forms.ModelForm):
             user.save()
         return user
 
+
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Email', widget=forms.EmailInput())
     password = forms.CharField(label='Password', widget=forms.PasswordInput())
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['first_name', 'last_name', 'email', 'phone_number', 'date_of_birth']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Enter first name"}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Enter last name"}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': "Enter email"}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Enter phone number"}),
+            'date_of_birth': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+        }

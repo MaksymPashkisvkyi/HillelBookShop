@@ -8,7 +8,7 @@
 <section class="py-10">
     <div class="container">
         <h2 class="text-3xl mb-1">Your Account</h2>
-        <p class="text-secondary">Alex John, Email: alexjohn@gmail.com</p>
+        <p class="text-secondary">{{ user.first_name }} {{ user.last_name }}, Email: {{ user.email }}</p>
     </div>
 </section>
 
@@ -20,6 +20,17 @@
             <aside class="md:col-3 mb-8">
                 <nav class="nav nav-col lg:mr-4">
                     <a class="nav-link p-1 active" href="#">
+                        <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10.0499 2.70826L4.24889 2.70826C3.71618 2.7082 3.23755 2.70816 2.85014 2.75998C2.42718 2.81655 1.99326 2.94791 1.63783 3.3015C1.2824 3.6551 1.15036 4.08678 1.0935 4.50755C1.04141 4.89296 1.04146 5.36912 1.04151 5.89908L1.04151 12.4631C1.04149 12.8137 1.04147 13.1292 1.06529 13.3907C1.09087 13.6715 1.14896 13.9685 1.31428 14.2534C1.49297 14.5613 1.74999 14.817 2.0595 14.9948C2.34584 15.1592 2.91109 15.2332 3.19329 15.2586C3.54129 16.4338 4.63387 17.2916 5.92783 17.2916C7.21905 17.2916 8.30974 16.4374 8.66015 15.2661H11.3394C11.6898 16.4374 12.7805 17.2916 14.0717 17.2916C15.3657 17.2916 16.4583 16.4338 16.8062 15.2586C17.0885 15.2332 17.6537 15.1592 17.94 14.9948C18.2496 14.817 18.5066 14.5613 18.6853 14.2534C18.8506 13.9685 18.9087 13.6715 18.9342 13.3907C18.9581 13.1292 18.9581 12.8137 18.958 12.4631V12.4631V12.463L18.9581 10.2051C18.9586 9.934 18.959 9.65964 18.8842 9.39078C18.8093 9.12192 18.667 8.88689 18.5264 8.65463L17.0938 6.2794C16.9344 6.01506 16.7864 5.76959 16.6406 5.57372C16.4793 5.35692 16.2856 5.15077 16.012 4.99663C15.7383 4.84248 15.461 4.78333 15.1911 4.75724C14.9473 4.73366 14.6596 4.73369 14.3497 4.73372L13.2295 4.73372C13.1726 4.31294 13.0164 3.6551 12.661 3.3015C12.3056 2.94791 11.8717 2.81655 11.4487 2.75998C11.0613 2.70816 10.5827 2.7082 10.0499 2.70826ZM13.2579 11.7377C13.516 11.6613 13.7893 11.6203 14.0723 11.6203C15.3604 11.6203 16.4489 12.4702 16.802 13.6371C17.1779 13.6371 17.3299 13.3907 17.3299 13.2407L17.3299 9.8233L15.2106 6.35409H13.2579V11.7377ZM5.92845 13.2407C5.25379 13.2407 4.70687 13.7848 4.70687 14.4559C4.70687 15.1271 5.25379 15.6712 5.92845 15.6712C6.60311 15.6712 7.15003 15.1271 7.15003 14.4559C7.15003 13.7848 6.60311 13.2407 5.92845 13.2407ZM12.8507 14.4559C12.8507 13.7848 13.3977 13.2407 14.0723 13.2407C14.747 13.2407 15.2939 13.7848 15.2939 14.4559C15.2939 15.1271 14.747 15.6712 14.0723 15.6712C13.3977 15.6712 12.8507 15.1271 12.8507 14.4559Z"
+                                      fill="#3348FF"/>
+                            </svg>
+                        </i>
+                        <span>Мій профіль</span>
+                    </a>
+                    <!--<a class="nav-link p-1" href="#">
                         <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -95,22 +106,75 @@
                             </svg>
                         </i>
                         <span>Customer support</span>
-                    </a>
+                    </a>-->
+                    <hr>
                     {% include './form-logout.html' %}
                 </nav>
             </aside> <!-- col .// -->
             <main class="md:col-9">
 
-                <nav class="tabs tabs-boxed mb-5">
+                <!--<nav class="tabs tabs-boxed mb-5">
                     <button class="tab-link active"> Current</button>
                     <button class="tab-link"> Unpaid</button>
                     <button class="tab-link"> Completed</button>
                     <button class="tab-link"> All orders</button>
-                </nav>
+                </nav>-->
 
                 <!-- ========= content items ========= -->
 
-                <!-- item-order -->
+                <div class="card shadow-sm card-body mb-5">
+                    <div class="mb-4">
+                        <h4 class="mb-1">My profile</h4>
+                        <p class="text-secondary mb-0">Update your personal information</p>
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.first_name.id_for_label }}" class="form-label">Ім'я</label>
+                                {{ form.first_name }}
+                                <div class="text-danger small mt-1">{{ form.first_name.errors }}</div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.last_name.id_for_label }}" class="form-label">Прізвище</label>
+                                {{ form.last_name }}
+                                <div class="text-danger small mt-1">{{ form.last_name.errors }}</div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                                {{ form.email }}
+                                <div class="text-danger small mt-1">{{ form.email.errors }}</div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.phone_number.id_for_label }}" class="form-label">Телефон</label>
+                                {{ form.phone_number }}
+                                <div class="text-danger small mt-1">{{ form.phone_number.errors }}</div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.date_of_birth.id_for_label }}" class="form-label">Дата народження</label>
+                                {{ form.date_of_birth }}
+                                <div class="text-danger small mt-1">{{ form.date_of_birth.errors }}</div>
+                            </div>
+                        </div>
+
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+
+                </div>
+
+                <!-- item-order
                 <div class="card shadow-sm card-body mb-5">
                     <header class="d-flex justify-content-between">
                         <div>
@@ -226,9 +290,9 @@
 
                     </article>
                 </div>
-                <!-- item-order end.// -->
+                 item-order end.//
 
-                <!-- item-order -->
+                 item-order
                 <div class="card shadow-sm card-body  mb-5">
                     <header class="d-flex justify-content-between">
                         <div>
@@ -318,10 +382,10 @@
 
                     </article>
                 </div>
-                <!-- item-order end.// -->
+                 item-order end.//
 
 
-                <!-- item-order -->
+                 item-order
                 <div class="card shadow-sm card-body  mb-5">
                     <header class="d-flex justify-content-between">
                         <div>
@@ -427,7 +491,7 @@
 
                     </article>
                 </div>
-                <!-- item-order end.// -->
+                 item-order end.//-->
 
 
                 <!-- ========= content items .//end ========= -->
