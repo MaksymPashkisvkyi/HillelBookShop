@@ -3,8 +3,6 @@ from django.contrib.auth.models import Group
 
 from .models import Book, Genre, Author
 
-admin.site.unregister(Group)
-
 
 class BookInline(admin.TabularInline):
     model = Book

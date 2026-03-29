@@ -12,6 +12,7 @@ class DashboardView(ListView):
 
 class BookCreateView(CreateView):
     model = Book
+    permission_required = 'catalog.add_book'
     template_name = 'dashboard/pages/book-create.html'
     fields = '__all__'
     success_url = reverse_lazy('dashboard')
@@ -19,6 +20,7 @@ class BookCreateView(CreateView):
 
 class BookUpdateView(UpdateView):
     model = Book
+    permission_required = 'catalog.change_book'
     template_name = 'dashboard/pages/book-update.html'
     fields = '__all__'
     success_url = reverse_lazy('dashboard')
@@ -26,5 +28,6 @@ class BookUpdateView(UpdateView):
 
 class BookDeleteView(DeleteView):
     model = Book
+    permission_required = 'catalog.delete_book'
     template_name = 'dashboard/pages/book-delete.html'
     success_url = reverse_lazy('dashboard')
