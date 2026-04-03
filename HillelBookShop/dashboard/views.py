@@ -1,16 +1,17 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from catalog.models import Book
 
 
-class DashboardView(ListView):
+class DashboardView(LoginRequiredMixin, ListView):
     queryset = Book.objects.all()
     template_name = 'dashboard/pages/page-dashboard.html'
     context_object_name = 'books'
 
 
-class BookCreateView(CreateView):
+class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book
     permission_required = 'catalog.add_book'
     template_name = 'dashboard/pages/book-create.html'
@@ -18,7 +19,7 @@ class BookCreateView(CreateView):
     success_url = reverse_lazy('dashboard')
 
 
-class BookUpdateView(UpdateView):
+class BookUpdateView(LoginRequiredMixin, UpdateView):
     model = Book
     permission_required = 'catalog.change_book'
     template_name = 'dashboard/pages/book-update.html'
@@ -26,7 +27,7 @@ class BookUpdateView(UpdateView):
     success_url = reverse_lazy('dashboard')
 
 
-class BookDeleteView(DeleteView):
+class BookDeleteView(LoginRequiredMixin, DeleteView):
     model = Book
     permission_required = 'catalog.delete_book'
     template_name = 'dashboard/pages/book-delete.html'
