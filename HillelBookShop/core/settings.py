@@ -107,17 +107,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL")
-    )
-    # "default": {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "NAME": 'books_db',
-    #     "USER": 'maksym',
-    #     "PASSWORD": '',
-    #     "HOST": 'book_db',
-    #     "PORT": '5432',
-    # }
+    # 'default': dj_database_url.config(
+    #     default=os.environ.get("DATABASE_URL")
+    # )
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": 'books_db',
+        "USER": 'maksym',
+        "PASSWORD": 'password',
+        "HOST": 'books_db',
+        "PORT": '5432',
+    }
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
