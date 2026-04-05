@@ -1,0 +1,7 @@
+services:
+  app:
+    container_name: web_sqlite
+    environment:
+      DB_TYPE: sqlite
+    env_file:
+      - ../../.env.sqlite

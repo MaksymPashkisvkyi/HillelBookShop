@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - .env
+      - ./.env
     command: >
       sh -c "python manage.py migrate && 
              python manage.py runserver 0.0.0.0:8000"
@@ -21,7 +21,7 @@ services:
   books_db:
     image: postgres:16-alpine
     env_file:
-      - .env
+      - ./.env.postgres
     environment:
       - POSTGRES_DB:${POSTGRES_DB}
       - POSTGRES_USER:${POSTGRES_USER}

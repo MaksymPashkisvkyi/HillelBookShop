@@ -23,17 +23,6 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-def get_env(name: str, default=None):
-    return os.environ.get(name, default)
-
-
-def get_env_bool(name: str, default: bool = False) -> bool:
-    value = os.environ.get(name)
-    if value is None:
-        return default
-    return value.strip().lower() in {"1", "true", "yes", "on"}
-
-
 def get_env_list(name: str, default=None):
     value = os.environ.get(name)
     items = [item.strip() for item in value.split(",") if item.strip()]
@@ -43,10 +32,10 @@ def get_env_list(name: str, default=None):
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = get_env_bool('DEBUG', default=False)
+DEBUG = os.getenv('DEBUG', False)
 
 ALLOWED_HOSTS = get_env_list('ALLOWED_HOSTS')
 CSRF_TRUSTED_ORIGINS = get_env_list('CSRF_TRUSTED_ORIGINS')
@@ -106,23 +95,26 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    # 'default': dj_database_url.config(
-    #     default=os.environ.get("DATABASE_URL")
-    # )
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'books_db',
-        "USER": 'maksym',
-        "PASSWORD": 'password',
-        "HOST": 'books_db',
-        "PORT": '5432',
+DB_TYPE = os.getenv('DB_TYPE', 'sqlite')
+
+if DB_TYPE == 'sqlite':
+    DATABASES = {
+        "default": {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / os.getenv('DB_NAME', 'db.sqlite3'),
+        }
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-}
+elif DB_TYPE == 'postgres':
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv('POSTGRES_DB'),
+            "USER": os.getenv('POSTGRES_USER'),
+            "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
+            "HOST": os.getenv('POSTGRES_HOST', 'db'),
+            "PORT": os.getenv('POSTGRES_PORT', '5432'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

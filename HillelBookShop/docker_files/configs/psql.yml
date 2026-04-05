@@ -1,0 +1,4 @@
+include:
+  - path:
+      - ./base.yml
+      - ../overrides/compose.override.psql.yml
