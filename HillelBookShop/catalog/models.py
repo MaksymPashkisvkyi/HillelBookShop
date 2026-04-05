@@ -1,7 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
+
+User = get_user_model()
 
 
 class Genre(models.Model):
@@ -30,14 +33,15 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=100, null=False, verbose_name='Назва книги')
-    slug = models.SlugField(unique=True, null=False)
-    ISBN = models.CharField(max_length=17, null=False, verbose_name='ISBN')
+    title = models.CharField(_("Title"), max_length=100, null=False)
+    slug = models.SlugField(_("Slug"), unique=True, null=False)
+    ISBN = models.CharField(_("ISBN"), max_length=17, null=False)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=False, verbose_name='Автор')
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, null=False, verbose_name='Жанр')
     price = models.DecimalField(decimal_places=2, null=False, max_digits=10, verbose_name='Ціна',
                                 validators=[MinValueValidator(0.0)])
-    discount_price = models.DecimalField(decimal_places=2, null=True, blank=True, max_digits=10, verbose_name='Стара ціна')
+    discount_price = models.DecimalField(decimal_places=2, null=True, blank=True, max_digits=10,
+                                         verbose_name='Стара ціна')
     description = models.TextField(null=False, verbose_name='Опис')
     stock = models.PositiveIntegerField(null=False, default=0, verbose_name='Кількість')
     image = models.ImageField(upload_to='book_images/', null=False, verbose_name='Зображення')
@@ -59,6 +63,7 @@ class Book(models.Model):
     @property
     def current_price(self):
         return self.discount_price or self.price
+
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='<UNK>')

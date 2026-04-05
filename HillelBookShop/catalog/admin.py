@@ -11,7 +11,7 @@ class BookInline(admin.TabularInline):
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'price', 'old_price', 'stock', 'created_at', 'updated_at')
+    list_display = ('title', 'author', 'price', 'discount_price', 'stock', 'created_at', 'updated_at')
     list_display_links = ('title',)
     list_filter = ('genre', 'author')
     search_fields = ('title', 'author')
