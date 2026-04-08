@@ -35,15 +35,15 @@
 
             <main class="md:col-9">
                 <div class="mb-10">
-                    <a href="{% url 'book_create' %}" class="btn btn-default">Додати книгу</a>
+                    <a href="{% url 'product_create' %}" class="btn btn-default">Додати книгу</a>
                 </div>
                 <div class="row row-cols-2  lg:row-cols-3 gap-rows-8 max-sm:gap-1" id="product-list">
-                    {% for book in books %}
+                    {% for product in products %}
                     <div>
                         <figure class="relative">
                             <div class="absolute top-2 right-2 d-flex gap-2">
 
-                                <a href="{% url 'book_update' slug=book.slug %}" class="btn btn-icon btn-default">
+                                <a href="{% url 'product_update' slug=product.slug %}" class="btn btn-icon btn-default">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                          stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
@@ -52,7 +52,7 @@
                                     </svg>
                                 </a>
 
-                                <a href="{% url 'book_delete' slug=book.slug %}" class="btn btn-icon btn-default">
+                                <a href="{% url 'product_delete' slug=product.slug %}" class="btn btn-icon btn-default">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                          stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
@@ -62,16 +62,16 @@
                                 </a>
                             </div>
 
-                            <a href="{% url 'book_detail' slug=book.slug %}"
+                            <a href="{% url 'product_detail' slug=product.slug %}"
                                class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
-                                <img src="{{ book.image.url }}" height="320" class="w-full h-full">
+                                <img src="{{ product.image.url }}" height="320" class="w-full h-full">
                             </a>
 
                             <figcaption class="py-3 d-grid gap-1">
                                 <p class="mb-1 h-10 overflow-hidden">
-                                    <a href="{% url 'book_detail' slug=book.slug %}"
+                                    <a href="{% url 'product_detail' slug=product.slug %}"
                                        class="text-initial hover:text-primary text-decoration-none">
-                                        {{ book.title }}
+                                        {{ product.name }}
                                     </a>
                                 </p>
 
@@ -81,9 +81,11 @@
                                 </div>
 
                                 <div>
-                                    <strong>${{ book.price }}</strong>
-                                    {% if book.old_price %}
-                                    <del class="text-secondary">${{ book.old_price }}</del>
+                                    {% if product.discount_price %}
+                                    <strong>${{ product.price }}</strong>
+                                    <del class="text-secondary">${{ product.discount_price }}</del>
+                                    {% elif product.price %}
+                                    <strong>${{ product.price }}</strong>
                                     {% endif %}
                                 </div>
 

@@ -10,16 +10,16 @@
             </button>
         </div>
 
-        <a href="{% url 'book_detail' slug=book.slug %}"
+        <a href="{% url 'product_detail' slug=product.slug %}"
            class="d-block overflow-hidden rounded bg-neutral-200 h-80 max-sm:h-60">
-            <img src="{{ book.image.url }}" height="320" class="w-full h-full">
+            <img src="{{ product.image.url }}" height="320" class="w-full h-full">
         </a>
 
         <figcaption class="py-3 d-grid gap-1">
             <p class="mb-1 h-10 overflow-hidden">
-                <a href="{% url 'book_detail' slug=book.slug %}"
+                <a href="{% url 'product_detail' slug=product.slug %}"
                    class="text-initial hover:text-primary text-decoration-none">
-                    {{ book.title }}
+                    {{ product.name }}
                 </a>
             </p>
 
@@ -29,9 +29,11 @@
             </div>
 
             <div>
-                <strong>${{ book.price }}</strong>
-                {% if book.old_price %}
-                <del class="text-secondary">${{ book.old_price }}</del>
+                {% if product.discount_price %}
+                <strong>${{ product.price }}</strong>
+                <del class="text-secondary">${{ product.discount_price }}</del>
+                {% elif product.price %}
+                <strong>${{ product.price }}</strong>
                 {% endif %}
             </div>
 

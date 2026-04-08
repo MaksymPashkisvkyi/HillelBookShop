@@ -5,21 +5,21 @@
     {% include '../../partials/header.html' %}
     <!-- Navigation-->
     {% include '../../partials/nav.html' %}
-    {% include "../partials/breadcrumbs.html" with book=book %}
+    {% include "../partials/breadcrumbs.html" with product=product %}
     <section class="py-10">
         <div class="container">
             <div class="row mb-10">
                 <aside class="lg:col-8 md:col-7">
-                    {% include "../partials/product-gallery.html" with book=book %}
+                    {% include "../partials/product-gallery.html" with product=product %}
                 </aside>
                 <main class="lg:col-4  md:col-5">
-                    {% include "../partials/product-summary.html" with book=book %}
+                    {% include "../partials/product-summary.html" with product=product %}
                 </main>
             </div>
 
             <div class="row pt-5">
                 <div class="md:col-8">
-                    {% include "../partials/product-description.html" with book=book %}
+                    {% include "../partials/product-description.html" with product=product %}
                 </div>
                 <aside class="md:col-4">
                     {% include "../partials/product-rating-box.html" %}

@@ -1,8 +1,8 @@
 from django.apps import AppConfig
 
 
-class BooksConfig(AppConfig):
+class ShopConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'catalog'
+    name = 'shop'
     verbose_name = 'Каталог'
     verbose_name_plural = 'Каталог'

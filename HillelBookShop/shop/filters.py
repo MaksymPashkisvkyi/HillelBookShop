@@ -1,15 +1,15 @@
 import django_filters
 from django import forms
 
-from catalog.models import Book, Genre, Author
+from .models import Category, Author, Product
 
 
-class BookFilter(django_filters.FilterSet):
-    title = django_filters.CharFilter(field_name='title', lookup_expr='icontains')
-    genre = django_filters.ModelMultipleChoiceFilter(
-        field_name='genre',
-        label='Genre',
-        queryset=Genre.objects.all(),
+class ProductFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
+    category = django_filters.ModelMultipleChoiceFilter(
+        field_name='category',
+        label='category',
+        queryset=Category.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
     author = django_filters.ModelMultipleChoiceFilter(
@@ -42,5 +42,5 @@ class BookFilter(django_filters.FilterSet):
     )
 
     class Meta:
-        model = Book
-        fields = ['title', 'genre', 'author', 'price_min', 'price_max']
+        model = Product
+        fields = ['name', 'category', 'author', 'price_min', 'price_max']

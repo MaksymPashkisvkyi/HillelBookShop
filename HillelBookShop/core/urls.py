@@ -21,8 +21,8 @@ from django.conf import settings
 from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = ([
-    path('', include('catalog.urls'), name='catalog'),
-    path('pages', include('pages.urls'), name='pages'),
+    path('', include('shop.urls'), name='shop'),
+    path('pages/', include('pages.urls'), name='pages'),
     path('admin/', admin.site.urls, name='admin'),
     path('account/', include('accounts.urls'), name='account'),
     path('dashboard/', include('dashboard.urls'), name='dashboard'),

@@ -11,7 +11,7 @@
     <div id="aside_filter" class="hidden md:d-block pr-4">
         <form
                 id="filter-form"
-                hx-get="{% url 'catalog' %}"
+                hx-get="{% url 'shop' %}"
                 hx-target="#product-list"
                 hx-swap="outerHTML"
                 hx-trigger="change, keyup delay:500ms"
@@ -22,9 +22,9 @@
 
             <!-- Filter: Genre -->
             <details open class="mb-6">
-                <summary class="font-semibold text-lg">Жарни</summary>
+                <summary class="font-semibold text-lg">Категорії</summary>
                 <div class="pt-3">
-                    {% for checkbox in form.genre %}
+                    {% for checkbox in form.category %}
                     <label class="form-check mb-2">
                         {{ checkbox|add_class:"form-check-input" }}
                         <span class="form-check-label">
@@ -69,7 +69,7 @@
                             {{ form.price_max|add_class:"form-control" }}
                         </div>
                     </div>
-                    <a href="{% url 'catalog' %}">
+                    <a href="{% url 'shop' %}">
                         <button class="btn btn-primary-subtle w-100%" type="button">Скинути</button>
                     </a>
                 </div>

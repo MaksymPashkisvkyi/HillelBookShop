@@ -1,15 +1,15 @@
 <article class="lg:pl-3">
 
-    <h4 class="mt-2"> {{ book.title }} </h4>
+    <h4 class="mt-2"> {{ product.name }} </h4>
     {% include "../partials/product-rating-inline.html" %}
 
     <dl class="d-flex">
         <dt class="text-muted w-20">ISBN:</dt>
-        <dd>{{ book.ISBN }}</dd>
+        <dd>{{ product.ISBN }}</dd>
     </dl>
     <dl class="d-flex">
         <dt class="text-muted w-20">Автор:</dt>
-        <dd>{{ book.author }}</dd>
+        <dd>{{ product.author }}</dd>
     </dl>
 
     <hr>
