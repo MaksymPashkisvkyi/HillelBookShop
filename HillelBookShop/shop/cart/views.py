@@ -43,3 +43,9 @@ def cart_update(request, product_id):
         cart.add(product=product, quantity=quantity, override_quantity=True)
 
     return redirect('cart_detail')
+
+
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect('cart_detail')
