@@ -41,11 +41,15 @@ class AuthorAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('customer', 'status', 'created_at', 'updated_at')
+    list_display = ('get_customer_name', 'status', 'created_at', 'updated_at')
     list_editable = ('status',)
     list_filter = ('status',)
     search_fields = ('customer',)
     inlines = [OrderItemInline]
+
+    @admin.display(description=_('Користувач'))
+    def get_customer_name(self, obj):
+        return f'{obj.first_name} {obj.last_name}' or f'{obj.email}'
 
 
 @admin.register(OrderItem)

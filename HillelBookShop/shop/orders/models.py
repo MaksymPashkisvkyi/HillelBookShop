@@ -56,5 +56,5 @@ class OrderItem(models.Model):
         return Decimal(self.price) * Decimal(self.quantity)
 
     class Meta:
-        verbose_name = _('Одиниця замовлення')
-        verbose_name_plural = _('Одиниця замовлення')
+        verbose_name = _('Замовлений товар')
+        verbose_name_plural = _('Замовлений товар')
