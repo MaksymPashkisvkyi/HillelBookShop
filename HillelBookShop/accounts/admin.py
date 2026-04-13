@@ -8,14 +8,16 @@ User = get_user_model()
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    list_display = ('phone_number', 'email', 'full_name', 'is_active', 'is_staff')
+    list_display = ('email', 'full_name', 'phone', 'is_active', 'is_staff', 'date_joined')
     ordering = ('email',)
+    list_display_links = ('email',)
 
     fieldsets = (
-        ('Basic Info', {'fields': ('email', 'password')}),
-        (_('Personal Info'), {'fields': ('first_name', 'last_name', 'phone_number')}),
+        (_('Основна інформація'), {'fields': ('email', 'password')}),
+        (_('Персональная інформація'),
+         {'fields': ('first_name', 'last_name', 'phone', 'date_of_birth', 'profile_image')}),
         (
-            _('Permissions'),
+            _('Дозволи'),
             {
                 'fields': (
                     'is_active',
@@ -28,5 +30,6 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
 
+    @admin.display(description=_('ПІБ'))
     def full_name(self, obj):
         return f'{obj.first_name} {obj.last_name}'.strip()

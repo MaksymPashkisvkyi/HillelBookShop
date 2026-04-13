@@ -116,9 +116,8 @@
                         <span class="max-lg:d-none">Список бажань (0)</span>
                     </button>
 
-                    <!-- button with dropdown  -->
                     <div class="relative">
-                        <button disabled data-toggle="mycart_1" class="btn btn-neutral has-icon-dropdown">
+                        <a href="{% url 'cart_detail' %}" class="btn btn-neutral">
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -129,17 +128,11 @@
                                             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
                                     </svg>
                                 </span>
-                            <span>Кошик (0) </span>
-                        </button>
-                        <menu id="mycart_1" class="dropdown right-0 d-none">
-                            <p class="text-secondary p-3 text-center min-w-60">
-                                Ваш кошик пустий
-                            </p>
-                        </menu>
+                            <span>Кошик</span> <!--TODO кількість одиниць товару -->
+                        </a>
                     </div>
 
                     {% if user.is_authenticated %}
-
 
                     <a href="{% url 'profile' %}" class="btn btn-neutral">
                         <span class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"

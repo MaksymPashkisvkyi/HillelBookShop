@@ -7,7 +7,7 @@ from .models import Product
 
 class ProductListView(ListView):
     queryset = Product.objects.all()
-    template_name = 'shop/pages/page-home.html'
+    template_name = 'shop/catalog/pages/page-home.html'
     context_object_name = 'products'
 
     def get_queryset(self):
@@ -22,11 +22,11 @@ class ProductListView(ListView):
 
     def render_to_response(self, context, **response_kwargs):
         if self.request.headers.get('HX-Request') == 'true':
-            return render(self.request, 'shop/partials/product-list.html', context)
+            return render(self.request, 'shop/catalog/partials/product-list.html', context)
         return super().render_to_response(context, **response_kwargs)
 
 
 class ProductDetailView(DetailView):
     model = Product
     context_object_name = 'product'
-    template_name = 'shop/pages/page-detail.html'
+    template_name = 'shop/catalog/pages/page-detail.html'

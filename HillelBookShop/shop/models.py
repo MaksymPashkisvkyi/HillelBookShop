@@ -10,8 +10,9 @@ User = get_user_model()
 class Category(MPTTModel):
     name = models.CharField(_('Назва'), max_length=200)
     slug = models.SlugField(unique=True)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-    is_active = models.BooleanField(default=True)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children',
+                            verbose_name=_('Батьківська категорія'))
+    is_active = models.BooleanField(_('Активовано'), default=True)
 
     class MPTTMeta:
         order_insertion_by = ['name']
@@ -56,6 +57,7 @@ class Product(models.Model):
     image = models.ImageField(_('Зображення'), upload_to='product_images/')
     created_at = models.DateTimeField(_('Створено'), auto_now_add=True)
     updated_at = models.DateTimeField(_('Змінено'), auto_now=True)
+    is_active = models.BooleanField(_('Активовано'), default=True)
 
     objects = models.Manager()
     active = ActiveProductManager()
@@ -78,9 +80,12 @@ class Product(models.Model):
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=10, blank=True)
-    adress = models.CharField(max_length=200, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('Користувач'))
+    address = models.CharField(_('Адреса'), max_length=200, blank=True)
 
     def __str__(self) -> str:
         return self.user.get_full_name() or self.user.email
+
+    class Meta:
+        verbose_name = _('Клієнт')
+        verbose_name_plural = _('Клієнти')

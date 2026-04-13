@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'django_filters',
     'widget_tweaks',
     'crispy_forms',
@@ -184,3 +185,5 @@ INTERNAL_IPS = [
 LOGIN_REDIRECT_URL = 'profile'
 LOGOUT_REDIRECT_URL = 'shop'
 LOGIN_URL = 'login'
+
+CART_SESSION_ID = 'cart'

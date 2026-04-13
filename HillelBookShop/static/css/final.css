@@ -44966,3 +44966,20 @@ h1 {
 .gallery-wrap .item-thumb:hover {
   border-color: var(--neutral-400);
 }
+
+.custom-css-bg-page{ position: relative;}
+.custom-css-bg-page:before{
+    content:"";
+    display: block;
+    background-color:var(--neutral-50);
+    width: 800px;
+    top:0;
+    bottom:0;
+    left:100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+@media (max-width:640px) {
+    .custom-css-bg-page:before{ display:none!important }
+}
