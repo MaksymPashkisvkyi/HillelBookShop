@@ -1,0 +1,137 @@
+{% extends '../../../base.html' %}
+{% load l10n %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+{% include '../../../partials/header.html' %}
+{% include '../../../partials/nav.html' %}
+
+<section class="overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <main class="md:col-6">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="py-10 md:mr-10">
+                        <article class="mb-5">
+                            <h4 class="mb-5 text-xl"> Контактна інформація </h4>
+
+                            {{ form.non_field_errors }}
+                            <fieldset class="row gap-3 mb-6">
+                                <div class="sm:col-6 mb-3">
+                                    <label class="form-label" for="{{ form.first_name.id_for_label }}">Імʼя</label>
+                                    {{ form.first_name|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Імʼя" }}
+                                    {{ form.first_name.errors }}
+                                </div>
+                                <div class="sm:col-6 mb-3">
+                                    <label class="form-label" for="{{ form.last_name.id_for_label }}">Прізвище</label>
+                                    {{ form.last_name|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Прізвище" }}
+                                    {{ form.last_name.errors }}
+                                </div>
+                                <div class="sm:col-6 mb-3">
+                                    <label class="form-label" for="{{ form.phone.id_for_label }}">Номер телефону</label>
+                                    {{ form.phone|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Номер телефону" }}
+                                    {{ form.phone.errors }}
+                                </div>
+                                <div class="sm:col-6 mb-3">
+                                    <label class="form-label" for="{{ form.email.id_for_label }}">Email</label>
+                                    {{ form.email|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Email" }}
+                                    {{ form.email.errors }}
+                                </div>
+                            </fieldset>
+                            <hr>
+                        </article>
+
+                        <article class="mb-5">
+                            <h4 class="mb-5 text-xl">Адреса доставки</h4>
+
+                            <fieldset class="row gap-3 mb-4">
+                                <div class="lg:col-8 mb-3">
+                                    <label class="form-label" for="{{ form.address.id_for_label }}">Адреса</label>
+                                    {{ form.address|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Місто, вулиця, дім" }}
+                                    {{ form.address.errors }}
+                                </div>
+                            </fieldset>
+                        </article>
+
+                        <hr class="my-6">
+
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'cart_detail' %}" class="btn btn-default btn-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                     color="currentColor" fill="none">
+                                    <path d="M8.99996 16.9998L4 11.9997L9 6.99976" stroke="currentColor"
+                                          stroke-width="1.5"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                                Повернутися до кошика
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Перейти до оплати
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                     color="currentColor" fill="none">
+                                    <path d="M15.0001 17L20 12L15 7" stroke="currentColor" stroke-width="1.5"
+                                          stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                          stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </main> <!-- col.// -->
+            <aside class="md:col-6">
+
+                <div class="p-5 md:p-10 bg-neutral-50 h-full border-left custom-css-bg-page">
+                    <p class="font-medium mb-6">Огляд замовлення</p>
+
+                    <article>
+                        {% for item in cart %}
+                        <figure class="d-flex gap-2 mb-4">
+                            <div class="p-0 flex-none border bg-neutral-300 rounded overflow-hidden w-20 h-20 ">
+                                <img src="{{ item.product.image.url }}" width="80" alt="Item">
+                            </div>
+                            <figcaption class="p-0 mb-5 flex-grow">
+                                <p>{{ item.product.name }}</p>
+                                <p class="text-secondary">ISBN: {{ item.product.ISBN }}</p>
+                                <p class="text-secondary">Автор: {{ item.product.author }} </p>
+                                <p class="text-secondary">Категорія: {{ item.product.category }} </p>
+                            </figcaption>
+                            <div class="flex-grow">
+                                <p class="text-secondary">Вартість: {{ item.price|unlocalize }} грн.</p>
+                                <p class="text-secondary">Кількість: {{ item.quantity }}</p>
+                                <p class="text-secondary">Сума: {{ item.total_price|unlocalize }} грн.</p>
+                            </div>
+                        </figure>
+                        <hr class="my-6">
+                        {% endfor %}
+                    </article>
+
+                    <ul class="text-secondary">
+                        <li class="d-flex justify-content-between mb-2">
+                            <label>Сума:</label> <var>{{ total_price }} грн.</var>
+                        </li>
+                        <li class="d-flex justify-content-between mb-2">
+                            <label>Знижка</label> <var> (в розробці) </var>
+                        </li>
+                        <li class="d-flex justify-content-between mb-2">
+                            <label>Доставка:</label> <var> (за тарифами перевізника) </var>
+                        </li>
+                    </ul>
+
+                    <hr>
+                    <dl class="d-flex justify-content-between">
+                        <dt>Всього:</dt>
+                        <dd class="font-semibold text-xl">{{ total_price }} грн.</dd>
+                    </dl>
+
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

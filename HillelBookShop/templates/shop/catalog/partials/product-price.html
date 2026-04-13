@@ -1,0 +1,11 @@
+<div class="mb-5">
+    <p class="form-label font-medium mb-2">Ціна: </p>
+
+    {% if product.discount_price %}
+    <strong class="text-xl"> {{ product.price }} грн. </strong>
+    <strong class="text-xl text-line-through"> {{ product.discount_price }} грн. </strong>
+    {% elif product.price %}
+    <strong>${{ product.price }}</strong>
+    {% endif %}
+
+</div>

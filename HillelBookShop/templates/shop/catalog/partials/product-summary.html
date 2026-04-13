@@ -1,0 +1,20 @@
+<article class="lg:pl-3">
+
+    <h4 class="mt-2"> {{ product.name }} </h4>
+    {% include "../partials/product-rating-inline.html" %}
+
+    <dl class="d-flex">
+        <dt class="text-muted w-20">ISBN:</dt>
+        <dd>{{ product.ISBN }}</dd>
+    </dl>
+    <dl class="d-flex">
+        <dt class="text-muted w-20">Автор:</dt>
+        <dd>{{ product.author }}</dd>
+    </dl>
+
+    <hr>
+    {% include "../partials/product-quantity.html" %}
+    {% include "../partials/product-price.html" %}
+    {% include "../partials/product-actions.html" %}
+
+</article>

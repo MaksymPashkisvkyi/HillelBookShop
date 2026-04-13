@@ -1,0 +1,134 @@
+{% extends '../../../base.html' %}
+{% load l10n %}
+
+{% block content %}
+
+{% include '../../../partials/header.html' %}
+{% include '../../../partials/nav.html' %}
+
+<section class="py-8">
+    <div class="container">
+        <header>
+            <h2 class="text-3xl">Ваш кошик</h2>
+            <p class="text-secondary">{{cart.cart|length}} Продукт(-ів) у вашому в кошику </p>
+        </header>
+    </div>
+</section>
+
+<section class="pb-8">
+    <div class="container">
+        <div class="row gap-8">
+            <main class="md:col-8">
+                <div class="card shadow-sm mb-5 p-4">
+
+                    {% if not cart.cart %}
+
+                    <p>Ваш кошик порожній</p>
+
+                    {% else %}
+
+                    {% for item in cart %}
+
+                    <article class="d-flex max-sm:flex-wrap gap-2 mb-5 pb-5 border-bottom">
+
+                        <div class="mr-2 flex-shrink-0 w-25 h-25 bg-neutral-200 rounded overflow-hidden">
+                            <img src="{{ item.product.image.url }}" class="ratio-1x1 h-full rounded">
+                        </div>
+
+                        <div class="flex flex-grow py-1">
+                            <h5 class="mb-1 font-medium  text-lg">
+                                <a href="#" class="text-dark">
+                                    {{ item.product.name }}
+                                </a>
+                            </h5>
+                            <p class="text-secondary">
+                                ISBN: {{ item.product.ISBN }} <br>
+                                Автор: {{ item.product.author }} <br>
+                                Категорія: {{ item.product.category }} <br>
+                            </p>
+                        </div>
+
+                        <div class="py-1 max-sm:w-full max-sm:d-flex max-sm:align-items-center">
+
+                            <p class="sm:mb-4 sm:text-right max-sm:mr-10 max-sm:flex-grow">
+                                <strong>
+                                    {{ item.price|unlocalize }} грн.
+                                </strong>
+                            </p>
+
+                            <div class="d-flex  gap-2">
+                                <form action="{% url 'cart_update' item.product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input
+                                            class="form-control"
+                                            type="number"
+                                            name="quantity"
+                                            value="{{ item.quantity }}"
+                                            min="1"
+                                            onchange="this.form.submit()"
+                                    >
+                                </form>
+
+                                <button disabled class="btn btn-neutral btn-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                                <a href="{% url 'cart_remove' item.product.id %}" class="btn btn-neutral btn-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.0005 4.99989L5.00049 18.9999M5.00049 4.99989L19.0005 18.9999"
+                                              stroke="#14181F" stroke-width="1.5" stroke-linecap="round"
+                                              stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-mg btn-green" href="{% url 'shop' %}">Повернутися до каталогу</a>
+                        <a class="btn btn-mg btn-red" href="#">Очистити кошик</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </main>
+
+            <aside class="md:col-4">
+                <div class="p-5 rounded bg-neutral-100">
+                    <h2 class="text-3xl h-10">Ваш чек</h2>
+                    <ul>
+                        {% for item in cart %}
+                        <li class="d-flex justify-content-between mb-2">
+                            <div>
+                                <label>{{ forloop.counter }}.</label>
+                                <label>{{ item.product.name }}</label>
+                            </div>
+                            <var>
+                                {{ item.price|unlocalize }} x {{ item.quantity }} =
+                                {{ item.total_price|unlocalize }} грн.
+                            </var>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    <dl class="d-flex justify-content-between">
+                        <dt class="">Всього:</dt>
+                        <dd class="font-semibold text-lg">
+                            {{ total_price|unlocalize }} грн.
+                        </dd>
+                    </dl>
+                    <div class="mt-2">
+                        <a href="{% url 'order_create' %}" class="btn btn-lg btn-green w-full"> Оформити замовлення </a>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

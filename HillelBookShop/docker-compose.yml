@@ -16,8 +16,8 @@ services:
     depends_on:
       books_db:
         condition: service_healthy
-      redis:
-        condition: service_healthy
+#      redis:
+#        condition: service_healthy
 
   books_db:
     image: postgres:16-alpine
@@ -33,23 +33,23 @@ services:
       timeout: 5s
       retries: 5
 
-  redis:
-    image: redis:7.4-alpine
-    container_name: redis_cache
-    env_file:
-      - ./.env
-    ports:
-      - "6379:6379"
-    command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes
-    volumes:
-      - ./redis_data:/data
-    healthcheck:
-      test: [ "CMD-SHELL", "redis-cli -a $$REDIS_PASSWORD ping | grep PONG" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-    restart: always
+#  redis:
+#    image: redis:7.4-alpine
+#    container_name: redis_cache
+#    env_file:
+#      - ./.env
+#    ports:
+#      - "6379:6379"
+#    command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes
+#    volumes:
+#      - ./redis_data:/data
+#    healthcheck:
+#      test: [ "CMD-SHELL", "redis-cli -a $$REDIS_PASSWORD ping | grep PONG" ]
+#      interval: 30s
+#      timeout: 10s
+#      retries: 5
+#    restart: always
 
 volumes:
   pg_data:
-  redis_data:
+#  redis_data:

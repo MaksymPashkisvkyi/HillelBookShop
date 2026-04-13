@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 def get_env_list(name: str, default=None):
     value = os.environ.get(name)
-    items = [item.strip() for item in value.split(",") if item.strip()]
+    items = [item.strip() for item in value.split(',') if item.strip()]
     if items:
         return items
     return default if default is not None else []
@@ -50,15 +50,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'django_filters',
     'widget_tweaks',
     'crispy_forms',
     'crispy_bootstrap5',
-    'catalog.apps.BooksConfig',
-    'accounts.apps.UserAccountConfig',
+    'shop.apps.ShopConfig',
+    'accounts.apps.AccountsConfig',
     'dashboard.apps.DashboardConfig',
     'pages.apps.PagesConfig',
     'debug_toolbar',
+    'mptt',
 ]
 
 MIDDLEWARE = [
@@ -99,23 +101,31 @@ DB_TYPE = os.getenv('DB_TYPE', 'sqlite')
 
 if DB_TYPE == 'sqlite':
     DATABASES = {
-        "default": {
+        'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / os.getenv('DB_NAME', 'db.sqlite3'),
         }
     }
 elif DB_TYPE == 'postgres':
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.getenv('POSTGRES_DB'),
-            "USER": os.getenv('POSTGRES_USER'),
-            "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
-            "HOST": os.getenv('POSTGRES_HOST', 'db'),
-            "PORT": os.getenv('POSTGRES_PORT', '5432'),
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('POSTGRES_DB'),
+            'USER': os.getenv('POSTGRES_USER'),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+            'HOST': os.getenv('POSTGRES_HOST', 'db'),
+            'PORT': os.getenv('POSTGRES_PORT', '5432'),
+            # 'OPTIONS': {
+            #     'options': '-c timezone UTC'
+            # }
         }
     }
-
+elif DB_TYPE == 'postgres-railway':
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get("DATABASE_URL")
+        )
+    }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -155,23 +165,25 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.UserProfile'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Security settings for production
 if not DEBUG:
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
-    X_FRAME_OPTIONS = "DENY"
+    X_FRAME_OPTIONS = 'DENY'
 
 INTERNAL_IPS = [
-    "127.0.0.1",
-    "localhost",
+    '127.0.0.1',
+    'localhost',
 ]
 
-LOGIN_REDIRECT_URL = "profile"
-LOGOUT_REDIRECT_URL = "catalog"
-LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = 'profile'
+LOGOUT_REDIRECT_URL = 'shop'
+LOGIN_URL = 'login'
+
+CART_SESSION_ID = 'cart'

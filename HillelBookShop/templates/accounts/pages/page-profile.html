@@ -1,13 +1,13 @@
 {% extends '../../base.html' %}
+{% load widget_tweaks %}
+
 {% block content %}
-<!-- Header-->
 {% include '../../partials/header.html' %}
-<!-- Navigation-->
 {% include '../../partials/nav.html' %}
 
 <section class="py-10">
     <div class="container">
-        <h2 class="text-3xl mb-1">Your Account</h2>
+        <h2 class="text-3xl mb-1">Ваш кабінет</h2>
         <p class="text-secondary">{{ user.first_name }} {{ user.last_name }}, Email: {{ user.email }}</p>
     </div>
 </section>
@@ -30,7 +30,7 @@
                         </i>
                         <span>Мій профіль</span>
                     </a>
-                    <!--<a class="nav-link p-1" href="#">
+                    <a class="nav-link p-1" href="#">
                         <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -39,9 +39,9 @@
                                       fill="#3348FF"/>
                             </svg>
                         </i>
-                        <span>My orders</span>
+                        <span>Мої замовлення</span>
                     </a>
-                    <a class="nav-link p-1" href="#">
+                    <!--<a class="nav-link p-1" href="#">
                         <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -120,12 +120,11 @@
                     <button class="tab-link"> All orders</button>
                 </nav>-->
 
-                <!-- ========= content items ========= -->
 
                 <div class="card shadow-sm card-body mb-5">
                     <div class="mb-4">
-                        <h4 class="mb-1">My profile</h4>
-                        <p class="text-secondary mb-0">Update your personal information</p>
+                        <h4 class="mb-1">Мій кабінет</h4>
+                        <p class="text-secondary mb-0">Оновіть вашу персональну інформацію</p>
                     </div>
 
                     <form method="post">
@@ -151,25 +150,26 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="{{ form.phone_number.id_for_label }}" class="form-label">Телефон</label>
-                                {{ form.phone_number }}
-                                <div class="text-danger small mt-1">{{ form.phone_number.errors }}</div>
+                                <label for="{{ form.phone.id_for_label }}" class="form-label">Телефон</label>
+                                {{ form.phone|attr:"value:+380" }}
+                                <div class="text-danger small mt-1">{{ form.phone.errors }}</div>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="{{ form.date_of_birth.id_for_label }}" class="form-label">Дата народження</label>
+                                <label for="{{ form.date_of_birth.id_for_label }}" class="form-label">Дата
+                                    народження</label>
                                 {{ form.date_of_birth }}
                                 <div class="text-danger small mt-1">{{ form.date_of_birth.errors }}</div>
                             </div>
                         </div>
 
                         {% if form.non_field_errors %}
-                            <div class="alert alert-danger">
-                                {{ form.non_field_errors }}
-                            </div>
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
                         {% endif %}
 
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Зберегти зміни</button>
                     </form>
 
                 </div>

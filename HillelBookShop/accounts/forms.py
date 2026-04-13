@@ -10,7 +10,7 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = ['email', 'phone_number', 'first_name', 'last_name']
+        fields = ['email', 'phone', 'first_name', 'last_name']
 
     def clean(self):
         cleaned_data = super().clean()
@@ -36,13 +36,20 @@ class LoginForm(AuthenticationForm):
 
 
 class ProfileForm(forms.ModelForm):
+    date_of_birth = forms.DateField(
+        input_formats=['%Y-%m-%d'],
+        widget=forms.DateInput(
+            format='%Y-%m-%d',
+            attrs={'class': 'form-control', 'type': 'date'}
+        )
+    )
+
     class Meta:
         model = UserProfile
-        fields = ['first_name', 'last_name', 'email', 'phone_number', 'date_of_birth']
+        fields = ['first_name', 'last_name', 'email', 'phone', 'date_of_birth']
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Enter first name"}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Enter last name"}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': "Enter email"}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Enter phone number"}),
-            'date_of_birth': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Enter phone number"}),
         }
