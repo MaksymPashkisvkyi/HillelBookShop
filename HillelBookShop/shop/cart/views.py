@@ -31,6 +31,7 @@ def cart_remove(request, product_id):
     product = get_object_or_404(Product, id=product_id, is_active=True)
     cart.remove(product)
     messages.info(request, f'{product.name} видалено з кошика')
+    return redirect('cart_detail')
 
 
 def cart_update(request, product_id):
