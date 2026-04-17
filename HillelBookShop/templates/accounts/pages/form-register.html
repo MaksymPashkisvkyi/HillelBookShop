@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label" for="{{ form.phone_number.id_for_label }}">Phone number</label>
+                    <label class="form-label" for="{{ form.phone.id_for_label }}">Phone number</label>
                     <div class="d-flex gap-2">
 
                         <select disabled class="form-select w-10" name="">
@@ -54,9 +54,9 @@
                             <option value="">UZ +998</option>
                         </select>
 
-                        {{ form.phone_number|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Phone number"|attr:"autocomplete:tel" }}
+                        {{ form.phone|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Phone number"|attr:"autocomplete:tel" }}
                     </div>
-                    {{ form.phone_number.errors }}
+                    {{ form.phone.errors }}
                 </div>
 
                 <div class="mb-4">
