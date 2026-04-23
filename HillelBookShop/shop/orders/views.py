@@ -36,7 +36,8 @@ def order_create(request):
             cart.clear()
 
             messages.success(request, f'Замовлення №{order.id} було успішно оформлено')
-            return render(request, 'shop/orders/pages/page-success-order.html', {'order': order})
+            return redirect('checkout_order', order_id=order.id)
+            # return render(request, 'shop/orders/pages/page-success-payment.html', {'order': order})
     else:
         initial = {}
         if request.user.is_authenticated:

@@ -1,7 +1,8 @@
 {% extends '../../../base.html' %}
 
 {% block content %}
-
+{% include '../../../partials/header.html' %}
+{% include '../../../partials/nav.html' %}
 <div>
     <p>Ваше замовлення №{{ order.id }} успішно оформлене</p>
     <p>Загальна сума: <strong>{{ order.total_price }}</strong></p>

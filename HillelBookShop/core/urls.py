@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from debug_toolbar.toolbar import debug_toolbar_urls
+from payments.views import checkout_view
 
 urlpatterns = ([
     path('', include('shop.urls'), name='shop'),
@@ -26,6 +27,9 @@ urlpatterns = ([
     path('admin/', admin.site.urls, name='admin'),
     path('account/', include('accounts.urls'), name='account'),
     path('dashboard/', include('dashboard.urls'), name='dashboard'),
+    path('payments/', include('payments.urls'), name='payments'),
+    path('checkout/', checkout_view, name='checkout'),
+    path('checkout/<int:order_id>', checkout_view, name='checkout_order'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
 

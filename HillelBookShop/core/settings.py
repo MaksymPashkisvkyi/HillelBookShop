@@ -13,11 +13,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+import certifi
 import dj_database_url
 from dotenv import load_dotenv
 
 # loads the variables from .env
 load_dotenv()
+os.environ['SSL_CERT_FILE'] = certifi.where()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -59,8 +61,10 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'dashboard.apps.DashboardConfig',
     'pages.apps.PagesConfig',
+    'payments.apps.PaymentsConfig',
     'debug_toolbar',
     'mptt',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -151,6 +155,16 @@ LANGUAGE_CODE = 'uk'
 TIME_ZONE = 'Europe/Kyiv'
 USE_I18N = True
 USE_TZ = True
+USE_L10N = True
+
+LANGUAGES = [
+    ('uk', 'Ukrainian'),
+    ('en', 'English'),
+]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -187,3 +201,17 @@ LOGOUT_REDIRECT_URL = 'shop'
 LOGIN_URL = 'login'
 
 CART_SESSION_ID = 'cart'
+
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_API_VERSION = os.getenv('STRIPE_API_VERSION')
+
+DEFAULT_FROM_EMAIL = 'maximajin@gmail.com'
+
+EMAIL_HOST_USER = 'maximajin@gmail.com'
+EMAIL_HOST_PASSWORD = ''
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h1>Чек по замовленню {{ order.id }}</h1>
+<h3>Товари</h3>
+<ul>
+    {% for item in order.items.all %}
+        <li>{{ item.product }} x {{ item.quantity }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
