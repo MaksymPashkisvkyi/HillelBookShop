@@ -1,0 +1,897 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-18 17:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/admin.py:16
+msgid "Basic information"
+msgstr ""
+
+#: accounts/admin.py:17
+msgid "Personal information"
+msgstr ""
+
+#: accounts/admin.py:20
+msgid "Permissions"
+msgstr ""
+
+#: accounts/admin.py:33 shop/models.py:29
+msgid "Full name"
+msgstr ""
+
+#: accounts/forms.py:9 accounts/forms.py:45
+#: templates/accounts/pages/form-register.html:65
+#: templates/accounts/pages/page-login.html:42
+msgid "Password"
+msgstr ""
+
+#: accounts/forms.py:10
+msgid "Password confirmation"
+msgstr ""
+
+#: accounts/forms.py:18 accounts/forms.py:19
+msgid "Type here"
+msgstr ""
+
+#: accounts/forms.py:20
+msgid "Enter email address"
+msgstr ""
+
+#: accounts/forms.py:21 accounts/models.py:33 shop/orders/forms.py:11
+#: templates/accounts/pages/form-register.html:45
+#: templates/shop/orders/pages/page-create-order.html:33
+msgid "Phone number"
+msgstr ""
+
+#: accounts/forms.py:22
+msgid "Enter password"
+msgstr ""
+
+#: accounts/forms.py:23
+msgid "Repeat password"
+msgstr ""
+
+#: accounts/forms.py:31
+msgid "Passwords don't match"
+msgstr ""
+
+#: accounts/forms.py:44 shop/orders/forms.py:12
+#: templates/accounts/pages/form-register.html:39
+#: templates/accounts/pages/page-login.html:37
+#: templates/accounts/pages/page-profile.html:147
+#: templates/shop/orders/pages/page-create-order.html:38
+msgid "Email"
+msgstr ""
+
+#: accounts/forms.py:49 accounts/forms.py:68
+msgid "Enter email"
+msgstr ""
+
+#: accounts/forms.py:50
+msgid "Enter your password"
+msgstr ""
+
+#: accounts/forms.py:66
+msgid "Enter first name"
+msgstr ""
+
+#: accounts/forms.py:67
+msgid "Enter last name"
+msgstr ""
+
+#: accounts/forms.py:69
+msgid "Enter phone number"
+msgstr ""
+
+#: accounts/models.py:34 shop/orders/forms.py:9 shop/orders/models.py:26
+#: templates/accounts/pages/form-register.html:27
+#: templates/accounts/pages/page-profile.html:135
+#: templates/shop/orders/pages/page-create-order.html:23
+msgid "First name"
+msgstr ""
+
+#: accounts/models.py:35 shop/orders/forms.py:10 shop/orders/models.py:27
+#: templates/accounts/pages/form-register.html:32
+#: templates/accounts/pages/page-profile.html:141
+#: templates/shop/orders/pages/page-create-order.html:28
+msgid "Last name"
+msgstr ""
+
+#: accounts/models.py:36 templates/accounts/pages/page-profile.html:159
+msgid "Date of birth"
+msgstr ""
+
+#: accounts/models.py:37
+msgid "Profile image"
+msgstr ""
+
+#: accounts/models.py:38
+msgid "Staff status"
+msgstr ""
+
+#: accounts/models.py:39
+msgid "Active account"
+msgstr ""
+
+#: accounts/models.py:40
+msgid "Registration date"
+msgstr ""
+
+#: accounts/models.py:48 shop/admin.py:50 shop/models.py:86
+#: shop/orders/models.py:23
+msgid "User"
+msgstr ""
+
+#: accounts/models.py:49
+msgid "Users"
+msgstr ""
+
+#: payments/models.py:21 shop/orders/models.py:12
+msgid "Pending"
+msgstr ""
+
+#: payments/models.py:22
+msgid "Processing"
+msgstr ""
+
+#: payments/models.py:23
+msgid "Succeeded"
+msgstr ""
+
+#: payments/models.py:24
+msgid "Failed"
+msgstr ""
+
+#: payments/models.py:25 shop/orders/models.py:16
+msgid "Cancelled"
+msgstr ""
+
+#: payments/models.py:26
+msgid "Refunded"
+msgstr ""
+
+#: payments/models.py:27
+msgid "Partially refunded"
+msgstr ""
+
+#: payments/models.py:82
+msgid "Payment"
+msgstr ""
+
+#: payments/models.py:83
+msgid "Payments"
+msgstr ""
+
+#: payments/utils.py:9
+#, python-format
+msgid "Order #%(order_id)s"
+msgstr ""
+
+#: payments/views.py:73
+#, python-format
+msgid "Failed to create payment intent: %(error)s"
+msgstr ""
+
+#: payments/views.py:82
+msgid "order_id is required"
+msgstr ""
+
+#: payments/views.py:103
+#, python-format
+msgid "Failed to confirm payment intent: %(error)s"
+msgstr ""
+
+#: shop/admin.py:26 shop/filters.py:18 shop/models.py:36
+msgid "Author"
+msgstr ""
+
+#: shop/filters.py:12 shop/models.py:24
+msgid "Category"
+msgstr ""
+
+#: shop/filters.py:24
+msgid "Minimum"
+msgstr ""
+
+#: shop/filters.py:25
+msgid "From"
+msgstr ""
+
+#: shop/filters.py:30
+msgid "Maximum"
+msgstr ""
+
+#: shop/filters.py:31
+msgid "To"
+msgstr ""
+
+#: shop/filters.py:39
+msgid "Default"
+msgstr ""
+
+#: shop/filters.py:40
+msgid "Price: low to high"
+msgstr ""
+
+#: shop/filters.py:41
+msgid "Price: high to low"
+msgstr ""
+
+#: shop/models.py:11 shop/models.py:50
+msgid "Name"
+msgstr ""
+
+#: shop/models.py:14
+msgid "Parent category"
+msgstr ""
+
+#: shop/models.py:15 shop/models.py:60
+msgid "Active"
+msgstr ""
+
+#: shop/models.py:25 templates/shop/catalog/sections/section-filter.html:25
+msgid "Categories"
+msgstr ""
+
+#: shop/models.py:37 templates/partials/nav.html:15
+#: templates/shop/catalog/sections/section-filter.html:42
+msgid "Authors"
+msgstr ""
+
+#: shop/models.py:52 templates/shop/catalog/partials/product-description.html:4
+msgid "Description"
+msgstr ""
+
+#: shop/models.py:54 shop/orders/models.py:60
+#: templates/payments/email/order_receipt.html:55
+#: templates/shop/catalog/sections/section-filter.html:59
+msgid "Price"
+msgstr ""
+
+#: shop/models.py:55 templates/shop/orders/pages/page-create-order.html:118
+msgid "Discount"
+msgstr ""
+
+#: shop/models.py:56 shop/orders/models.py:61
+#: templates/payments/email/order_receipt.html:54
+msgid "Quantity"
+msgstr ""
+
+#: shop/models.py:57
+msgid "Image"
+msgstr ""
+
+#: shop/models.py:58 shop/orders/models.py:14 shop/orders/models.py:31
+msgid "Created"
+msgstr ""
+
+#: shop/models.py:59 shop/orders/models.py:32
+msgid "Updated"
+msgstr ""
+
+#: shop/models.py:66
+msgid "Book"
+msgstr ""
+
+#: shop/models.py:67
+msgid "Books"
+msgstr ""
+
+#: shop/models.py:75
+#, python-format
+msgid "%(name)s. Price: %(price)s"
+msgstr ""
+
+#: shop/models.py:87 shop/orders/models.py:30
+#: templates/shop/orders/pages/page-create-order.html:51
+msgid "Address"
+msgstr ""
+
+#: shop/models.py:93
+msgid "Customer"
+msgstr ""
+
+#: shop/models.py:94
+msgid "Customers"
+msgstr ""
+
+#: shop/orders/forms.py:24
+msgid "City, street, building"
+msgstr ""
+
+#: shop/orders/models.py:13
+msgid "Paid"
+msgstr ""
+
+#: shop/orders/models.py:15
+msgid "Delivered"
+msgstr ""
+
+#: shop/orders/models.py:29 templates/accounts/pages/page-profile.html:153
+msgid "Phone"
+msgstr ""
+
+#: shop/orders/models.py:35
+msgid "Status"
+msgstr ""
+
+#: shop/orders/models.py:40
+msgid "Total price"
+msgstr ""
+
+#: shop/orders/models.py:53 shop/orders/models.py:58
+msgid "Order"
+msgstr ""
+
+#: shop/orders/models.py:54
+msgid "Orders"
+msgstr ""
+
+#: shop/orders/models.py:59
+msgid "Product"
+msgstr ""
+
+#: shop/orders/models.py:67
+msgid "Order item"
+msgstr ""
+
+#: shop/orders/models.py:68 templates/payments/email/order_receipt.html:50
+msgid "Order items"
+msgstr ""
+
+#: shop/orders/views.py:15
+msgid "Your cart is empty!"
+msgstr ""
+
+#: shop/orders/views.py:39
+#, python-format
+msgid "Order #%(order_id)s has been successfully created"
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:11
+msgid "Already have an account?"
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:11
+#: templates/partials/header.html:181
+msgid "Sign in"
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:49
+msgid "Code"
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:66
+msgid "Passwords must be at least 6 characters."
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:74
+msgid "Re-enter password"
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:81
+msgid ""
+"By selecting Create personal account, you agree to our User Agreement and "
+"acknowledge reading our User Privacy Notice."
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:84
+msgid "Create my account"
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:90
+msgid "or continue with"
+msgstr ""
+
+#: templates/accounts/pages/page-login.html:9
+msgid "Login to your account"
+msgstr ""
+
+#: templates/accounts/pages/page-login.html:18
+msgid "Sign in with Google"
+msgstr ""
+
+#: templates/accounts/pages/page-login.html:24
+msgid "Sign in with Apple"
+msgstr ""
+
+#: templates/accounts/pages/page-login.html:30
+msgid "OR"
+msgstr ""
+
+#: templates/accounts/pages/page-login.html:47
+msgid "Forgot password?"
+msgstr ""
+
+#: templates/accounts/pages/page-login.html:49
+msgid "Sign in to account"
+msgstr ""
+
+#: templates/accounts/pages/page-login.html:55
+msgid "Don't have an account?"
+msgstr ""
+
+#: templates/accounts/pages/page-login.html:56
+msgid "Register now"
+msgstr ""
+
+#: templates/accounts/pages/page-profile.html:10
+msgid "Your profile"
+msgstr ""
+
+#: templates/accounts/pages/page-profile.html:31
+msgid "My profile"
+msgstr ""
+
+#: templates/accounts/pages/page-profile.html:42
+msgid "My orders"
+msgstr ""
+
+#: templates/accounts/pages/page-profile.html:126
+msgid "My account"
+msgstr ""
+
+#: templates/accounts/pages/page-profile.html:127
+msgid "Update your personal information"
+msgstr ""
+
+#: templates/accounts/pages/page-profile.html:171
+msgid "Save changes"
+msgstr ""
+
+#: templates/base.html:7
+msgid "Online bookstore with delivery and secure checkout"
+msgstr ""
+
+#: templates/base.html:10
+msgid "Hillel Book Shop"
+msgstr ""
+
+#: templates/partials/footer.html:5
+#: templates/shop/catalog/partials/product-description.html:6
+msgid "Company"
+msgstr ""
+
+#: templates/partials/footer.html:7
+msgid "About us"
+msgstr ""
+
+#: templates/partials/footer.html:8
+msgid "Investors"
+msgstr ""
+
+#: templates/partials/footer.html:9
+msgid "Careers"
+msgstr ""
+
+#: templates/partials/footer.html:10
+msgid "Blog and news"
+msgstr ""
+
+#: templates/partials/footer.html:11
+msgid "Partners"
+msgstr ""
+
+#: templates/partials/footer.html:15
+msgid "Buyers"
+msgstr ""
+
+#: templates/partials/footer.html:17
+msgid "Find store"
+msgstr ""
+
+#: templates/partials/footer.html:18
+msgid "Registration"
+msgstr ""
+
+#: templates/partials/footer.html:19
+msgid "Partnerships"
+msgstr ""
+
+#: templates/partials/footer.html:20
+msgid "Gift vouchers"
+msgstr ""
+
+#: templates/partials/footer.html:21
+msgid "FAQ"
+msgstr ""
+
+#: templates/partials/footer.html:25
+msgid "Help"
+msgstr ""
+
+#: templates/partials/footer.html:27 templates/partials/header.html:9
+msgid "Contact us"
+msgstr ""
+
+#: templates/partials/footer.html:28
+msgid "Live chat"
+msgstr ""
+
+#: templates/partials/footer.html:29
+msgid "Documentation"
+msgstr ""
+
+#: templates/partials/footer.html:30
+msgid "Download"
+msgstr ""
+
+#: templates/partials/footer.html:31
+msgid "Versions"
+msgstr ""
+
+#: templates/partials/footer.html:35
+msgid "Service"
+msgstr ""
+
+#: templates/partials/footer.html:37
+msgid "Safe purchase"
+msgstr ""
+
+#: templates/partials/footer.html:38
+msgid "Logistics service"
+msgstr ""
+
+#: templates/partials/footer.html:39
+msgid "Refunds"
+msgstr ""
+
+#: templates/partials/footer.html:40
+msgid "Payment methods"
+msgstr ""
+
+#: templates/partials/footer.html:41
+msgid "Delivery terms"
+msgstr ""
+
+#: templates/partials/footer.html:45
+msgid "Languages"
+msgstr ""
+
+#: templates/partials/footer.html:55
+msgid "Copyright © 2026 Hillel Book Shop. All rights reserved."
+msgstr ""
+
+#: templates/partials/header.html:7
+msgid "Odessa, Ukraine"
+msgstr ""
+
+#: templates/partials/header.html:22
+msgid "Apply"
+msgstr ""
+
+#: templates/partials/header.html:93
+msgid "All categories"
+msgstr ""
+
+#: templates/partials/header.html:96
+msgid "Browse the catalog"
+msgstr ""
+
+#: templates/partials/header.html:97
+msgid "Choose a category to quickly find books by topic, genre, or author."
+msgstr ""
+
+#: templates/partials/header.html:107
+msgid "Search will appear here soon..."
+msgstr ""
+
+#: templates/partials/header.html:128
+msgid "Wishlist (0)"
+msgstr ""
+
+#: templates/partials/header.html:143
+msgid "Cart"
+msgstr ""
+
+#: templates/partials/header.html:156
+msgid "Profile"
+msgstr ""
+
+#: templates/partials/header.html:168
+msgid "Dashboard"
+msgstr ""
+
+#: templates/partials/nav.html:6
+msgid "Hot deals"
+msgstr ""
+
+#: templates/partials/nav.html:7
+msgid "Recommended"
+msgstr ""
+
+#: templates/partials/nav.html:8
+msgid "New arrivals"
+msgstr ""
+
+#: templates/partials/nav.html:9
+msgid "Bestsellers"
+msgstr ""
+
+#: templates/partials/nav.html:10
+msgid "Gift sets"
+msgstr ""
+
+#: templates/partials/nav.html:11
+msgid "Articles"
+msgstr ""
+
+#: templates/partials/nav.html:13
+msgid "More"
+msgstr ""
+
+#: templates/partials/nav.html:16
+msgid "Collections"
+msgstr ""
+
+#: templates/partials/nav.html:17
+msgid "Reading lists"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:7
+#: templates/payments/email/order_receipt.html:17
+#, python-format
+msgid "Receipt for order #%(order_id)s"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:19
+#, python-format
+msgid "Thank you for your purchase, %(first_name)s %(last_name)s."
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:30
+msgid "Order details"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:31
+#: templates/payments/payments/page-checkout.html:130
+#: templates/payments/payments/page-success-payment.html:10
+msgid "Status:"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:33
+msgid "Phone:"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:38
+msgid "Delivery"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:39
+msgid "Recipient:"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:40
+msgid "Address:"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:53
+msgid "Item"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:56
+msgid "Total"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:67
+msgid "There are no items in this order."
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:79
+msgid "Total to pay"
+msgstr ""
+
+#: templates/payments/email/order_receipt.html:89
+msgid ""
+"If you have any questions about your order, just reply to this email or "
+"contact the store support team."
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:8
+msgid "Checkout"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:22
+msgid "Order payment"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:29
+msgid "Amount"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:33
+msgid "Currency"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:41
+msgid "Payment description"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:42
+msgid "Payment description (optional)"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:45
+msgid "Payment details"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:49
+msgid "Pay"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:50
+msgid "Back to catalog"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:91
+msgid "Client secret is required!"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:127
+msgid "Payment completed successfully, payment ID:"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:166
+msgid "Initialization error:"
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:172
+msgid "Payment processed successfully"
+msgstr ""
+
+#: templates/payments/payments/page-success-payment.html:8
+#, python-format
+msgid "Your order #%(order_id)s has been placed successfully"
+msgstr ""
+
+#: templates/payments/payments/page-success-payment.html:9
+msgid "Total amount:"
+msgstr ""
+
+#: templates/payments/payments/page-success-payment.html:11
+#: templates/shop/cart/pages/page-cart.html:93
+msgid "Return to catalog"
+msgstr ""
+
+#: templates/shop/cart/pages/page-cart.html:12
+msgid "Your cart"
+msgstr ""
+
+#: templates/shop/cart/pages/page-cart.html:13
+#, python-format
+msgid "%(counter)s product in your cart"
+msgid_plural "%(counter)s products in your cart"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/shop/cart/pages/page-cart.html:26
+msgid "Your cart is empty"
+msgstr ""
+
+#: templates/shop/cart/pages/page-cart.html:46
+#: templates/shop/catalog/partials/product-summary.html:12
+#: templates/shop/orders/pages/page-create-order.html:100
+msgid "Author:"
+msgstr ""
+
+#: templates/shop/cart/pages/page-cart.html:47
+#: templates/shop/orders/pages/page-create-order.html:101
+msgid "Category:"
+msgstr ""
+
+#: templates/shop/cart/pages/page-cart.html:94
+msgid "Clear cart"
+msgstr ""
+
+#: templates/shop/cart/pages/page-cart.html:102
+msgid "Your summary"
+msgstr ""
+
+#: templates/shop/cart/pages/page-cart.html:119
+#: templates/shop/orders/pages/page-create-order.html:127
+msgid "Total:"
+msgstr ""
+
+#: templates/shop/cart/pages/page-cart.html:125
+msgid "Place order"
+msgstr ""
+
+#: templates/shop/catalog/partials/product-actions.html:13
+msgid "Add to cart"
+msgstr ""
+
+#: templates/shop/catalog/partials/product-actions.html:15
+msgid "Buy now"
+msgstr ""
+
+#: templates/shop/catalog/partials/product-description.html:5
+msgid "Reviews"
+msgstr ""
+
+#: templates/shop/catalog/partials/product-description.html:7
+msgid "Usage guide"
+msgstr ""
+
+#: templates/shop/catalog/partials/product-price.html:3
+#: templates/shop/orders/pages/page-create-order.html:104
+msgid "Price:"
+msgstr ""
+
+#: templates/shop/catalog/sections/section-content.html:50
+msgid "Back"
+msgstr ""
+
+#: templates/shop/catalog/sections/section-content.html:54
+msgid "Previous"
+msgstr ""
+
+#: templates/shop/catalog/sections/section-content.html:58
+msgid "Next"
+msgstr ""
+
+#: templates/shop/catalog/sections/section-filter.html:8
+msgid "Show/Hide filters"
+msgstr ""
+
+#: templates/shop/catalog/sections/section-filter.html:73
+msgid "Reset"
+msgstr ""
+
+#: templates/shop/catalog/sections/section-sort.html:11
+msgid "Sort by:"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:18
+msgid "Contact information"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:47
+msgid "Shipping address"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:70
+msgid "Return to cart"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:73
+msgid "Proceed to payment"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:89
+msgid "Order summary"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:105
+msgid "Quantity:"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:106
+#: templates/shop/orders/pages/page-create-order.html:115
+msgid "Subtotal:"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:118
+msgid "(in progress)"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:121
+msgid "Delivery:"
+msgstr ""
+
+#: templates/shop/orders/pages/page-create-order.html:121
+msgid "(carrier rates apply)"
+msgstr ""

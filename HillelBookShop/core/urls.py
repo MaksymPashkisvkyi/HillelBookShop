@@ -22,6 +22,7 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from payments.views import checkout_view
 
 urlpatterns = ([
+    path('i18n/', include('django.conf.urls.i18n')),
     path('', include('shop.urls'), name='shop'),
     path('pages/', include('pages.urls'), name='pages'),
     path('admin/', admin.site.urls, name='admin'),

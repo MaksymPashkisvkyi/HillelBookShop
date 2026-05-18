@@ -1,5 +1,6 @@
 import django_filters
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from .models import Category, Author, Product
 
@@ -8,26 +9,26 @@ class ProductFilter(django_filters.FilterSet):
     name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
     category = django_filters.ModelMultipleChoiceFilter(
         field_name='category',
-        label='category',
+        label=_('Category'),
         queryset=Category.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
     author = django_filters.ModelMultipleChoiceFilter(
         field_name='author',
-        label='Author',
+        label=_('Author'),
         queryset=Author.objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
     price_min = django_filters.NumberFilter(
         field_name='price',
-        label='Мінімальна',
-        widget=forms.NumberInput(attrs={'placeholder': '$0.01'}),
+        label=_('Minimum'),
+        widget=forms.NumberInput(attrs={'placeholder': _('From')}),
         lookup_expr='gte'
     )
     price_max = django_filters.NumberFilter(
         field_name='price',
-        label='Максимальна',
-        widget=forms.NumberInput(attrs={'placeholder': '$1000'}),
+        label=_('Maximum'),
+        widget=forms.NumberInput(attrs={'placeholder': _('To')}),
         lookup_expr='lte'
     )
     sort = django_filters.OrderingFilter(
@@ -35,9 +36,9 @@ class ProductFilter(django_filters.FilterSet):
             ('price', 'price'),
         ),
         choices={
-            ('title', 'за замовчуванням'),
-            ('price', 'за зростанням ціни'),
-            ('-price', 'за зменшенням ціни'),
+            ('title', _('Default')),
+            ('price', _('Price: low to high')),
+            ('-price', _('Price: high to low')),
         }
     )
 

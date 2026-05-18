@@ -1,5 +1,5 @@
 {% extends '../../base.html' %}
-{% load widget_tweaks %}
+{% load widget_tweaks i18n %}
 
 {% block content %}
 {% include '../../partials/header.html' %}
@@ -7,7 +7,7 @@
 
 <section class="py-10">
     <div class="container">
-        <h2 class="text-3xl mb-1">Ваш кабінет</h2>
+        <h2 class="text-3xl mb-1">{% trans 'Your profile' %}</h2>
         <p class="text-secondary">{{ user.first_name }} {{ user.last_name }}, Email: {{ user.email }}</p>
     </div>
 </section>
@@ -28,7 +28,7 @@
                                       fill="#3348FF"/>
                             </svg>
                         </i>
-                        <span>Мій профіль</span>
+                        <span>{% trans 'My profile' %}</span>
                     </a>
                     <a class="nav-link p-1" href="#">
                         <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
@@ -39,7 +39,7 @@
                                       fill="#3348FF"/>
                             </svg>
                         </i>
-                        <span>Мої замовлення</span>
+                        <span>{% trans 'My orders' %}</span>
                     </a>
                     <!--<a class="nav-link p-1" href="#">
                         <i class="bg-white w-8 h-8 d-flex border text-primary flex-center rounded shadow-sm">
@@ -123,8 +123,8 @@
 
                 <div class="card shadow-sm card-body mb-5">
                     <div class="mb-4">
-                        <h4 class="mb-1">Мій кабінет</h4>
-                        <p class="text-secondary mb-0">Оновіть вашу персональну інформацію</p>
+                        <h4 class="mb-1">{% trans 'My account' %}</h4>
+                        <p class="text-secondary mb-0">{% trans 'Update your personal information' %}</p>
                     </div>
 
                     <form method="post">
@@ -132,32 +132,31 @@
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="{{ form.first_name.id_for_label }}" class="form-label">Ім'я</label>
+                                <label for="{{ form.first_name.id_for_label }}" class="form-label">{% trans 'First name' %}</label>
                                 {{ form.first_name }}
                                 <div class="text-danger small mt-1">{{ form.first_name.errors }}</div>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="{{ form.last_name.id_for_label }}" class="form-label">Прізвище</label>
+                                <label for="{{ form.last_name.id_for_label }}" class="form-label">{% trans 'Last name' %}</label>
                                 {{ form.last_name }}
                                 <div class="text-danger small mt-1">{{ form.last_name.errors }}</div>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                                <label for="{{ form.email.id_for_label }}" class="form-label">{% trans 'Email' %}</label>
                                 {{ form.email }}
                                 <div class="text-danger small mt-1">{{ form.email.errors }}</div>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="{{ form.phone.id_for_label }}" class="form-label">Телефон</label>
+                                <label for="{{ form.phone.id_for_label }}" class="form-label">{% trans 'Phone' %}</label>
                                 {{ form.phone|attr:"value:+380" }}
                                 <div class="text-danger small mt-1">{{ form.phone.errors }}</div>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="{{ form.date_of_birth.id_for_label }}" class="form-label">Дата
-                                    народження</label>
+                                <label for="{{ form.date_of_birth.id_for_label }}" class="form-label">{% trans 'Date of birth' %}</label>
                                 {{ form.date_of_birth }}
                                 <div class="text-danger small mt-1">{{ form.date_of_birth.errors }}</div>
                             </div>
@@ -169,7 +168,7 @@
                         </div>
                         {% endif %}
 
-                        <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+                        <button type="submit" class="btn btn-primary">{% trans 'Save changes' %}</button>
                     </form>
 
                 </div>

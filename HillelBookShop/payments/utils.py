@@ -1,17 +1,12 @@
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
+from django.utils.translation import gettext as _
 
 
-def send_receipt(email, order):
-    # send_mail(
-    #     subject="Hillel Book Shop",
-    #     message=f"Hillel Book Shop <{email}>",
-    #     from_email=settings.DEFAULT_FROM_EMAIL,
-    #     recipient_list=[email],
-    # )
+def send_receipt(order):
     html_content = render_to_string('payments/email/order_receipt.html', {'order': order})
     email = EmailMultiAlternatives(
-        subject=f'Замовлення #{order.id}',
+        subject=_('Order #%(order_id)s') % {'order_id': order.id},
         from_email=None,
         to=[order.email],
     )

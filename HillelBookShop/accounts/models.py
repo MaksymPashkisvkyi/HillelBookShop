@@ -8,9 +8,9 @@ class UserProfileManager(BaseUserManager):
 
     def create_user(self, email, phone, password=None, **extra_fields):
         if not email:
-            raise ValueError('Поле "Електронна адреса" є обовʼязковим.')
+            raise ValueError('The "Email address" field is required.')
         if not phone:
-            raise ValueError('Поле "Номер телефону" є обовʼязковим.')
+            raise ValueError('The "Phone number" field is required.')
         email = self.normalize_email(email)
         user = self.model(email=email, phone=phone, **extra_fields)
         user.set_password(password)
@@ -30,14 +30,14 @@ class UserProfileManager(BaseUserManager):
 
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     email = models.CharField(unique=True, max_length=255)
-    phone = models.CharField(_('Номер телефону'), max_length=13, unique=True)
-    first_name = models.CharField(_('Імʼя'), max_length=30, blank=True)
-    last_name = models.CharField(_('Прізвище'), max_length=50, blank=True)
-    date_of_birth = models.DateField(_('Дата народження'), null=True, blank=True)
-    profile_image = models.ImageField(_('Фото аватару'), upload_to='profile_avatars/', blank=True, null=True)
-    is_staff = models.BooleanField(_('Статус персоналу'), default=False)
-    is_active = models.BooleanField(_('Активований акаунт'), default=True)
-    date_joined = models.DateTimeField(_('Дата реєстрації'), auto_now_add=True)
+    phone = models.CharField(_('Phone number'), max_length=13, unique=True)
+    first_name = models.CharField(_('First name'), max_length=30, blank=True)
+    last_name = models.CharField(_('Last name'), max_length=50, blank=True)
+    date_of_birth = models.DateField(_('Date of birth'), null=True, blank=True)
+    profile_image = models.ImageField(_('Profile image'), upload_to='profile_avatars/', blank=True, null=True)
+    is_staff = models.BooleanField(_('Staff status'), default=False)
+    is_active = models.BooleanField(_('Active account'), default=True)
+    date_joined = models.DateTimeField(_('Registration date'), auto_now_add=True)
 
     objects = UserProfileManager()
 
@@ -45,8 +45,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['phone']
 
     class Meta:
-        verbose_name = 'Користувач'
-        verbose_name_plural = 'Користувачі'
+        verbose_name = _('User')
+        verbose_name_plural = _('Users')
 
     def __str__(self):
         return self.email

@@ -27,7 +27,7 @@ class StripePaymentService(Payment):
             idempotency_key: Optional[str] = None,
     ) -> Tuple[Payment, stripe.PaymentIntent]:
         if amount < Decimal('0.50'):
-            raise ValueError('Мінімальна сума платежу 0.50')
+            raise ValueError('Minimum payment amount is 0.50')
 
         stripe_amount = int(amount * 100)
         payment_metadata = metadata or {}

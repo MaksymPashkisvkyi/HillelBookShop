@@ -1,5 +1,6 @@
+{% load i18n %}
 <div class="mb-5">
-    <p class="form-label font-medium mb-2">Ціна: </p>
+    <p class="form-label font-medium mb-2">{% trans 'Price:' %}</p>
 
     {% if product.discount_price %}
     <strong class="text-xl"> {{ product.price }} грн. </strong>

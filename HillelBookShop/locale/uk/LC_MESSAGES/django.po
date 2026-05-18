@@ -1,0 +1,900 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-18 17:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: accounts/admin.py:16
+msgid "Basic information"
+msgstr "Основна інформація"
+
+#: accounts/admin.py:17
+msgid "Personal information"
+msgstr "Персональна інформація"
+
+#: accounts/admin.py:20
+msgid "Permissions"
+msgstr "Дозволи"
+
+#: accounts/admin.py:33 shop/models.py:29
+msgid "Full name"
+msgstr "ПІБ"
+
+#: accounts/forms.py:9 accounts/forms.py:45
+#: templates/accounts/pages/form-register.html:65
+#: templates/accounts/pages/page-login.html:42
+msgid "Password"
+msgstr "Пароль"
+
+#: accounts/forms.py:10
+msgid "Password confirmation"
+msgstr "Підтвердження пароля"
+
+#: accounts/forms.py:18 accounts/forms.py:19
+msgid "Type here"
+msgstr "Введіть тут"
+
+#: accounts/forms.py:20
+msgid "Enter email address"
+msgstr "Введіть email адресу"
+
+#: accounts/forms.py:21 accounts/models.py:33 shop/orders/forms.py:11
+#: templates/accounts/pages/form-register.html:45
+#: templates/shop/orders/pages/page-create-order.html:33
+msgid "Phone number"
+msgstr "Номер телефону"
+
+#: accounts/forms.py:22
+msgid "Enter password"
+msgstr "Введіть пароль"
+
+#: accounts/forms.py:23
+msgid "Repeat password"
+msgstr "Повторіть пароль"
+
+#: accounts/forms.py:31
+msgid "Passwords don't match"
+msgstr "Паролі не збігаються"
+
+#: accounts/forms.py:44 shop/orders/forms.py:12
+#: templates/accounts/pages/form-register.html:39
+#: templates/accounts/pages/page-login.html:37
+#: templates/accounts/pages/page-profile.html:147
+#: templates/shop/orders/pages/page-create-order.html:38
+msgid "Email"
+msgstr "Email"
+
+#: accounts/forms.py:49 accounts/forms.py:68
+msgid "Enter email"
+msgstr "Введіть email"
+
+#: accounts/forms.py:50
+msgid "Enter your password"
+msgstr "Введіть ваш пароль"
+
+#: accounts/forms.py:66
+msgid "Enter first name"
+msgstr "Введіть ім'я"
+
+#: accounts/forms.py:67
+msgid "Enter last name"
+msgstr "Введіть прізвище"
+
+#: accounts/forms.py:69
+msgid "Enter phone number"
+msgstr "Введіть номер телефону"
+
+#: accounts/models.py:34 shop/orders/forms.py:9 shop/orders/models.py:26
+#: templates/accounts/pages/form-register.html:27
+#: templates/accounts/pages/page-profile.html:135
+#: templates/shop/orders/pages/page-create-order.html:23
+msgid "First name"
+msgstr "Ім'я"
+
+#: accounts/models.py:35 shop/orders/forms.py:10 shop/orders/models.py:27
+#: templates/accounts/pages/form-register.html:32
+#: templates/accounts/pages/page-profile.html:141
+#: templates/shop/orders/pages/page-create-order.html:28
+msgid "Last name"
+msgstr "Прізвище"
+
+#: accounts/models.py:36 templates/accounts/pages/page-profile.html:159
+msgid "Date of birth"
+msgstr "Дата народження"
+
+#: accounts/models.py:37
+msgid "Profile image"
+msgstr "Фото аватару"
+
+#: accounts/models.py:38
+msgid "Staff status"
+msgstr "Статус персоналу"
+
+#: accounts/models.py:39
+msgid "Active account"
+msgstr "Активований акаунт"
+
+#: accounts/models.py:40
+msgid "Registration date"
+msgstr "Дата реєстрації"
+
+#: accounts/models.py:48 shop/admin.py:50 shop/models.py:86
+#: shop/orders/models.py:23
+msgid "User"
+msgstr "Користувач"
+
+#: accounts/models.py:49
+msgid "Users"
+msgstr "Користувачі"
+
+#: payments/models.py:21 shop/orders/models.py:12
+msgid "Pending"
+msgstr "Очікує"
+
+#: payments/models.py:22
+msgid "Processing"
+msgstr "Обробляється"
+
+#: payments/models.py:23
+msgid "Succeeded"
+msgstr "Успішно"
+
+#: payments/models.py:24
+msgid "Failed"
+msgstr "Невдало"
+
+#: payments/models.py:25 shop/orders/models.py:16
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#: payments/models.py:26
+msgid "Refunded"
+msgstr "Повернуто"
+
+#: payments/models.py:27
+msgid "Partially refunded"
+msgstr "Частково повернуто"
+
+#: payments/models.py:82
+msgid "Payment"
+msgstr "Платіж"
+
+#: payments/models.py:83
+msgid "Payments"
+msgstr "Платежі"
+
+#: payments/utils.py:9
+#, python-format
+msgid "Order #%(order_id)s"
+msgstr "Замовлення #%(order_id)s"
+
+#: payments/views.py:73
+#, python-format
+msgid "Failed to create payment intent: %(error)s"
+msgstr "Не вдалося створити намір платежу: %(error)s"
+
+#: payments/views.py:82
+msgid "order_id is required"
+msgstr "order_id є обов'язковим"
+
+#: payments/views.py:103
+#, python-format
+msgid "Failed to confirm payment intent: %(error)s"
+msgstr "Не вдалося підтвердити намір платежу: %(error)s"
+
+#: shop/admin.py:26 shop/filters.py:18 shop/models.py:36
+msgid "Author"
+msgstr "Автор"
+
+#: shop/filters.py:12 shop/models.py:24
+msgid "Category"
+msgstr "Категорія"
+
+#: shop/filters.py:24
+msgid "Minimum"
+msgstr "Мінімум"
+
+#: shop/filters.py:25
+msgid "From"
+msgstr "Від"
+
+#: shop/filters.py:30
+msgid "Maximum"
+msgstr "Максимум"
+
+#: shop/filters.py:31
+msgid "To"
+msgstr "До"
+
+#: shop/filters.py:39
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: shop/filters.py:40
+msgid "Price: low to high"
+msgstr "Ціна: від меншої до більшої"
+
+#: shop/filters.py:41
+msgid "Price: high to low"
+msgstr "Ціна: від більшої до меншої"
+
+#: shop/models.py:11 shop/models.py:50
+msgid "Name"
+msgstr "Назва"
+
+#: shop/models.py:14
+msgid "Parent category"
+msgstr "Батьківська категорія"
+
+#: shop/models.py:15 shop/models.py:60
+msgid "Active"
+msgstr "Активовано"
+
+#: shop/models.py:25 templates/shop/catalog/sections/section-filter.html:25
+msgid "Categories"
+msgstr "Категорії"
+
+#: shop/models.py:37 templates/partials/nav.html:15
+#: templates/shop/catalog/sections/section-filter.html:42
+msgid "Authors"
+msgstr "Автори"
+
+#: shop/models.py:52 templates/shop/catalog/partials/product-description.html:4
+msgid "Description"
+msgstr "Опис"
+
+#: shop/models.py:54 shop/orders/models.py:60
+#: templates/payments/email/order_receipt.html:55
+#: templates/shop/catalog/sections/section-filter.html:59
+msgid "Price"
+msgstr "Ціна"
+
+#: shop/models.py:55 templates/shop/orders/pages/page-create-order.html:118
+msgid "Discount"
+msgstr "Знижка"
+
+#: shop/models.py:56 shop/orders/models.py:61
+#: templates/payments/email/order_receipt.html:54
+msgid "Quantity"
+msgstr "Кількість"
+
+#: shop/models.py:57
+msgid "Image"
+msgstr "Зображення"
+
+#: shop/models.py:58 shop/orders/models.py:14 shop/orders/models.py:31
+msgid "Created"
+msgstr "Створено"
+
+#: shop/models.py:59 shop/orders/models.py:32
+msgid "Updated"
+msgstr "Змінено"
+
+#: shop/models.py:66
+msgid "Book"
+msgstr "Книга"
+
+#: shop/models.py:67
+msgid "Books"
+msgstr "Книги"
+
+#: shop/models.py:75
+#, python-format
+msgid "%(name)s. Price: %(price)s"
+msgstr "%(name)s. Ціна: %(price)s"
+
+#: shop/models.py:87 shop/orders/models.py:30
+#: templates/shop/orders/pages/page-create-order.html:51
+msgid "Address"
+msgstr "Адреса"
+
+#: shop/models.py:93
+msgid "Customer"
+msgstr "Клієнт"
+
+#: shop/models.py:94
+msgid "Customers"
+msgstr "Клієнти"
+
+#: shop/orders/forms.py:24
+msgid "City, street, building"
+msgstr "Місто, вулиця, будинок"
+
+#: shop/orders/models.py:13
+msgid "Paid"
+msgstr "Оплачено"
+
+#: shop/orders/models.py:15
+msgid "Delivered"
+msgstr "Доставлено"
+
+#: shop/orders/models.py:29 templates/accounts/pages/page-profile.html:153
+msgid "Phone"
+msgstr "Телефон"
+
+#: shop/orders/models.py:35
+msgid "Status"
+msgstr "Статус"
+
+#: shop/orders/models.py:40
+msgid "Total price"
+msgstr "Загальна вартість"
+
+#: shop/orders/models.py:53 shop/orders/models.py:58
+msgid "Order"
+msgstr "Замовлення"
+
+#: shop/orders/models.py:54
+msgid "Orders"
+msgstr "Замовлення"
+
+#: shop/orders/models.py:59
+msgid "Product"
+msgstr "Продукт"
+
+#: shop/orders/models.py:67
+msgid "Order item"
+msgstr "Замовлений товар"
+
+#: shop/orders/models.py:68 templates/payments/email/order_receipt.html:50
+msgid "Order items"
+msgstr "Склад замовлення"
+
+#: shop/orders/views.py:15
+msgid "Your cart is empty!"
+msgstr "Ваш кошик порожній!"
+
+#: shop/orders/views.py:39
+#, python-format
+msgid "Order #%(order_id)s has been successfully created"
+msgstr "Замовлення #%(order_id)s було успішно створено"
+
+#: templates/accounts/pages/form-register.html:11
+msgid "Already have an account?"
+msgstr "Вже маєте акаунт?"
+
+#: templates/accounts/pages/form-register.html:11
+#: templates/partials/header.html:181
+msgid "Sign in"
+msgstr "Увійти"
+
+#: templates/accounts/pages/form-register.html:49
+msgid "Code"
+msgstr "Код"
+
+#: templates/accounts/pages/form-register.html:66
+msgid "Passwords must be at least 6 characters."
+msgstr "Пароль має містити щонайменше 6 символів."
+
+#: templates/accounts/pages/form-register.html:74
+msgid "Re-enter password"
+msgstr "Повторіть пароль"
+
+#: templates/accounts/pages/form-register.html:81
+msgid ""
+"By selecting Create personal account, you agree to our User Agreement and "
+"acknowledge reading our User Privacy Notice."
+msgstr ""
+
+#: templates/accounts/pages/form-register.html:84
+msgid "Create my account"
+msgstr "Створити акаунт"
+
+#: templates/accounts/pages/form-register.html:90
+msgid "or continue with"
+msgstr "або продовжити через"
+
+#: templates/accounts/pages/page-login.html:9
+msgid "Login to your account"
+msgstr "Увійдіть у свій акаунт"
+
+#: templates/accounts/pages/page-login.html:18
+msgid "Sign in with Google"
+msgstr "Увійти через Google"
+
+#: templates/accounts/pages/page-login.html:24
+msgid "Sign in with Apple"
+msgstr "Увійти через Apple"
+
+#: templates/accounts/pages/page-login.html:30
+msgid "OR"
+msgstr "АБО"
+
+#: templates/accounts/pages/page-login.html:47
+msgid "Forgot password?"
+msgstr "Забули пароль?"
+
+#: templates/accounts/pages/page-login.html:49
+msgid "Sign in to account"
+msgstr "Увійти в акаунт"
+
+#: templates/accounts/pages/page-login.html:55
+msgid "Don't have an account?"
+msgstr "Ще не маєте акаунта?"
+
+#: templates/accounts/pages/page-login.html:56
+msgid "Register now"
+msgstr "Зареєструватися"
+
+#: templates/accounts/pages/page-profile.html:10
+msgid "Your profile"
+msgstr "Ваш профіль"
+
+#: templates/accounts/pages/page-profile.html:31
+msgid "My profile"
+msgstr "Мій профіль"
+
+#: templates/accounts/pages/page-profile.html:42
+msgid "My orders"
+msgstr "Мої замовлення"
+
+#: templates/accounts/pages/page-profile.html:126
+msgid "My account"
+msgstr "Мій кабінет"
+
+#: templates/accounts/pages/page-profile.html:127
+msgid "Update your personal information"
+msgstr "Оновіть вашу персональну інформацію"
+
+#: templates/accounts/pages/page-profile.html:171
+msgid "Save changes"
+msgstr "Зберегти зміни"
+
+#: templates/base.html:7
+msgid "Online bookstore with delivery and secure checkout"
+msgstr "Онлайн-книгарня з доставкою та безпечною оплатою"
+
+#: templates/base.html:10
+msgid "Hillel Book Shop"
+msgstr "Hillel Book Shop"
+
+#: templates/partials/footer.html:5
+#: templates/shop/catalog/partials/product-description.html:6
+msgid "Company"
+msgstr "Компанія"
+
+#: templates/partials/footer.html:7
+msgid "About us"
+msgstr "Про нас"
+
+#: templates/partials/footer.html:8
+msgid "Investors"
+msgstr "Інвесторам"
+
+#: templates/partials/footer.html:9
+msgid "Careers"
+msgstr "Карʼєра"
+
+#: templates/partials/footer.html:10
+msgid "Blog and news"
+msgstr "Блог і новини"
+
+#: templates/partials/footer.html:11
+msgid "Partners"
+msgstr "Партнери"
+
+#: templates/partials/footer.html:15
+msgid "Buyers"
+msgstr "Покупцям"
+
+#: templates/partials/footer.html:17
+msgid "Find store"
+msgstr "Знайти магазин"
+
+#: templates/partials/footer.html:18
+msgid "Registration"
+msgstr "Реєстрація"
+
+#: templates/partials/footer.html:19
+msgid "Partnerships"
+msgstr "Партнерства"
+
+#: templates/partials/footer.html:20
+msgid "Gift vouchers"
+msgstr "Подарункові сертифікати"
+
+#: templates/partials/footer.html:21
+msgid "FAQ"
+msgstr "Поширені запитання"
+
+#: templates/partials/footer.html:25
+msgid "Help"
+msgstr "Допомога"
+
+#: templates/partials/footer.html:27 templates/partials/header.html:9
+msgid "Contact us"
+msgstr "Зв'язатися з нами"
+
+#: templates/partials/footer.html:28
+msgid "Live chat"
+msgstr "Онлайн-чат"
+
+#: templates/partials/footer.html:29
+msgid "Documentation"
+msgstr "Документація"
+
+#: templates/partials/footer.html:30
+msgid "Download"
+msgstr "Завантаження"
+
+#: templates/partials/footer.html:31
+msgid "Versions"
+msgstr "Версії"
+
+#: templates/partials/footer.html:35
+msgid "Service"
+msgstr "Сервіс"
+
+#: templates/partials/footer.html:37
+msgid "Safe purchase"
+msgstr "Безпечна покупка"
+
+#: templates/partials/footer.html:38
+msgid "Logistics service"
+msgstr "Логістичний сервіс"
+
+#: templates/partials/footer.html:39
+msgid "Refunds"
+msgstr "Повернення коштів"
+
+#: templates/partials/footer.html:40
+msgid "Payment methods"
+msgstr "Способи оплати"
+
+#: templates/partials/footer.html:41
+msgid "Delivery terms"
+msgstr "Умови доставки"
+
+#: templates/partials/footer.html:45
+msgid "Languages"
+msgstr "Мови"
+
+#: templates/partials/footer.html:55
+msgid "Copyright © 2026 Hillel Book Shop. All rights reserved."
+msgstr "© 2026 Hillel Book Shop. Усі права захищено."
+
+#: templates/partials/header.html:7
+msgid "Odessa, Ukraine"
+msgstr "Одеса, Україна"
+
+#: templates/partials/header.html:22
+msgid "Apply"
+msgstr "Застосувати"
+
+#: templates/partials/header.html:93
+msgid "All categories"
+msgstr "Усі категорії"
+
+#: templates/partials/header.html:96
+msgid "Browse the catalog"
+msgstr "Перегляньте каталог"
+
+#: templates/partials/header.html:97
+msgid "Choose a category to quickly find books by topic, genre, or author."
+msgstr "Оберіть категорію, щоб швидко знайти книги за темою, жанром або автором."
+
+#: templates/partials/header.html:107
+msgid "Search will appear here soon..."
+msgstr "Пошук зʼявиться тут зовсім скоро..."
+
+#: templates/partials/header.html:128
+msgid "Wishlist (0)"
+msgstr "Список бажань (0)"
+
+#: templates/partials/header.html:143
+msgid "Cart"
+msgstr "Кошик"
+
+#: templates/partials/header.html:156
+msgid "Profile"
+msgstr "Профіль"
+
+#: templates/partials/header.html:168
+msgid "Dashboard"
+msgstr "Панель керування"
+
+#: templates/partials/nav.html:6
+msgid "Hot deals"
+msgstr "Гарячі пропозиції"
+
+#: templates/partials/nav.html:7
+msgid "Recommended"
+msgstr "Рекомендовані"
+
+#: templates/partials/nav.html:8
+msgid "New arrivals"
+msgstr "Нові надходження"
+
+#: templates/partials/nav.html:9
+msgid "Bestsellers"
+msgstr "Бестселери"
+
+#: templates/partials/nav.html:10
+msgid "Gift sets"
+msgstr "Подарункові набори"
+
+#: templates/partials/nav.html:11
+msgid "Articles"
+msgstr "Статті"
+
+#: templates/partials/nav.html:13
+msgid "More"
+msgstr "Ще"
+
+#: templates/partials/nav.html:16
+msgid "Collections"
+msgstr "Добірки"
+
+#: templates/partials/nav.html:17
+msgid "Reading lists"
+msgstr "Списки для читання"
+
+#: templates/payments/email/order_receipt.html:7
+#: templates/payments/email/order_receipt.html:17
+#, python-format
+msgid "Receipt for order #%(order_id)s"
+msgstr "Чек за замовленням #%(order_id)s"
+
+#: templates/payments/email/order_receipt.html:19
+#, python-format
+msgid "Thank you for your purchase, %(first_name)s %(last_name)s."
+msgstr "Дякуємо за покупку, %(first_name)s %(last_name)s."
+
+#: templates/payments/email/order_receipt.html:30
+msgid "Order details"
+msgstr "Дані замовлення"
+
+#: templates/payments/email/order_receipt.html:31
+#: templates/payments/payments/page-checkout.html:130
+#: templates/payments/payments/page-success-payment.html:10
+msgid "Status:"
+msgstr "Статус:"
+
+#: templates/payments/email/order_receipt.html:33
+msgid "Phone:"
+msgstr "Телефон:"
+
+#: templates/payments/email/order_receipt.html:38
+msgid "Delivery"
+msgstr "Доставка"
+
+#: templates/payments/email/order_receipt.html:39
+msgid "Recipient:"
+msgstr "Отримувач:"
+
+#: templates/payments/email/order_receipt.html:40
+msgid "Address:"
+msgstr "Адреса:"
+
+#: templates/payments/email/order_receipt.html:53
+msgid "Item"
+msgstr "Товар"
+
+#: templates/payments/email/order_receipt.html:56
+msgid "Total"
+msgstr "Разом"
+
+#: templates/payments/email/order_receipt.html:67
+msgid "There are no items in this order."
+msgstr "У замовленні немає товарів."
+
+#: templates/payments/email/order_receipt.html:79
+msgid "Total to pay"
+msgstr "Підсумок до сплати"
+
+#: templates/payments/email/order_receipt.html:89
+msgid ""
+"If you have any questions about your order, just reply to this email or "
+"contact the store support team."
+msgstr ""
+
+#: templates/payments/payments/page-checkout.html:8
+msgid "Checkout"
+msgstr "Оформлення оплати"
+
+#: templates/payments/payments/page-checkout.html:22
+msgid "Order payment"
+msgstr "Оплата замовлення"
+
+#: templates/payments/payments/page-checkout.html:29
+msgid "Amount"
+msgstr "Сума"
+
+#: templates/payments/payments/page-checkout.html:33
+msgid "Currency"
+msgstr "Валюта"
+
+#: templates/payments/payments/page-checkout.html:41
+msgid "Payment description"
+msgstr "Опис платежу"
+
+#: templates/payments/payments/page-checkout.html:42
+msgid "Payment description (optional)"
+msgstr "Опис платежу (необовʼязково)"
+
+#: templates/payments/payments/page-checkout.html:45
+msgid "Payment details"
+msgstr "Дані платежу"
+
+#: templates/payments/payments/page-checkout.html:49
+msgid "Pay"
+msgstr "Оплатити"
+
+#: templates/payments/payments/page-checkout.html:50
+msgid "Back to catalog"
+msgstr "До каталогу"
+
+#: templates/payments/payments/page-checkout.html:91
+msgid "Client secret is required!"
+msgstr "Потрібен client secret!"
+
+#: templates/payments/payments/page-checkout.html:127
+msgid "Payment completed successfully, payment ID:"
+msgstr "Платіж успішно проведено, ID платежу:"
+
+#: templates/payments/payments/page-checkout.html:166
+msgid "Initialization error:"
+msgstr "Помилка ініціалізації:"
+
+#: templates/payments/payments/page-checkout.html:172
+msgid "Payment processed successfully"
+msgstr "Платіж оброблено успішно"
+
+#: templates/payments/payments/page-success-payment.html:8
+#, python-format
+msgid "Your order #%(order_id)s has been placed successfully"
+msgstr "Ваше замовлення #%(order_id)s успішно оформлено"
+
+#: templates/payments/payments/page-success-payment.html:9
+msgid "Total amount:"
+msgstr "Загальна сума:"
+
+#: templates/payments/payments/page-success-payment.html:11
+#: templates/shop/cart/pages/page-cart.html:93
+msgid "Return to catalog"
+msgstr "Повернутися до каталогу"
+
+#: templates/shop/cart/pages/page-cart.html:12
+msgid "Your cart"
+msgstr "Ваш кошик"
+
+#: templates/shop/cart/pages/page-cart.html:13
+#, python-format
+msgid "%(counter)s product in your cart"
+msgid_plural "%(counter)s products in your cart"
+msgstr[0] "%(counter)s товар у вашому кошику"
+msgstr[1] "%(counter)s товари у вашому кошику"
+
+#: templates/shop/cart/pages/page-cart.html:26
+msgid "Your cart is empty"
+msgstr "Ваш кошик порожній"
+
+#: templates/shop/cart/pages/page-cart.html:46
+#: templates/shop/catalog/partials/product-summary.html:12
+#: templates/shop/orders/pages/page-create-order.html:100
+msgid "Author:"
+msgstr "Автор:"
+
+#: templates/shop/cart/pages/page-cart.html:47
+#: templates/shop/orders/pages/page-create-order.html:101
+msgid "Category:"
+msgstr "Категорія:"
+
+#: templates/shop/cart/pages/page-cart.html:94
+msgid "Clear cart"
+msgstr "Очистити кошик"
+
+#: templates/shop/cart/pages/page-cart.html:102
+msgid "Your summary"
+msgstr "Ваш чек"
+
+#: templates/shop/cart/pages/page-cart.html:119
+#: templates/shop/orders/pages/page-create-order.html:127
+msgid "Total:"
+msgstr "Всього:"
+
+#: templates/shop/cart/pages/page-cart.html:125
+msgid "Place order"
+msgstr "Оформити замовлення"
+
+#: templates/shop/catalog/partials/product-actions.html:13
+msgid "Add to cart"
+msgstr "Додати до кошика"
+
+#: templates/shop/catalog/partials/product-actions.html:15
+msgid "Buy now"
+msgstr "Купити зараз"
+
+#: templates/shop/catalog/partials/product-description.html:5
+msgid "Reviews"
+msgstr "Відгуки"
+
+#: templates/shop/catalog/partials/product-description.html:7
+msgid "Usage guide"
+msgstr "Інструкція"
+
+#: templates/shop/catalog/partials/product-price.html:3
+#: templates/shop/orders/pages/page-create-order.html:104
+msgid "Price:"
+msgstr "Ціна:"
+
+#: templates/shop/catalog/sections/section-content.html:50
+msgid "Back"
+msgstr "Назад"
+
+#: templates/shop/catalog/sections/section-content.html:54
+msgid "Previous"
+msgstr "Попередня"
+
+#: templates/shop/catalog/sections/section-content.html:58
+msgid "Next"
+msgstr "Наступна"
+
+#: templates/shop/catalog/sections/section-filter.html:8
+msgid "Show/Hide filters"
+msgstr "Показати/сховати фільтри"
+
+#: templates/shop/catalog/sections/section-filter.html:73
+msgid "Reset"
+msgstr "Скинути"
+
+#: templates/shop/catalog/sections/section-sort.html:11
+msgid "Sort by:"
+msgstr "Сортувати:"
+
+#: templates/shop/orders/pages/page-create-order.html:18
+msgid "Contact information"
+msgstr "Контактна інформація"
+
+#: templates/shop/orders/pages/page-create-order.html:47
+msgid "Shipping address"
+msgstr "Адреса доставки"
+
+#: templates/shop/orders/pages/page-create-order.html:70
+msgid "Return to cart"
+msgstr "Повернутися до кошика"
+
+#: templates/shop/orders/pages/page-create-order.html:73
+msgid "Proceed to payment"
+msgstr "Перейти до оплати"
+
+#: templates/shop/orders/pages/page-create-order.html:89
+msgid "Order summary"
+msgstr "Огляд замовлення"
+
+#: templates/shop/orders/pages/page-create-order.html:105
+msgid "Quantity:"
+msgstr "Кількість:"
+
+#: templates/shop/orders/pages/page-create-order.html:106
+#: templates/shop/orders/pages/page-create-order.html:115
+msgid "Subtotal:"
+msgstr "Сума:"
+
+#: templates/shop/orders/pages/page-create-order.html:118
+msgid "(in progress)"
+msgstr "(в розробці)"
+
+#: templates/shop/orders/pages/page-create-order.html:121
+msgid "Delivery:"
+msgstr "Доставка:"
+
+#: templates/shop/orders/pages/page-create-order.html:121
+msgid "(carrier rates apply)"
+msgstr "(за тарифами перевізника)"

@@ -4,6 +4,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponse
+from django.utils.translation import gettext as _
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
@@ -13,6 +14,7 @@ from payments.models import Payment
 from payments.stripe_service import StripePaymentService
 from payments.serializers import PaymentSerializer, CreatePaymentSerializer
 from shop.orders.models import Order
+from payments.utils import send_receipt
 
 logger = logging.getLogger(__name__)
 
@@ -68,12 +70,21 @@ class PaymentViewSet(viewsets.ModelViewSet):
         except Exception as e:
             logger.error(f'Error on payment intent creation: {str(e)}')
             return Response({
-                'error': f'Failed to create payment intent: {str(e)}',
+                'error': _('Failed to create payment intent: %(error)s') % {'error': str(e)},
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     @action(detail=True, methods=['post'])
     def confirm(self, request, pk=None):
         payment = self.get_object()
+        order_id = request.data.get('order_id')
+        if not order_id:
+            return Response({
+                'error': _('order_id is required'),
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        order = get_object_or_404(Order, id=order_id)
+        order.payment = payment
+        order.save()
 
         try:
             payment = StripePaymentService.confirm_payment(
@@ -81,9 +92,13 @@ class PaymentViewSet(viewsets.ModelViewSet):
                 stripe_payment_intent_id=payment.stripe_payment_intent_id
             )
             serializer = self.get_serializer(payment)
+            try:
+                send_receipt(order)
+            except Exception as e:
+                logger.warning(f'Payment confirmed, but receipt sending failed: {str(e)}')
             return Response(serializer.data)
         except Exception as e:
             logger.error(f'Error on payment intent confirmation: {str(e)}')
             return Response({
-                'error': f'Failed to confirm payment intent: {str(e)}',
+                'error': _('Failed to confirm payment intent: %(error)s') % {'error': str(e)},
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

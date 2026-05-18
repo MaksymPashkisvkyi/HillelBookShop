@@ -1,5 +1,5 @@
 {% extends '../../../base.html' %}
-{% load l10n %}
+{% load l10n i18n %}
 {% load widget_tweaks %}
 
 {% block content %}
@@ -15,28 +15,28 @@
                     {% csrf_token %}
                     <div class="py-10 md:mr-10">
                         <article class="mb-5">
-                            <h4 class="mb-5 text-xl"> Контактна інформація </h4>
+                            <h4 class="mb-5 text-xl">{% trans 'Contact information' %}</h4>
 
                             {{ form.non_field_errors }}
                             <fieldset class="row gap-3 mb-6">
                                 <div class="sm:col-6 mb-3">
-                                    <label class="form-label" for="{{ form.first_name.id_for_label }}">Імʼя</label>
-                                    {{ form.first_name|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Імʼя" }}
+                                    <label class="form-label" for="{{ form.first_name.id_for_label }}">{% trans 'First name' %}</label>
+                                    {{ form.first_name|add_class:"form-control"|attr:"type:text" }}
                                     {{ form.first_name.errors }}
                                 </div>
                                 <div class="sm:col-6 mb-3">
-                                    <label class="form-label" for="{{ form.last_name.id_for_label }}">Прізвище</label>
-                                    {{ form.last_name|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Прізвище" }}
+                                    <label class="form-label" for="{{ form.last_name.id_for_label }}">{% trans 'Last name' %}</label>
+                                    {{ form.last_name|add_class:"form-control"|attr:"type:text" }}
                                     {{ form.last_name.errors }}
                                 </div>
                                 <div class="sm:col-6 mb-3">
-                                    <label class="form-label" for="{{ form.phone.id_for_label }}">Номер телефону</label>
-                                    {{ form.phone|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Номер телефону" }}
+                                    <label class="form-label" for="{{ form.phone.id_for_label }}">{% trans 'Phone number' %}</label>
+                                    {{ form.phone|add_class:"form-control"|attr:"type:text" }}
                                     {{ form.phone.errors }}
                                 </div>
                                 <div class="sm:col-6 mb-3">
-                                    <label class="form-label" for="{{ form.email.id_for_label }}">Email</label>
-                                    {{ form.email|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Email" }}
+                                    <label class="form-label" for="{{ form.email.id_for_label }}">{% trans 'Email' %}</label>
+                                    {{ form.email|add_class:"form-control"|attr:"type:text" }}
                                     {{ form.email.errors }}
                                 </div>
                             </fieldset>
@@ -44,12 +44,12 @@
                         </article>
 
                         <article class="mb-5">
-                            <h4 class="mb-5 text-xl">Адреса доставки</h4>
+                            <h4 class="mb-5 text-xl">{% trans 'Shipping address' %}</h4>
 
                             <fieldset class="row gap-3 mb-4">
                                 <div class="lg:col-8 mb-3">
-                                    <label class="form-label" for="{{ form.address.id_for_label }}">Адреса</label>
-                                    {{ form.address|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Місто, вулиця, дім" }}
+                                    <label class="form-label" for="{{ form.address.id_for_label }}">{% trans 'Address' %}</label>
+                                    {{ form.address|add_class:"form-control"|attr:"type:text" }}
                                     {{ form.address.errors }}
                                 </div>
                             </fieldset>
@@ -67,10 +67,10 @@
                                     <path d="M4 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                           stroke-linejoin="round"/>
                                 </svg>
-                                Повернутися до кошика
+                                {% trans 'Return to cart' %}
                             </a>
                             <button type="submit" class="btn btn-primary btn-lg">
-                                Перейти до оплати
+                                {% trans 'Proceed to payment' %}
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                                      color="currentColor" fill="none">
                                     <path d="M15.0001 17L20 12L15 7" stroke="currentColor" stroke-width="1.5"
@@ -86,7 +86,7 @@
             <aside class="md:col-6">
 
                 <div class="p-5 md:p-10 bg-neutral-50 h-full border-left custom-css-bg-page">
-                    <p class="font-medium mb-6">Огляд замовлення</p>
+                    <p class="font-medium mb-6">{% trans 'Order summary' %}</p>
 
                     <article>
                         {% for item in cart %}
@@ -97,13 +97,13 @@
                             <figcaption class="p-0 mb-5 flex-grow">
                                 <p>{{ item.product.name }}</p>
                                 <p class="text-secondary">ISBN: {{ item.product.ISBN }}</p>
-                                <p class="text-secondary">Автор: {{ item.product.author }} </p>
-                                <p class="text-secondary">Категорія: {{ item.product.category }} </p>
+                                <p class="text-secondary">{% trans 'Author:' %} {{ item.product.author }}</p>
+                                <p class="text-secondary">{% trans 'Category:' %} {{ item.product.category }}</p>
                             </figcaption>
                             <div class="flex-grow">
-                                <p class="text-secondary">Вартість: {{ item.price|unlocalize }} грн.</p>
-                                <p class="text-secondary">Кількість: {{ item.quantity }}</p>
-                                <p class="text-secondary">Сума: {{ item.total_price|unlocalize }} грн.</p>
+                                <p class="text-secondary">{% trans 'Price:' %} {{ item.price|unlocalize }} грн.</p>
+                                <p class="text-secondary">{% trans 'Quantity:' %} {{ item.quantity }}</p>
+                                <p class="text-secondary">{% trans 'Subtotal:' %} {{ item.total_price|unlocalize }} грн.</p>
                             </div>
                         </figure>
                         <hr class="my-6">
@@ -112,19 +112,19 @@
 
                     <ul class="text-secondary">
                         <li class="d-flex justify-content-between mb-2">
-                            <label>Сума:</label> <var>{{ total_price }} грн.</var>
+                            <label>{% trans 'Subtotal:' %}</label> <var>{{ total_price }} грн.</var>
                         </li>
                         <li class="d-flex justify-content-between mb-2">
-                            <label>Знижка</label> <var> (в розробці) </var>
+                            <label>{% trans 'Discount' %}</label> <var>{% trans '(in progress)' %}</var>
                         </li>
                         <li class="d-flex justify-content-between mb-2">
-                            <label>Доставка:</label> <var> (за тарифами перевізника) </var>
+                            <label>{% trans 'Delivery:' %}</label> <var>{% trans '(carrier rates apply)' %}</var>
                         </li>
                     </ul>
 
                     <hr>
                     <dl class="d-flex justify-content-between">
-                        <dt>Всього:</dt>
+                        <dt>{% trans 'Total:' %}</dt>
                         <dd class="font-semibold text-xl">{{ total_price }} грн.</dd>
                     </dl>
 

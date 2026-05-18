@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="d-flex gap-2 mb-6">
     <button disabled class="btn btn-primary flex-1">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -9,9 +10,9 @@
             <path d="M14.5832 6.24984C14.5832 3.71853 12.5311 1.6665 9.99984 1.6665C7.46853 1.6665 5.4165 3.71853 5.4165 6.24984"
                   stroke="white" stroke-width="1.5">
         </svg>
-        Додати до кошика
+        {% trans 'Add to cart' %}
     </button>
-    <button disabled class="btn btn-primary-subtle flex-1"> Купити зараз</button>
+    <button disabled class="btn btn-primary-subtle flex-1">{% trans 'Buy now' %}</button>
     <button disabled class="btn btn-default btn-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

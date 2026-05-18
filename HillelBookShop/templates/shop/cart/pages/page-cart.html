@@ -1,5 +1,5 @@
 {% extends '../../../base.html' %}
-{% load l10n %}
+{% load l10n i18n %}
 
 {% block content %}
 
@@ -9,8 +9,8 @@
 <section class="py-8">
     <div class="container">
         <header>
-            <h2 class="text-3xl">Ваш кошик</h2>
-            <p class="text-secondary">{{cart.cart|length}} Продукт(-ів) у вашому в кошику </p>
+            <h2 class="text-3xl">{% trans 'Your cart' %}</h2>
+            <p class="text-secondary">{% blocktrans count counter=cart.cart|length %}{{ counter }} product in your cart{% plural %}{{ counter }} products in your cart{% endblocktrans %}</p>
         </header>
     </div>
 </section>
@@ -23,7 +23,7 @@
 
                     {% if not cart.cart %}
 
-                    <p>Ваш кошик порожній</p>
+                    <p>{% trans 'Your cart is empty' %}</p>
 
                     {% else %}
 
@@ -43,8 +43,8 @@
                             </h5>
                             <p class="text-secondary">
                                 ISBN: {{ item.product.ISBN }} <br>
-                                Автор: {{ item.product.author }} <br>
-                                Категорія: {{ item.product.category }} <br>
+                                {% trans 'Author:' %} {{ item.product.author }} <br>
+                                {% trans 'Category:' %} {{ item.product.category }} <br>
                             </p>
                         </div>
 
@@ -90,8 +90,8 @@
                     {% endfor %}
 
                     <div class="d-flex justify-content-between">
-                        <a class="btn btn-mg btn-green" href="{% url 'shop' %}">Повернутися до каталогу</a>
-                        <a class="btn btn-mg btn-red" href="{% url 'cart_clear' %}">Очистити кошик</a>
+                        <a class="btn btn-mg btn-green" href="{% url 'shop' %}">{% trans 'Return to catalog' %}</a>
+                        <a class="btn btn-mg btn-red" href="{% url 'cart_clear' %}">{% trans 'Clear cart' %}</a>
                     </div>
                     {% endif %}
                 </div>
@@ -99,7 +99,7 @@
 
             <aside class="md:col-4">
                 <div class="p-5 rounded bg-neutral-100">
-                    <h2 class="text-3xl h-10">Ваш чек</h2>
+                    <h2 class="text-3xl h-10">{% trans 'Your summary' %}</h2>
                     <ul>
                         {% for item in cart %}
                         <li class="d-flex justify-content-between mb-2">
@@ -116,13 +116,13 @@
                     </ul>
                     <hr>
                     <dl class="d-flex justify-content-between">
-                        <dt class="">Всього:</dt>
+                        <dt class="">{% trans 'Total:' %}</dt>
                         <dd class="font-semibold text-lg">
                             {{ total_price|unlocalize }} грн.
                         </dd>
                     </dl>
                     <div class="mt-2">
-                        <a href="{% url 'order_create' %}" class="btn btn-lg btn-green w-full"> Оформити замовлення </a>
+                        <a href="{% url 'order_create' %}" class="btn btn-lg btn-green w-full">{% trans 'Place order' %}</a>
                     </div>
                 </div>
             </aside>

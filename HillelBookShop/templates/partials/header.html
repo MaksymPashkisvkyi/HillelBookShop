@@ -1,12 +1,25 @@
+{% load i18n %}
 <header class="border-bottom">
 
     <section class="bg-neutral-100 py-2">
         <div class="container">
-            <div class="d-flex justify-content-between max-sm:text-sm">
-                <p class="text-secondary">вул. Неважлива, Одеса, Україна</p>
-                <div class="gap-4 d-flex">
-                    <a href="#" class="text-secondary">Звʼязатися з нами</a>
-                    <a href="#" class="text-secondary">Українська | HRN </a>
+            <div class="d-flex justify-content-between align-items-center max-sm:text-sm">
+                <p class="text-secondary">{% trans 'Odessa, Ukraine' %}</p>
+                <div class="gap-4 d-flex align-items-center">
+                    <a href="#" class="text-secondary">{% trans 'Contact us' %}</a>
+                    <form action="{% url 'set_language' %}" method="post" class="d-flex gap-2 align-items-center">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        <select name="language" class="form-select form-select-sm" onchange="this.form.submit()">
+                            {% get_current_language as CURRENT_LANGUAGE %}
+                            {% get_available_languages as AVAILABLE_LANGUAGES %}
+                            {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
+                                <option value="{{ lang_code }}" {% if lang_code == CURRENT_LANGUAGE %}selected{% endif %}>
+                                    {{ lang_name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
                 </div>
             </div>
         </div>
@@ -76,13 +89,11 @@
                             <line x1="4" x2="20" y1="6" y2="6"></line>
                             <line x1="4" x2="20" y1="18" y2="18"></line>
                         </svg>
-                        Всі категорії
+                        {% trans 'All categories' %}
                     </button>
                     <menu id="mymenu_1" hidden="" class="dropdown w-100 p-4">
-                        <h6 class="mb-2">This is example large menu</h6>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, reprehenderit unde dolores
-                            vitae adipisci commodi, tempore consequuntur explicabo eveniet aut facilis quas sit! Fuga,
-                            consequuntur iste harum quos labore dicta.</p>
+                        <h6 class="mb-2">{% trans 'Browse the catalog' %}</h6>
+                        <p>{% trans 'Choose a category to quickly find books by topic, genre, or author.' %}</p>
                     </menu>
                 </div>
                 <!-- header button navigator end.// -->
@@ -92,7 +103,7 @@
                     <form class="d-flex w-full mr-5">
                         <div class="relative w-full">
                             <input disabled type="search" class="form-control  rounded-right-0" list="search_suggest"
-                                   placeholder="Я хочу знайти...(але поки не можу)...">
+                                   placeholder="{% trans 'Search will appear here soon...' %}">
                         </div>
                         <button class="rounded-left-0 btn btn-default btn-icon" style="margin-left:-1px">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -113,7 +124,7 @@
                                                  stroke-linecap="round" stroke-linejoin="round"
                                                  class="lucide lucide-heart"><path
                                 d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg> </span>
-                        <span class="max-lg:d-none">Список бажань (0)</span>
+                        <span class="max-lg:d-none">{% trans 'Wishlist (0)' %}</span>
                     </button>
 
                     <div class="relative">
@@ -128,7 +139,7 @@
                                             d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
                                     </svg>
                                 </span>
-                            <span>Кошик</span> <!--TODO кількість одиниць товару -->
+                            <span>{% trans 'Cart' %}</span>
                         </a>
                     </div>
 
@@ -141,7 +152,7 @@
                                                  class="lucide lucide-user"><path
                                 d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7"
                                                                                              r="4"></circle></svg></span>
-                        <span class="max-lg:d-none">Кабінет</span>
+                        <span class="max-lg:d-none">{% trans 'Profile' %}</span>
                     </a>
 
                     {% if user.is_staff %}
@@ -153,7 +164,7 @@
                                                          class="lucide lucide-user"><path
                                         d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7"
                                                                                                      r="4"></circle></svg></span>
-                        <span class="max-lg:d-none">Dashboard</span>
+                        <span class="max-lg:d-none">{% trans 'Dashboard' %}</span>
                     </a>
                     {% endif %}
 
@@ -166,7 +177,7 @@
                                                  class="lucide lucide-user"><path
                                 d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7"
                                                                                              r="4"></circle></svg></span>
-                        <span class="max-lg:d-none">Увійти</span>
+                        <span class="max-lg:d-none">{% trans 'Sign in' %}</span>
                     </a>
 
                     {% endif %}

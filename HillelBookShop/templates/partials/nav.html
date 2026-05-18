@@ -1,19 +1,20 @@
+{% load i18n %}
 <!-- header-nav -->
 <nav class="py-2 bg-base max-sm:hidden border-bottom">
     <div class="container">
         <ul class="nav  justify-content-center">
-            <li><a class="nav-link" href="#">Гарячі пропозиції</a></li>
-            <li><a class="nav-link" href="#">Рекомендовані</a></li>
-            <li><a class="nav-link" href="#">Нові надходження</a></li>
-            <li><a class="nav-link" href="#">Бестселери</a></li>
-            <li><a class="nav-link" href="#">Подарункові набори</a></li>
-            <li><a class="nav-link" href="#">Статті</a></li>
+            <li><a class="nav-link" href="#">{% trans 'Hot deals' %}</a></li>
+            <li><a class="nav-link" href="#">{% trans 'Recommended' %}</a></li>
+            <li><a class="nav-link" href="#">{% trans 'New arrivals' %}</a></li>
+            <li><a class="nav-link" href="#">{% trans 'Bestsellers' %}</a></li>
+            <li><a class="nav-link" href="#">{% trans 'Gift sets' %}</a></li>
+            <li><a class="nav-link" href="#">{% trans 'Articles' %}</a></li>
             <li class="group">
-                <a data-toggle="mymenu_2" class="nav-link  has-icon-dropdown" href="#">More</a>
+                <a data-toggle="mymenu_2" class="nav-link  has-icon-dropdown" href="#">{% trans 'More' %}</a>
                 <nav class="dropdown lg:min-w-50 group-hover:d-block d-none">
-                    <a class="dropdown-item" href="#">Example link 1</a>
-                    <a class="dropdown-item" href="#">Example link 2</a>
-                    <a class="dropdown-item" href="#">Get Ecomerce UI</a>
+                    <a class="dropdown-item" href="#">{% trans 'Authors' %}</a>
+                    <a class="dropdown-item" href="#">{% trans 'Collections' %}</a>
+                    <a class="dropdown-item" href="#">{% trans 'Reading lists' %}</a>
                 </nav>
             </li>
         </ul>

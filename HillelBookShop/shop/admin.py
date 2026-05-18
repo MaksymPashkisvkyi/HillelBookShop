@@ -23,7 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name', 'author')
     list_editable = ('price', 'discount_price', 'stock')
 
-    @admin.display(description=_('Автор'))
+    @admin.display(description=_('Author'))
     def get_author_name(self, obj):
         return f'{obj.author.name}'
 
@@ -47,7 +47,7 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('customer',)
     inlines = [OrderItemInline]
 
-    @admin.display(description=_('Користувач'))
+    @admin.display(description=_('User'))
     def get_customer_name(self, obj):
         return f'{obj.first_name} {obj.last_name}' or f'{obj.email}'
 

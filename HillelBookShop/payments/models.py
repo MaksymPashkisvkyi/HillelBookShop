@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
+from django.utils.translation import gettext_lazy as _
 from decimal import Decimal
 import uuid
 
@@ -17,13 +18,13 @@ class TimeStampModel(models.Model):
 
 class Payment(TimeStampModel):
     class Status(models.TextChoices):
-        PENDING = 'pending', 'Очікує'
-        PROCESSING = 'processing', 'Обробляється'
-        SUCCEEDED = 'succeeded', 'Успішно'
-        FAILED = 'failed', 'Невдало'
-        CANCELLED = 'cancelled', 'Скасовано'
-        REFUNDED = 'refunded', 'Повернуто'
-        PARTIALLY_REFUNDED = 'partially_refunded', 'Частково повернуто'
+        PENDING = 'pending', _('Pending')
+        PROCESSING = 'processing', _('Processing')
+        SUCCEEDED = 'succeeded', _('Succeeded')
+        FAILED = 'failed', _('Failed')
+        CANCELLED = 'cancelled', _('Cancelled')
+        REFUNDED = 'refunded', _('Refunded')
+        PARTIALLY_REFUNDED = 'partially_refunded', _('Partially refunded')
 
     id = models.UUIDField(
         primary_key=True,
@@ -78,8 +79,8 @@ class Payment(TimeStampModel):
 
     class Meta:
         db_table = 'stripe_payments'
-        verbose_name = 'Платіж'
-        verbose_name_plural = 'Платежі'
+        verbose_name = _('Payment')
+        verbose_name_plural = _('Payments')
         ordering = ['-created_at']
 
     def __str__(self):

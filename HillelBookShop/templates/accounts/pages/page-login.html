@@ -1,14 +1,12 @@
 {% extends '../../base.html' %}
-{% load widget_tweaks %}
+{% load widget_tweaks i18n %}
 {% block content %}
-
-<body>
 
 <section class="py-20 bg-lower min-h-100vh">
 
     <div class="card shadow-lg p-5 lg:p-8 mx-auto" style="max-width: 420px;">
         <div class="mb-4 text-center">
-            <h4 class="fs-xl mb-2">Login to Your Account</h4>
+            <h4 class="fs-xl mb-2">{% trans 'Login to your account' %}</h4>
         </div>
         <form method="post">
             {% csrf_token %}
@@ -17,43 +15,45 @@
                     <svg width="20" height="20">
                         <use href="#icon-google"/>
                     </svg>
-                    Sign in with Google
+                    {% trans 'Sign in with Google' %}
                 </a>
                 <a href="#" class="btn btn-default w-100%">
                     <svg width="22" height="22">
                         <use href="#icon-apple"/>
                     </svg>
-                    Sign in with Apple
+                    {% trans 'Sign in with Apple' %}
                 </a>
             </div>
             <!-- line   -->
             <div class="py-3">
                 <div class="d-flex relative border-top align-items-center justify-content-center">
-                    <small class="text-uppercase bg-base text-muted px-2" style="margin-top:-12px">OR</small>
+                    <small class="text-uppercase bg-base text-muted px-2" style="margin-top:-12px">{% trans 'OR' %}</small>
                 </div>
             </div>
             <!-- line end.// -->
             {{ form.non_field_errors }}
             <fieldset>
                 <div class="mb-4">
-                    <label class="form-label fw-medium" for="{{ form.username.id_for_label }}">Email</label>
-                    {{ form.username|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Enter email" }}
+                    <label class="form-label fw-medium" for="{{ form.username.id_for_label }}">{% trans 'Email' %}</label>
+                    {{ form.username|add_class:"form-control"|attr:"type:text" }}
                     {{ form.username.errors }}
                 </div>
                 <div class="mb-2">
-                    <label class="form-label fw-medium" for="{{ form.password.id_for_label }}">Пароль</label>
-                    {{ form.password|add_class:"form-control"|attr:"type:password"|attr:"placeholder:Enter your password" }}
+                    <label class="form-label fw-medium" for="{{ form.password.id_for_label }}">{% trans 'Password' %}</label>
+                    {{ form.password|add_class:"form-control"|attr:"type:password" }}
                     {{ form.password.errors }}
                 </div>
                 <div class="mb-6">
-                    <a href="#" class="fs-sm">Forgot password</a>
+                    <a href="#" class="fs-sm">{% trans 'Forgot password?' %}</a>
                 </div>
-                <button type="submit" class="btn btn-primary w-100%">Sign in to account</button>
+                <button type="submit" class="btn btn-primary w-100%">{% trans 'Sign in to account' %}</button>
             </fieldset>
 
             <hr class="my-6">
 
-            <p class="text-center text-secondary">Don't have an account? <a href="{% url 'register' %}">Register now</a>
+            <p class="text-center text-secondary">
+                {% blocktrans %}Don't have an account?{% endblocktrans %}
+                <a href="{% url 'register' %}">{% trans 'Register now' %}</a>
             </p>
         </form>
     </div>
@@ -88,8 +88,5 @@
     </symbol>
 
 </svg>
-
-
-</body>
 
 {% endblock %}

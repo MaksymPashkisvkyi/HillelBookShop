@@ -1,3 +1,4 @@
+{% load i18n %}
 <article class="lg:pl-3">
 
     <h4 class="mt-2"> {{ product.name }} </h4>
@@ -8,7 +9,7 @@
         <dd>{{ product.ISBN }}</dd>
     </dl>
     <dl class="d-flex">
-        <dt class="text-muted w-20">Автор:</dt>
+        <dt class="text-muted w-20">{% trans 'Author:' %}</dt>
         <dd>{{ product.author }}</dd>
     </dl>
 

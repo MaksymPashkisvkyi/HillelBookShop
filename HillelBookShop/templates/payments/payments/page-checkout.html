@@ -1,11 +1,11 @@
 {% extends '../../base.html' %}
-{% load static %}
+{% load static i18n %}
 {% load crispy_forms_tags %}
 
 {% block extra_header %}
 <meta charset="UTF-8">
 <meta name="viewport">
-<title>Checkout</title>
+<title>{% trans 'Checkout' %}</title>
 <link href="{% static 'css/payments.css' %}" rel="stylesheet" type="text/css"/>
 <script src="https://js.stripe.com/v3/"></script>
 {% endblock %}
@@ -19,18 +19,18 @@
 
 <section class="py-10">
     <div class="container">
-        <h2 class="text-3xl mb-1">Оплата замовлення</h2>
+        <h2 class="text-3xl mb-1">{% trans 'Order payment' %}</h2>
     </div>
 </section>
 <section class="pb-10">
     <div class="container">
         <div class="col row-cols-2 lg:row-cols-3 gap-rows-8 max-sm:gap-1" id="product-list">
             <div class="mb-5">
-                <label for="amount">Сума</label>
+                <label for="amount">{% trans 'Amount' %}</label>
                 <input readonly class="form-control" type="number" id="amount" value="{{ order.total_price }}">
             </div>
             <div class="mb-5">
-                <label for="currency">Валюта</label>
+                <label for="currency">{% trans 'Currency' %}</label>
                 <select class="form-control" id="currency">
                     <option value="usd">USD</option>
                     <option value="eur">EUR</option>
@@ -38,16 +38,16 @@
                 </select>
             </div>
             <div class="mb-5">
-                <label for="description">Опис платежу</label>
-                <input class="form-control" id="description" type="text" placeholder="Опис платежу (опційно)">
+                <label for="description">{% trans 'Payment description' %}</label>
+                <input class="form-control" id="description" type="text" placeholder="{% trans 'Payment description (optional)' %}">
             </div>
             <div class="mb-5">
-                <label>Дані платежу</label>
+                <label>{% trans 'Payment details' %}</label>
                 <div id="payment-element"></div>
             </div>
             <div class="mb-5">
-                <button disabled id="submit-btn" class="btn btn-green" type="submit">Оплатити</button>
-                <a id="home-btn" hidden href="{% url 'shop' %}" class="btn btn-primary">До каталогу</a>
+                <button disabled id="submit-btn" class="btn btn-green" type="submit">{% trans 'Pay' %}</button>
+                <a id="home-btn" href="{% url 'shop' %}" class="btn btn-primary">{% trans 'Back to catalog' %}</a>
             </div>
             <div id="message"></div>
         </div>
@@ -58,6 +58,7 @@
 <script>
     const STRIPE_PUBLIC_KEY = '{{ stripe_public_key }}';
     const API_URL = '/payments/payments';
+    const orderId = '{{ order.id }}'
 
     const stripe = Stripe(STRIPE_PUBLIC_KEY);
     let elements, paymentElement, clientSecret, paymentId;
@@ -87,7 +88,7 @@
         const data = await response.json();
         if (!data.client_secret) {
             throw new Error(
-                'Client secret is required!'
+                '{% trans "Client secret is required!" %}'
             )
         }
         clientSecret = data.client_secret;
@@ -123,10 +124,10 @@
             if ( error ) {
                 messageDiv.textContent = error.message;
             } else if ( paymentIntent && paymentIntent.status === 'succeeded' ) {
-                messageDiv.textContent = 'Платіж успішно проведено, ID платежу: ' + paymentId;
+                messageDiv.textContent = '{% trans "Payment completed successfully, payment ID:" %}' + ' ' + paymentId;
                 confirmOnBackend(paymentId);
             } else if ( paymentIntent ) {
-                messageDiv.textContent = `Статус: ${paymentIntent.status}`;
+                messageDiv.textContent = `{% trans "Status:" %} ${paymentIntent.status}`;
             }
         } catch (err) {
             messageDiv.textContent = err.message;
@@ -143,6 +144,9 @@
                     'Content-Type': 'application/json',
                     'X-CSRFToken': getCookie('csrftoken'),
                 },
+                body: JSON.stringify({
+                    order_id: orderId,
+                }),
             })
         } catch ( err ) {
             console.warn('Confirmation failed with: ', err);
@@ -159,17 +163,16 @@
     document.addEventListener('DOMContentLoaded', () => {
         submitBtn.addEventListener('click', handlePayment);
         mountPaymentElement().catch(err => {
-            messageDiv.textContent = `Помилка ініціалізації: ${err.message}`
+            messageDiv.textContent = `{% trans "Initialization error:" %} ${err.message}`
         })
     })
 
     if ( new URLSearchParams(window.location.search).get('success') === 'true' ) {
         document.addEventListener('DOMContentLoaded', () => {
-            messageDiv.textContent = `Платіж оброблено успішно`;
+            messageDiv.textContent = `{% trans "Payment processed successfully" %}`;
         })
     }
 
 </script>
 
 {% endblock %}
-

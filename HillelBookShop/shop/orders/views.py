@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
+from django.utils.translation import gettext as _
 
 from shop.cart.cart import Cart
 from shop.models import Customer
@@ -11,7 +12,7 @@ def order_create(request):
     cart = Cart(request)
 
     if not cart.cart:
-        messages.warning(request, 'Ваш кошик пустий!')
+        messages.warning(request, _('Your cart is empty!'))
         return redirect('cart_detail')
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
@@ -35,7 +36,7 @@ def order_create(request):
                 )
             cart.clear()
 
-            messages.success(request, f'Замовлення №{order.id} було успішно оформлено')
+            messages.success(request, _('Order #%(order_id)s has been successfully created') % {'order_id': order.id})
             return redirect('checkout_order', order_id=order.id)
             # return render(request, 'shop/orders/pages/page-success-payment.html', {'order': order})
     else:

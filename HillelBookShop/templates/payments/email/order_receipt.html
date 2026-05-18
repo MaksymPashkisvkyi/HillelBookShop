@@ -1,12 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-<body>
-<h1>Чек по замовленню {{ order.id }}</h1>
-<h3>Товари</h3>
-<ul>
-    {% for item in order.items.all %}
-        <li>{{ item.product }} x {{ item.quantity }}</li>
-    {% endfor %}
-</ul>
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE|default:'uk' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% blocktrans with order_id=order.id %}Receipt for order #{{ order_id }}{% endblocktrans %}</title>
+</head>
+<body style="margin:0; padding:24px 0; background-color:#f4efe6; font-family:Arial, Helvetica, sans-serif; color:#1f2937;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f4efe6;">
+    <tr>
+        <td align="center">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:680px; background-color:#ffffff; border-radius:16px; overflow:hidden;">
+                <tr>
+                    <td style="background:linear-gradient(135deg, #1f7a5c 0%, #155e75 100%); padding:32px 36px; color:#ffffff;">
+                        <p style="margin:0 0 8px; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85;">Hillel Book Shop</p>
+                        <h1 style="margin:0; font-size:30px; line-height:1.2;">{% blocktrans with order_id=order.id %}Receipt for order #{{ order_id }}{% endblocktrans %}</h1>
+                        <p style="margin:12px 0 0; font-size:15px; line-height:1.6; opacity:0.95;">
+                            {% blocktrans with first_name=order.first_name last_name=order.last_name %}Thank you for your purchase, {{ first_name }} {{ last_name }}.{% endblocktrans %}
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:32px 36px 12px;">
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                                <td valign="top" style="padding:0 12px 20px 0;">
+                                    <div style="border:1px solid #e5e7eb; border-radius:12px; padding:20px;">
+                                        <h3 style="margin:0 0 14px; font-size:18px; color:#111827;">{% trans 'Order details' %}</h3>
+                                        <p style="margin:0 0 8px; font-size:14px;"><strong>{% trans 'Status:' %}</strong> {{ order.get_status_display }}</p>
+                                        <p style="margin:0 0 8px; font-size:14px;"><strong>Email:</strong> {{ order.email }}</p>
+                                        <p style="margin:0; font-size:14px;"><strong>{% trans 'Phone:' %}</strong> {{ order.phone }}</p>
+                                    </div>
+                                </td>
+                                <td valign="top" style="padding:0 0 20px 12px;">
+                                    <div style="border:1px solid #e5e7eb; border-radius:12px; padding:20px;">
+                                        <h3 style="margin:0 0 14px; font-size:18px; color:#111827;">{% trans 'Delivery' %}</h3>
+                                        <p style="margin:0 0 8px; font-size:14px;"><strong>{% trans 'Recipient:' %}</strong> {{ order.first_name }} {{ order.last_name }}</p>
+                                        <p style="margin:0; font-size:14px; line-height:1.6;"><strong>{% trans 'Address:' %}</strong> {{ order.address }}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:8px 36px 12px;">
+                        <h2 style="margin:0 0 16px; font-size:22px; color:#111827;">{% trans 'Order items' %}</h2>
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse; border:1px solid #e5e7eb; border-radius:12px; overflow:hidden;">
+                            <tr style="background-color:#f9fafb;">
+                                <th align="left" style="padding:14px 16px; font-size:13px; text-transform:uppercase; letter-spacing:0.4px; color:#4b5563; border-bottom:1px solid #e5e7eb;">{% trans 'Item' %}</th>
+                                <th align="center" style="padding:14px 16px; font-size:13px; text-transform:uppercase; letter-spacing:0.4px; color:#4b5563; border-bottom:1px solid #e5e7eb;">{% trans 'Quantity' %}</th>
+                                <th align="right" style="padding:14px 16px; font-size:13px; text-transform:uppercase; letter-spacing:0.4px; color:#4b5563; border-bottom:1px solid #e5e7eb;">{% trans 'Price' %}</th>
+                                <th align="right" style="padding:14px 16px; font-size:13px; text-transform:uppercase; letter-spacing:0.4px; color:#4b5563; border-bottom:1px solid #e5e7eb;">{% trans 'Total' %}</th>
+                            </tr>
+                            {% for item in order.items.all %}
+                            <tr>
+                                <td style="padding:16px; font-size:14px; border-bottom:1px solid #e5e7eb;">{{ item.product }}</td>
+                                <td align="center" style="padding:16px; font-size:14px; border-bottom:1px solid #e5e7eb;">{{ item.quantity }}</td>
+                                <td align="right" style="padding:16px; font-size:14px; border-bottom:1px solid #e5e7eb;">{{ item.price }}</td>
+                                <td align="right" style="padding:16px; font-size:14px; border-bottom:1px solid #e5e7eb;">{{ item.get_total }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" style="padding:18px 16px; font-size:14px; color:#6b7280; text-align:center;">{% trans 'There are no items in this order.' %}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:12px 36px 0;">
+                        <div style="background-color:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:20px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td style="font-size:16px; color:#166534;"><strong>{% trans 'Total to pay' %}</strong></td>
+                                    <td align="right" style="font-size:24px; color:#166534;"><strong>{{ order.total_price }}</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:28px 36px 36px; font-size:14px; line-height:1.7; color:#4b5563;">
+                        {% trans 'If you have any questions about your order, just reply to this email or contact the store support team.' %}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

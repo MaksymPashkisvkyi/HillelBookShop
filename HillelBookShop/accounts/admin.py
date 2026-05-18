@@ -13,11 +13,11 @@ class UserAdmin(BaseUserAdmin):
     list_display_links = ('email',)
 
     fieldsets = (
-        (_('Основна інформація'), {'fields': ('email', 'password')}),
-        (_('Персональная інформація'),
+        (_('Basic information'), {'fields': ('email', 'password')}),
+        (_('Personal information'),
          {'fields': ('first_name', 'last_name', 'phone', 'date_of_birth', 'profile_image')}),
         (
-            _('Дозволи'),
+            _('Permissions'),
             {
                 'fields': (
                     'is_active',
@@ -30,6 +30,6 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
 
-    @admin.display(description=_('ПІБ'))
+    @admin.display(description=_('Full name'))
     def full_name(self, obj):
         return f'{obj.first_name} {obj.last_name}'.strip()

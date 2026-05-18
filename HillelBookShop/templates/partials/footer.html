@@ -1,58 +1,57 @@
+{% load i18n %}
 <footer class="bg-neutral-100 border-top">
     <section class="py-12 links-secondary container d-grid gap-5 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
         <div>
-            <h6 class="mb-3">Company</h6>
+            <h6 class="mb-3">{% trans 'Company' %}</h6>
             <ul class="nav nav-col gap-2">
-                <li><a href="{% url 'about' %}">Про нас</a></li>
-                <li><a href="#">Investors</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Blogs and news</a></li>
-                <li><a href="#">Example</a></li>
+                <li><a href="{% url 'about' %}">{% trans 'About us' %}</a></li>
+                <li><a href="#">{% trans 'Investors' %}</a></li>
+                <li><a href="#">{% trans 'Careers' %}</a></li>
+                <li><a href="#">{% trans 'Blog and news' %}</a></li>
+                <li><a href="#">{% trans 'Partners' %}</a></li>
             </ul>
         </div>
         <div>
-            <h6 class="mb-3">Buyers</h6>
+            <h6 class="mb-3">{% trans 'Buyers' %}</h6>
             <ul class="nav nav-col gap-2">
-                <li><a href="#">Find store</a></li>
-                <li><a href="#">Registration</a></li>
-                <li><a href="#">Partnerships</a></li>
-                <li><a href="#">Gift vouchers</a></li>
-                <li><a href="#">Example</a></li>
+                <li><a href="#">{% trans 'Find store' %}</a></li>
+                <li><a href="#">{% trans 'Registration' %}</a></li>
+                <li><a href="#">{% trans 'Partnerships' %}</a></li>
+                <li><a href="#">{% trans 'Gift vouchers' %}</a></li>
+                <li><a href="#">{% trans 'FAQ' %}</a></li>
             </ul>
         </div>
         <div>
-            <h6 class="mb-3">Help</h6>
+            <h6 class="mb-3">{% trans 'Help' %}</h6>
             <ul class="nav nav-col gap-2">
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Live chat</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Download</a></li>
-                <li><a href="#">Versions</a></li>
+                <li><a href="#">{% trans 'Contact us' %}</a></li>
+                <li><a href="#">{% trans 'Live chat' %}</a></li>
+                <li><a href="#">{% trans 'Documentation' %}</a></li>
+                <li><a href="#">{% trans 'Download' %}</a></li>
+                <li><a href="#">{% trans 'Versions' %}</a></li>
             </ul>
         </div>
         <div>
-            <h6 class="mb-3">Service</h6>
+            <h6 class="mb-3">{% trans 'Service' %}</h6>
             <ul class="nav nav-col gap-2">
-                <li><a href="#">Safe purchase</a></li>
-                <li><a href="#">Logistics service</a></li>
-                <li><a href="#">Refund</a></li>
-                <li><a href="#">Example link</a></li>
-                <li><a href="#">Something</a></li>
+                <li><a href="#">{% trans 'Safe purchase' %}</a></li>
+                <li><a href="#">{% trans 'Logistics service' %}</a></li>
+                <li><a href="#">{% trans 'Refunds' %}</a></li>
+                <li><a href="#">{% trans 'Payment methods' %}</a></li>
+                <li><a href="#">{% trans 'Delivery terms' %}</a></li>
             </ul>
         </div>
         <div>
-            <h6 class="mb-3">Language</h6>
+            <h6 class="mb-3">{% trans 'Languages' %}</h6>
             <ul class="nav nav-col gap-2">
-                <li><a href="#">Español</a></li>
-                <li><a href="#">Português</a></li>
-                <li><a href="#">Deutsch</a></li>
-                <li><a href="#">日本語</a></li>
+                <li><span>Українська</span></li>
+                <li><span>English</span></li>
             </ul>
         </div>
 
     </section>
     <hr class="my-0">
     <section class="text-center py-6">
-        <p class="fs-sm text-secondary">Copyright © 1995-2025 Ecommerce-ui Inc. All Rights Reserved </p>
+        <p class="fs-sm text-secondary">{% trans 'Copyright © 2026 Hillel Book Shop. All rights reserved.' %}</p>
     </section>
 </footer>
