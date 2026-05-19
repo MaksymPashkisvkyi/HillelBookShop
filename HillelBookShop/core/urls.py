@@ -31,6 +31,7 @@ urlpatterns = ([
     path('payments/', include('payments.urls'), name='payments'),
     path('checkout/', checkout_view, name='checkout'),
     path('checkout/<int:order_id>', checkout_view, name='checkout_order'),
+    path('api/', include('shop.api.urls', namespace='shop_api')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
 
