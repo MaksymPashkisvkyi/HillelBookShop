@@ -1,8 +1,13 @@
+from asgiref.sync import sync_to_async
+from django.http import Http404, JsonResponse
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView
+from django.views import View
+from django.views.generic import ListView
 
 from .filters import ProductFilter
 from .models import Product
+
+render_async = sync_to_async(render, thread_sensitive=True)
 
 
 class ProductListView(ListView):
@@ -26,7 +31,17 @@ class ProductListView(ListView):
         return super().render_to_response(context, **response_kwargs)
 
 
-class ProductDetailView(DetailView):
-    model = Product
-    context_object_name = 'product'
+class ProductDetailView(View):
     template_name = 'shop/catalog/pages/page-detail.html'
+
+    async def get(self, request, slug):
+        try:
+            product = await Product.objects.select_related('author', 'category').aget(slug=slug)
+        except Product.DoesNotExist as exc:
+            raise Http404('Product not found') from exc
+
+        return await render_async(
+            request,
+            self.template_name,
+            {'product': product},
+        )

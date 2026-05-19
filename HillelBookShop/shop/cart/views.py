@@ -22,7 +22,7 @@ def cart_add(request, product_id):
     if request.method == 'POST':
         quantity = int(request.POST.get('quantity', 1))
         cart.add(product=product, quantity=quantity, override_quantity=False)
-        messages.success(request, f'{product.name} додано до кошику')
+        messages.success(request, f'{product.name} added to cart')
     return redirect('cart_detail')
 
 

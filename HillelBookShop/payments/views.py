@@ -1,9 +1,11 @@
 import json
 import logging
 from decimal import Decimal
+
+from asgiref.sync import sync_to_async
 from django.conf import settings
+from django.http import Http404, JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.http import JsonResponse, HttpResponse
 from django.utils.translation import gettext as _
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
@@ -19,13 +21,17 @@ from payments.utils import send_receipt
 logger = logging.getLogger(__name__)
 
 STRIPE_P_KEY = settings.STRIPE_PUBLIC_KEY
+render_async = sync_to_async(render, thread_sensitive=True)
 
 
-def checkout_view(request, order_id=None):
+async def checkout_view(request, order_id=None):
     order = None
     if order_id:
-        order = get_object_or_404(Order, id=order_id)
-    return render(request, 'payments/payments/page-checkout.html', {
+        try:
+            order = await Order.objects.select_related('payment', 'customer').aget(id=order_id)
+        except Order.DoesNotExist as exc:
+            raise Http404('Order not found') from exc
+    return await render_async(request, 'payments/payments/page-checkout.html', {
         'stripe_public_key': STRIPE_P_KEY,
         'order': order,
     })
