@@ -9,6 +9,7 @@ from shop.orders.models import OrderItem
 
 
 def order_create(request):
+    """Create an order from the current cart and redirect to checkout."""
     cart = Cart(request)
 
     if not cart.cart:
@@ -22,18 +23,20 @@ def order_create(request):
             if request.user.is_authenticated:
                 try:
                     order.customer = request.user.customer
-                except:
+                except Customer.DoesNotExist:
                     customer, created = Customer.objects.get_or_create(user=request.user)
                     order.customer = customer
             order.save()
 
+            order_items = []
             for item in cart:
-                OrderItem.objects.create(
+                order_items.append(OrderItem(
                     order=order,
                     product=item['product'],
                     price=item['price'],
                     quantity=item['quantity']
-                )
+                ))
+            OrderItem.objects.bulk_create(order_items)
             cart.clear()
 
             messages.success(request, _('Order #%(order_id)s has been successfully created') % {'order_id': order.id})

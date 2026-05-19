@@ -11,12 +11,14 @@ from tests.factories import CategoryFactory, CustomerFactory, OrderFactory, Paym
 
 @pytest.mark.django_db
 def test_register_page_loads(client):
+    # Generated with AI, reviewed and modified
     response = client.get(reverse("register"))
     assert response.status_code == 200
 
 
 @pytest.mark.django_db
 def test_register_flow_creates_user_and_redirects_to_login(client):
+    # Generated with AI, reviewed and modified
     response = client.post(
         reverse("register"),
         {
@@ -35,6 +37,7 @@ def test_register_flow_creates_user_and_redirects_to_login(client):
 
 @pytest.mark.django_db
 def test_login_flow_redirects_authenticated_user(client):
+    # Generated with AI, reviewed and modified
     user = UserProfileFactory()
     response = client.post(reverse("login"), {"username": user.email, "password": "password123"})
     assert response.status_code == 302
@@ -43,6 +46,7 @@ def test_login_flow_redirects_authenticated_user(client):
 
 @pytest.mark.django_db
 def test_profile_requires_login(client):
+    # Generated with AI, reviewed and modified
     response = client.get(reverse("profile"))
     assert response.status_code == 302
     assert reverse("login") in response.url
@@ -50,6 +54,7 @@ def test_profile_requires_login(client):
 
 @pytest.mark.django_db
 def test_authenticated_user_can_open_profile_page(client):
+    # Generated with AI, reviewed and modified
     user = UserProfileFactory()
     client.force_login(user)
     response = client.get(reverse("profile"))
@@ -58,6 +63,7 @@ def test_authenticated_user_can_open_profile_page(client):
 
 @pytest.mark.django_db
 def test_profile_update_flow_updates_user_fields(client):
+    # Generated with AI, reviewed and modified
     user = UserProfileFactory()
     client.force_login(user)
 
@@ -80,6 +86,7 @@ def test_profile_update_flow_updates_user_fields(client):
 
 @pytest.mark.django_db
 def test_shop_home_page_renders_products(client):
+    # Generated with AI, reviewed and modified
     product = ProductFactory()
     response = client.get(reverse("shop"))
     assert response.status_code == 200
@@ -88,6 +95,7 @@ def test_shop_home_page_renders_products(client):
 
 @pytest.mark.django_db
 def test_shop_filter_by_category_returns_filtered_products(client):
+    # Generated with AI, reviewed and modified
     category = CategoryFactory()
     included = ProductFactory(category=category, name="Included book")
     ProductFactory(name="Excluded book")
@@ -102,6 +110,7 @@ def test_shop_filter_by_category_returns_filtered_products(client):
 
 @pytest.mark.django_db
 def test_product_detail_page_renders(client):
+    # Generated with AI, reviewed and modified
     product = ProductFactory()
     response = client.get(reverse("product_detail", args=[product.slug]))
     assert response.status_code == 200
@@ -110,6 +119,7 @@ def test_product_detail_page_renders(client):
 
 @pytest.mark.django_db
 def test_cart_add_flow_stores_product_in_session(client):
+    # Generated with AI, reviewed and modified
     product = ProductFactory()
     response = client.post(reverse("cart_add", args=[product.id]), {"quantity": 2})
     assert response.status_code == 302
@@ -119,6 +129,7 @@ def test_cart_add_flow_stores_product_in_session(client):
 
 @pytest.mark.django_db
 def test_cart_update_flow_changes_quantity(client):
+    # Generated with AI, reviewed and modified
     product = ProductFactory()
     client.post(reverse("cart_add", args=[product.id]), {"quantity": 1})
 
@@ -130,6 +141,7 @@ def test_cart_update_flow_changes_quantity(client):
 
 @pytest.mark.django_db
 def test_cart_remove_flow_deletes_product(client):
+    # Generated with AI, reviewed and modified
     product = ProductFactory()
     client.post(reverse("cart_add", args=[product.id]), {"quantity": 1})
 
@@ -141,6 +153,7 @@ def test_cart_remove_flow_deletes_product(client):
 
 @pytest.mark.django_db
 def test_cart_clear_flow_empties_cart(client):
+    # Generated with AI, reviewed and modified
     product = ProductFactory()
     client.post(reverse("cart_add", args=[product.id]), {"quantity": 1})
 
@@ -152,6 +165,7 @@ def test_cart_clear_flow_empties_cart(client):
 
 @pytest.mark.django_db
 def test_order_create_get_prefills_authenticated_user_data(client):
+    # Generated with AI, reviewed and modified
     customer = CustomerFactory(address="Kyiv address")
     client.force_login(customer.user)
     product = ProductFactory()
@@ -165,6 +179,7 @@ def test_order_create_get_prefills_authenticated_user_data(client):
 
 @pytest.mark.django_db
 def test_order_create_post_creates_order_and_redirects_to_checkout(client):
+    # Generated with AI, reviewed and modified
     product = ProductFactory(price="120.00")
     client.post(reverse("cart_add", args=[product.id]), {"quantity": 2})
 
@@ -185,6 +200,7 @@ def test_order_create_post_creates_order_and_redirects_to_checkout(client):
 
 @pytest.mark.django_db
 def test_checkout_page_renders_for_existing_order(client):
+    # Generated with AI, reviewed and modified
     order = OrderFactory()
     response = client.get(reverse("checkout_order", args=[order.id]))
     assert response.status_code == 200
@@ -194,6 +210,7 @@ def test_checkout_page_renders_for_existing_order(client):
 @pytest.mark.django_db
 @patch("payments.views.StripePaymentService.create_payment_intent")
 def test_create_payment_intent_api_flow(mock_create, api_client):
+    # Generated with AI, reviewed and modified
     user = UserProfileFactory()
     payment = PaymentFactory(user=user, stripe_payment_intent_id="pi_777")
     mock_create.return_value = (payment, SimpleNamespace(client_secret="secret_777"))
@@ -213,6 +230,7 @@ def test_create_payment_intent_api_flow(mock_create, api_client):
 @patch("payments.views.send_receipt")
 @patch("payments.views.StripePaymentService.confirm_payment")
 def test_payment_confirm_flow(mock_confirm, mock_send_receipt, api_client):
+    # Generated with AI, reviewed and modified
     payment = PaymentFactory(status=Payment.Status.PENDING)
     order = OrderFactory(payment=None, customer__user=payment.user)
     mock_confirm.return_value = payment
@@ -230,12 +248,14 @@ def test_payment_confirm_flow(mock_confirm, mock_send_receipt, api_client):
 
 @pytest.mark.django_db
 def test_about_page_loads(client):
+    # Generated with AI, reviewed and modified
     response = client.get(reverse("about"))
     assert response.status_code == 200
 
 
 @pytest.mark.django_db
 def test_category_api_returns_only_active_root_categories(api_client):
+    # Generated with AI, reviewed and modified
     active_root = CategoryFactory(parent=None, is_active=True, name="Active Root")
     CategoryFactory(parent=active_root, is_active=True, name="Child")
     CategoryFactory(parent=None, is_active=False, name="Inactive Root")
@@ -249,6 +269,7 @@ def test_category_api_returns_only_active_root_categories(api_client):
 
 @pytest.mark.django_db
 def test_product_api_retrieve_by_slug_returns_product(api_client):
+    # Generated with AI, reviewed and modified
     product = ProductFactory()
 
     response = api_client.get(f"/api/products/{product.slug}/")

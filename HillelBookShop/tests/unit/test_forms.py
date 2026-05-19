@@ -6,6 +6,7 @@ from shop.orders.forms import OrderCreateForm
 
 @pytest.mark.django_db
 def test_registration_form_saves_hashed_password():
+    # Generated with AI, reviewed and modified
     form = RegistrationForm(
         data={
             "email": "new@example.com",
@@ -26,6 +27,7 @@ def test_registration_form_saves_hashed_password():
 
 @pytest.mark.django_db
 def test_registration_form_rejects_password_mismatch():
+    # Generated with AI, reviewed and modified
     form = RegistrationForm(
         data={
             "email": "new@example.com",
@@ -42,6 +44,7 @@ def test_registration_form_rejects_password_mismatch():
 
 
 def test_registration_form_sets_expected_placeholders():
+    # Generated with AI, reviewed and modified
     form = RegistrationForm()
     assert form.fields["first_name"].widget.attrs["placeholder"] == "Type here"
     assert form.fields["email"].widget.attrs["placeholder"] == "Enter email address"
@@ -49,12 +52,14 @@ def test_registration_form_sets_expected_placeholders():
 
 
 def test_login_form_sets_expected_placeholders():
+    # Generated with AI, reviewed and modified
     form = LoginForm()
     assert form.fields["username"].widget.attrs["placeholder"] == "Enter email"
     assert form.fields["password"].widget.attrs["placeholder"] == "Enter your password"
 
 
 def test_profile_form_uses_date_input_and_placeholders():
+    # Generated with AI, reviewed and modified
     form = ProfileForm()
     assert form.fields["date_of_birth"].widget.input_type == "date"
     assert form.fields["first_name"].widget.attrs["placeholder"] == "Enter first name"
@@ -62,6 +67,7 @@ def test_profile_form_uses_date_input_and_placeholders():
 
 
 def test_order_create_form_sets_placeholders_and_textarea_attrs():
+    # Generated with AI, reviewed and modified
     form = OrderCreateForm()
     assert form.fields["first_name"].widget.attrs["placeholder"] == "First name"
     assert form.fields["address"].widget.attrs["placeholder"] == "City, street, building"

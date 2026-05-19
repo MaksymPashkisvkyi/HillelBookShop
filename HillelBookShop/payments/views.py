@@ -25,6 +25,7 @@ render_async = sync_to_async(render, thread_sensitive=True)
 
 
 async def checkout_view(request, order_id=None):
+    """Render the checkout page and load the requested order asynchronously."""
     order = None
     if order_id:
         try:
@@ -38,19 +39,24 @@ async def checkout_view(request, order_id=None):
 
 
 class PaymentViewSet(viewsets.ModelViewSet):
+    """Expose payment CRUD endpoints plus Stripe intent creation and confirmation."""
+
     serializer_class = PaymentSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        """Limit payments to the authenticated user."""
         return Payment.objects.filter(user=self.request.user).select_related('user')
 
     def get_serializer_class(self):
+        """Return the serializer required for the current action."""
         if self.action == 'create_payment_intent':
             return CreatePaymentSerializer
         return PaymentSerializer
 
     @action(detail=False, methods=['post'])
     def create_payment_intent(self, request):
+        """Create a Stripe payment intent and persist the local payment record."""
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
@@ -81,6 +87,7 @@ class PaymentViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['post'])
     def confirm(self, request, pk=None):
+        """Confirm a payment, link it to an order, and send the receipt email."""
         payment = self.get_object()
         order_id = request.data.get('order_id')
         if not order_id:
@@ -88,9 +95,9 @@ class PaymentViewSet(viewsets.ModelViewSet):
                 'error': _('order_id is required'),
             }, status=status.HTTP_400_BAD_REQUEST)
 
-        order = get_object_or_404(Order, id=order_id)
+        order = get_object_or_404(Order, id=order_id, customer__user=request.user)
         order.payment = payment
-        order.save()
+        order.save(update_fields=['payment'])
 
         try:
             payment = StripePaymentService.confirm_payment(

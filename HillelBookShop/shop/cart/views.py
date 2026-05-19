@@ -6,6 +6,7 @@ from shop.models import Product
 
 
 def cart_detail(request):
+    """Render the current shopping cart and calculated total."""
     cart = Cart(request)
 
     context = {
@@ -16,6 +17,7 @@ def cart_detail(request):
 
 
 def cart_add(request, product_id):
+    """Add a product to the cart or increase its quantity."""
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id, is_active=True)
 
@@ -27,6 +29,7 @@ def cart_add(request, product_id):
 
 
 def cart_remove(request, product_id):
+    """Remove a product from the cart."""
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id, is_active=True)
     cart.remove(product)
@@ -35,6 +38,7 @@ def cart_remove(request, product_id):
 
 
 def cart_update(request, product_id):
+    """Update the quantity of a product already stored in the cart."""
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id, is_active=True)
 
@@ -46,6 +50,7 @@ def cart_update(request, product_id):
 
 
 def cart_clear(request):
+    """Remove every item from the current session cart."""
     cart = Cart(request)
     cart.clear()
     return redirect('cart_detail')

@@ -6,12 +6,16 @@ from shop.models import Product
 
 
 class DashboardView(LoginRequiredMixin, ListView):
+    """List products for dashboard management."""
+
     queryset = Product.objects.all()
     template_name = 'dashboard/pages/page-dashboard.html'
     context_object_name = 'products'
 
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
+    """Create a new product from the dashboard."""
+
     model = Product
     permission_required = 'shop.add_product'
     template_name = 'dashboard/pages/book-create.html'
@@ -20,6 +24,8 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
 
 
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
+    """Update an existing product from the dashboard."""
+
     model = Product
     permission_required = 'shop.change_product'
     template_name = 'dashboard/pages/book-update.html'
@@ -28,6 +34,8 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
+    """Delete a product from the dashboard."""
+
     model = Product
     permission_required = 'shop.delete_product'
     template_name = 'dashboard/pages/book-delete.html'

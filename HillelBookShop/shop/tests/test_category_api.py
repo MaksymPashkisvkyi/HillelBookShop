@@ -23,10 +23,12 @@ class TestCategoryListAPI(APITestCase):
         )
 
     def test_returns_http_200(self):
+        # Generated with AI, reviewed and modified
         response = self.client.get('/api/categories/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_response_is_paganated(self):
+        # Generated with AI, reviewed and modified
         response = self.client.get('/api/categories/')
         self.assertIn('count', response.data)
         self.assertIn('results', response.data)
